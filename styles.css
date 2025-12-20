@@ -1,0 +1,163 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  color: #111;
+  background: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+}
+
+.nav-links a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #111;
+  font-size: 14px;
+}
+
+.lang span {
+  margin-left: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.lang .active {
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 1.1;
+}
+
+.primary {
+  color: #3f5cff;
+}
+
+.secondary {
+  color: #6fb3b8;
+}
+
+.scroll-down {
+  margin-top: 40px;
+  font-size: 24px;
+}
+
+/* INTRO */
+.intro {
+  background: linear-gradient(135deg, #6fb3b8, #4f7ccf);
+  color: white;
+  padding: 120px 48px;
+}
+
+.intro-content {
+  max-width: 600px;
+}
+
+.intro h2 {
+  margin-bottom: 24px;
+}
+
+.intro p {
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+/* BUTTONS */
+.btn-outline {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 24px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+/* PROJECTS */
+.projects-preview {
+  padding: 120px 48px;
+}
+
+.projects-preview h2 {
+  margin-bottom: 48px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.project-card {
+  border-radius: 16px;
+}
+
+.project-image {
+  height: 200px;
+  background: #eee;
+  border-radius: 16px;
+}
+
+.project-info {
+  margin-top: 16px;
+}
+
+.btn-full {
+  display: block;
+  margin: 60px auto 0;
+  padding: 14px;
+  max-width: 300px;
+  text-align: center;
+  border: 1px solid #111;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #111;
+}
+
+/* FOOTER */
+.footer {
+  padding: 120px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.footer p {
+  margin: 24px 0;
+}
+
+.footer-right ul {
+  list-style: none;
+  text-align: right;
+}
+
+.footer-right li {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
