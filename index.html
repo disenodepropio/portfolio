@@ -6,7 +6,7 @@
   <title>depropio.diseño</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="assets/favicon.png" type="image/png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800&family=Source+Sans+Pro:wght@300;400;600&family=Inter:wght@300&family=Bebas+Neue:wght@300&family=Playfair+Display:wght@300&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
 
 </head>
 
@@ -34,10 +34,10 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1>
-      <span class="primary">Diseñando</span><br />
-      <span class="secondary">de propio.</span>
-    </h1>
+	<h1>
+	<span class="primary">Dise<span class="changing-tilde">ñ</span>ando<br />
+ 		<span class="bg-text">de propio</span><span class="primary">.</span>
+	</h1>    
 
     <div class="scroll-down">
       ↓
@@ -63,7 +63,7 @@
         Diseñar es pensar, empatizar, estructurar. Es ir de propio.
       </p>
 
-      <a href="about.html" class="btn-outline">
+      <a href="about.html" class="btn-outline-negative">
         Sobre mí →
       </a>
     </div>
@@ -128,5 +128,26 @@
     </div>
   </footer>
 
+<script>
+  const tilde = document.querySelector(".changing-tilde");
+
+  const fonts = [
+    "font-1",
+    "font-2",
+    "font-3",
+    "font-4",
+    "font-5"
+  ];
+
+  let index = 0;
+
+  function changeFont() {
+    tilde.className = "changing-tilde " + fonts[index];
+    index = (index + 1) % fonts.length;
+  }
+
+  changeFont(); // inicial
+  setInterval(changeFont, 600);
+</script>
 </body>
 </html>
