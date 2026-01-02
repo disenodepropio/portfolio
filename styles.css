@@ -138,32 +138,20 @@ body {
 
 @media (max-width: 1024px) {
 
-  /* ocultamos menú desktop */
   .nav-links {
     display: none;
   }
 
-@media (max-width: 1024px) {
-  .lang-switch {
-    display: none;
-  }
-
-  .lang-switch.mobile {
-    display: block;
-  }
-}
-
-  /* mostramos hamburguesa */
   .nav-toggle {
     display: block;
   }
 
-  /* activamos menú mobile */
+  /* el menú existe pero está oculto */
   .nav-mobile {
     display: block;
     position: fixed;
     top: 0;
-    right: -320px;
+    right: -100%;
     width: 320px;
     height: 100vh;
     background: white;
@@ -172,6 +160,7 @@ body {
     z-index: 200;
   }
 
+  /* SOLO cuando está activo */
   .nav-mobile.active {
     right: 0;
   }
