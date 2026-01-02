@@ -11,14 +11,15 @@
 </head>
 
 <body>
+<header class="navbar">
+  <div class="nav-container">
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="logo">
-      <!-- Logo placeholder -->
-      <img src="assets/logo.png" alt="Logo" />
-    </div>
+    <!-- LOGO -->
+    <a href="index.html" class="nav-logo">
+       <img src="assets/logo.png" alt="Logo" />
+    </a>
 
+    <!-- LINKS DESKTOP -->
     <nav class="nav-links">
       <a href="index.html">Inicio</a>
       <a href="projects.html">Proyectos</a>
@@ -26,11 +27,45 @@
       <a href="contact.html">Contacto</a>
     </nav>
 
-    <div class="lang">
-      <span class="active">ES</span>
-      <span>EN</span>
+    <!-- CONTROLES DERECHA -->
+    <div class="nav-controls">
+
+      <!-- IDIOMAS -->
+      <div class="lang-switch">
+        <a href="#" class="active">ES</a>
+        <span>/</span>
+        <a href="#">EN</a>
+      </div>
+
+      <!-- BOTÓN HAMBURGUESA -->
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
-  </header>
+  </div>
+
+  <!-- MENU RESPONSIVE -->
+  <div class="nav-mobile">
+    <button class="nav-close" aria-label="Cerrar menú">×</button>
+
+    <nav class="nav-mobile-links">
+      <a href="index.html">Inicio</a>
+      <a href="projects.html">Proyectos</a>
+      <a href="about.html">Sobre mí</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+
+    <!-- IDIOMAS EN MOBILE -->
+    <div class="lang-switch mobile">
+      <a href="#" class="active">ES</a>
+      <span>/</span>
+      <a href="#">EN</a>
+    </div>
+  </div>
+</header>
 
   <!-- HERO -->
   <section class="hero">
@@ -45,29 +80,45 @@
   </section>
 
   <!-- INTRO -->
-  <section class="intro">
-    <div class="intro-content">
-      <h2>Bienvenid@, soy Marta.</h2>
+ <section class="intro">
+  <div class="intro-content">
 
-      <p>
-        En Aragón, decimos que algo se hace “de propio” cuando se hace algo
-        con un propósito específico, con ganas y pensando bien lo que se hace.
-      </p>
+    <!-- FILA SUPERIOR -->
+    <h2 class="intro-title">
+      Bienvenid@, soy Marta.
+    </h2>
 
-      <p>
-        Así entiendo yo el diseño: cada decisión, cada color, cada palabra,
-        cada espacio y estructura tiene un porqué.
-      </p>
+    <!-- FILA INFERIOR -->
+    <div class="intro-grid">
 
-      <p class="highlight">
-        Diseñar es pensar, empatizar, estructurar. Es ir de propio.
-      </p>
+      <!-- CTA A LA IZQUIERDA -->
+      <div class="intro-cta">
+        <a href="about.html" class="btn-outline-negative">
+          Sobre mí →
+        </a>
+      </div>
 
-      <a href="about.html" class="btn-outline-negative">
-        Sobre mí →
-      </a>
+      <!-- TEXTO A LA DERECHA -->
+      <div class="intro-text">
+        <p>
+          En Aragón, decimos que algo se hace “de propio” cuando se hace algo
+          con un propósito específico, con ganas y pensando bien lo que se hace.
+        </p>
+
+        <p>
+          Así entiendo yo el diseño: cada decisión, cada color, cada palabra,
+          cada espacio y estructura tiene un porqué.
+        </p>
+
+        <p class="highlight">
+          Diseñar es pensar, empatizar, estructurar. Es ir de propio.
+        </p>
+      </div>
+
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- PROJECTS PREVIEW -->
   <section class="projects-preview">
@@ -128,6 +179,7 @@
     </div>
   </footer>
 
+  <!-- Ñ MENU -->
 <script>
   const tilde = document.querySelector(".changing-tilde");
 
@@ -149,5 +201,21 @@
   changeFont(); // inicial
   setInterval(changeFont, 600);
 </script>
+
+  <!-- MENU -->
+<script>
+  const openBtn = document.querySelector(".nav-toggle");
+  const closeBtn = document.querySelector(".nav-close");
+  const mobileMenu = document.querySelector(".nav-mobile");
+
+  openBtn.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+  });
+</script>
+
 </body>
 </html>
