@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>depropio.diseño</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800&family=Source+Sans+Pro:wght@300;400;600&family=Inter:wght@300&family=Bebas+Neue:wght@300&family=Playfair+Display:wght@300&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <a href="index.html" class="nav-logo">
+       <img src="assets/logo.png" alt="Logo" />
+    </a>
+
+    <!-- LINKS DESKTOP -->
+    <nav class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="projects.html">Proyectos</a>
+      <a href="about.html">Sobre mí</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+
+    <!-- CONTROLES DERECHA -->
+    <div class="nav-controls">
+
+      <!-- IDIOMA DESKTOP -->
+      <div class="lang-switch desktop">
+        <a href="#" class="active">ES</a>
+        <a href="#">EN</a>
+      </div>
+
+      <!-- HAMBURGUESA -->
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- MENU RESPONSIVE -->
+  <div class="nav-mobile">
+
+    <button class="nav-close" aria-label="Cerrar menú">×</button>
+
+    <nav class="nav-mobile-links">
+      <a href="index.html">Inicio</a>
+      <a href="projects.html">Proyectos</a>
+      <a href="about.html">Sobre mí</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+
+    <!-- IDIOMA MOBILE -->
+    <div class="lang-switch mobile">
+      <a href="#" class="active">ES</a>
+      <a href="#">EN</a>
+    </div>
+
+  </div>
+<div class="nav-overlay"></div>
+
+</header>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="footer-logo">
+        <img src="assets/logo_completo.png" alt="Logo completo" />
+      </div>
+
+      <p>
+        Diseño “customer experiences” integrales que unen comunicación,
+        diseño y producto, haciendo que cada punto de contacto cuente.
+      </p>
+
+      <a href="contact.html" class="btn-outline">
+        Hablemos →
+      </a>
+    </div>
+
+    <div class="footer-right">
+      <ul>
+        <li>DISEÑO UI / UX</li>
+        <li>COMUNICACIÓN Y MARKETING</li>
+        <li>DISEÑO GRÁFICO Y BRANDING</li>
+      </ul>
+    </div>
+  </footer>
+
+
+  <!-- MENU -->
+<script>
+  const openBtn = document.querySelector(".nav-toggle");
+  const closeBtn = document.querySelector(".nav-close");
+  const mobileMenu = document.querySelector(".nav-mobile");
+  const overlay = document.querySelector(".nav-overlay");
+
+  openBtn.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+    overlay.classList.add("active");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+</script>
+</body>
+</html>

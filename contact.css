@@ -1,0 +1,358 @@
+/* TITULARES */
+h1, h2, h3, h4, .primary-title {
+  font-family: "Urbanist", sans-serif;
+}
+
+h1 {
+  font-size: 6rem;    
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2.4rem;  
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+
+
+/* CUERPO */
+body, p, li, a {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+}
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  color: #111;
+  background: #fff;
+}
+
+body.contacto {
+  min-height: 100vh;
+  background-image: url("assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: 'Inter', sans-serif;
+  color: white;
+}
+
+.navbar--light {
+  color: white;
+}
+
+.navbar--light a {
+  color: white;
+}
+
+.navbar--light a:hover {
+  opacity: 0.7;
+}
+
+.back-button {
+  position: absolute;
+  top: 120px;
+  left: 60px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid white;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.contacto__content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 24px;
+}
+
+.contacto__title {
+  font-size: 72px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.contacto__subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.contacto__info {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+.info-block a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.info-block a:hover {
+  opacity: 0.7;
+}
+
+.linkedin {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+/* NAVBAR */
+/* =========================
+   NAVBAR BASE (DESKTOP)
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.nav-logo {
+  text-decoration: none;
+  font-weight: 800;
+  color: black;
+}
+
+/* LINKS DESKTOP */
+.nav-links {
+  display: flex;
+  gap: 70px;
+}
+
+/* LINKS BASE */
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+
+/* SUBRAYADO (solo texto) */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* SEPARADOR "/" */
+.nav-links a:not(:last-child)::before {
+  content: " /";
+  position: absolute;
+  right: -40px;
+  top: 0;
+  color: white;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+
+
+/* CONTROLES DERECHA */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* IDIOMA */
+.lang-switch {
+  font-size: 14px;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.4;
+}
+
+.lang-switch a.active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* HAMBURGUESA */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  margin: 5px 0;
+}
+
+/* =========================
+   MENU MOBILE (OCULTO BASE)
+========================= */
+
+.nav-mobile {
+  display: none;
+}
+
+.lang-switch.mobile {
+  display: none;
+}
+
+/* =========================
+   TABLET + MOBILE
+========================= */
+
+@media (max-width: 1024px) {
+
+  /* ocultamos desktop */
+  .nav-links {
+    display: none;
+  }
+
+  .lang-switch.desktop {
+    display: none;
+  }
+
+  /* mostramos hamburguesa */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* menu lateral */
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100vh;
+    background: white;
+    padding: 120px 40px 40px;
+    transition: right 0.3s ease;
+    z-index: 200;
+  }
+
+  .nav-mobile.active {
+    right: 0;
+  }
+
+  /* cerrar */
+  .nav-close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  /* links mobile */
+  .nav-mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .nav-mobile-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+  }
+
+  /* idioma mobile */
+  .lang-switch.mobile {
+    display: block;
+    margin-top: auto;
+    font-family: "Antebas", sans-serif;
+    font-size: 14px;
+  }
+
+  .lang-switch.mobile span {
+    opacity: 0.4;
+  }
+}
+
+/* =========================
+   MOBILE FULLSCREEN
+========================= */
+
+@media (max-width: 600px) {
+  .nav-mobile {
+    width: 100%;
+  }
+}
+
+/* =========================
+   OVERLAY MENU
+========================= */
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 150;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
