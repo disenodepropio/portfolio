@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
 <header class="navbar">
   <div class="nav-container">
 
@@ -30,14 +31,13 @@
     <!-- CONTROLES DERECHA -->
     <div class="nav-controls">
 
-      <!-- IDIOMAS -->
-      <div class="lang-switch">
+      <!-- IDIOMA DESKTOP -->
+      <div class="lang-switch desktop">
         <a href="#" class="active">ES</a>
-        <span>/</span>
         <a href="#">EN</a>
       </div>
 
-      <!-- BOTÓN HAMBURGUESA -->
+      <!-- HAMBURGUESA -->
       <button class="nav-toggle" aria-label="Abrir menú">
         <span></span>
         <span></span>
@@ -49,6 +49,7 @@
 
   <!-- MENU RESPONSIVE -->
   <div class="nav-mobile">
+
     <button class="nav-close" aria-label="Cerrar menú">×</button>
 
     <nav class="nav-mobile-links">
@@ -58,13 +59,15 @@
       <a href="contact.html">Contacto</a>
     </nav>
 
-    <!-- IDIOMAS EN MOBILE -->
+    <!-- IDIOMA MOBILE -->
     <div class="lang-switch mobile">
       <a href="#" class="active">ES</a>
-      <span>/</span>
       <a href="#">EN</a>
     </div>
+
   </div>
+<div class="nav-overlay"></div>
+
 </header>
 
   <!-- HERO -->
@@ -207,15 +210,22 @@
   const openBtn = document.querySelector(".nav-toggle");
   const closeBtn = document.querySelector(".nav-close");
   const mobileMenu = document.querySelector(".nav-mobile");
+  const overlay = document.querySelector(".nav-overlay");
 
   openBtn.addEventListener("click", () => {
     mobileMenu.classList.add("active");
+    overlay.classList.add("active");
   });
 
   closeBtn.addEventListener("click", () => {
     mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
   });
 </script>
-
 </body>
 </html>

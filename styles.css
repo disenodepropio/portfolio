@@ -37,6 +37,10 @@ body {
 }
 
 /* NAVBAR */
+/* =========================
+   NAVBAR BASE (DESKTOP)
+========================= */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -56,8 +60,8 @@ body {
 
 /* LOGO */
 .nav-logo {
-  font-weight: 800;
   text-decoration: none;
+  font-weight: 800;
   color: black;
 }
 
@@ -73,12 +77,14 @@ body {
   font-size: 14px;
 }
 
+/* CONTROLES DERECHA */
 .nav-controls {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
+/* IDIOMA */
 .lang-switch {
   font-size: 14px;
 }
@@ -94,19 +100,7 @@ body {
   font-weight: 600;
 }
 
-
-
-/* HAMBURGUESA (oculta en desktop) */
-/* ===== VISIBILIDAD BASE (DESKTOP) ===== */
-
-.nav-toggle {
-  display: none;
-}
-
-.nav-mobile {
-  display: none;
-}
-
+/* HAMBURGUESA */
 .nav-toggle {
   display: none;
   background: none;
@@ -122,33 +116,42 @@ body {
   margin: 5px 0;
 }
 
-.nav-close {
-  position: absolute;
-  top: 32px;
-  right: 32px;
-  background: none;
-  border: none;
-  font-size: 32px;
-  cursor: pointer;
+/* =========================
+   MENU MOBILE (OCULTO BASE)
+========================= */
+
+.nav-mobile {
+  display: none;
 }
 
 .lang-switch.mobile {
   display: none;
 }
 
+/* =========================
+   TABLET + MOBILE
+========================= */
+
 @media (max-width: 1024px) {
 
+  /* ocultamos desktop */
   .nav-links {
     display: none;
   }
 
+  .lang-switch.desktop {
+    display: none;
+  }
+
+  /* mostramos hamburguesa */
   .nav-toggle {
     display: block;
   }
 
-  /* el menú existe pero está oculto */
+  /* menu lateral */
   .nav-mobile {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     right: -100%;
@@ -160,17 +163,74 @@ body {
     z-index: 200;
   }
 
-  /* SOLO cuando está activo */
   .nav-mobile.active {
     right: 0;
   }
+
+  /* cerrar */
+  .nav-close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  /* links mobile */
+  .nav-mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .nav-mobile-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+  }
+
+  /* idioma mobile */
+  .lang-switch.mobile {
+    display: block;
+    margin-top: auto;
+    font-family: "Antebas", sans-serif;
+    font-size: 14px;
+  }
+
+  .lang-switch.mobile span {
+    opacity: 0.4;
+  }
 }
 
+/* =========================
+   MOBILE FULLSCREEN
+========================= */
 
 @media (max-width: 600px) {
   .nav-mobile {
     width: 100%;
   }
+}
+
+/* =========================
+   OVERLAY MENU
+========================= */
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 150;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 
