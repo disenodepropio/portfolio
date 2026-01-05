@@ -288,10 +288,61 @@ body {
   color: #6DC2B2;
 }
 
-.scroll-down {
-  margin-top: 40px;
-  font-size: 24px;
+html {
+  scroll-behavior: smooth;
 }
+
+#scroll-down {
+  scroll-margin-top: -120px; /* ajusta a la altura real de tu navbar */
+}
+
+.scroll-down {
+  display: inline-block;
+  margin-top: 40px;
+  animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.scroll-down {
+  font-size: 24px;
+  margin-top: 40px;
+  padding: 12px 24px;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+.scroll-down:hover {
+  font-size: 24px;
+  margin-top: 40px;
+  padding: 12px 24px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  background-color: #6DC2B2;
+}
+
+.scroll-down:focus {
+  font-size: 24px;
+  margin-top: 40px;
+  padding: 12px 24px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  background-color: #579B8E;
+}
+
 
 .bg-text {
   background-image: url("assets/background.jpg");

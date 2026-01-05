@@ -1,0 +1,453 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #111;
+}
+
+/* TITULARES */
+h1, h2, h3 {
+  font-family: "Urbanist", sans-serif;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* NAVBAR */
+/* =========================
+   NAVBAR BASE (DESKTOP)
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.nav-logo {
+  text-decoration: none;
+  font-weight: 800;
+  color: black;
+}
+
+/* LINKS DESKTOP */
+.nav-links {
+  display: flex;
+  gap: 70px;
+}
+
+/* LINKS BASE */
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+
+/* SUBRAYADO (solo texto) */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: black;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* SEPARADOR "/" */
+.nav-links a:not(:last-child)::before {
+  content: " /";
+  position: absolute;
+  right: -40px;
+  top: 0;
+  color: black;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+
+
+/* CONTROLES DERECHA */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* IDIOMA */
+.lang-switch {
+  font-size: 14px;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: black;
+  opacity: 0.4;
+}
+
+.lang-switch a.active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* HAMBURGUESA */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: black;
+  margin: 5px 0;
+}
+
+/* =========================
+   MENU MOBILE (OCULTO BASE)
+========================= */
+
+.nav-mobile {
+  display: none;
+}
+
+.lang-switch.mobile {
+  display: none;
+}
+
+/* =========================
+   TABLET + MOBILE
+========================= */
+
+@media (max-width: 1024px) {
+
+  /* ocultamos desktop */
+  .nav-links {
+    display: none;
+  }
+
+  .lang-switch.desktop {
+    display: none;
+  }
+
+  /* mostramos hamburguesa */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* menu lateral */
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100vh;
+    background: white;
+    padding: 120px 40px 40px;
+    transition: right 0.3s ease;
+    z-index: 200;
+  }
+
+  .nav-mobile.active {
+    right: 0;
+  }
+
+  /* cerrar */
+  .nav-close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  /* links mobile */
+  .nav-mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .nav-mobile-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+  }
+
+  /* idioma mobile */
+  .lang-switch.mobile {
+    display: block;
+    margin-top: auto;
+    font-family: "Antebas", sans-serif;
+    font-size: 14px;
+  }
+
+  .lang-switch.mobile span {
+    opacity: 0.4;
+  }
+}
+
+/* =========================
+   MOBILE FULLSCREEN
+========================= */
+
+@media (max-width: 600px) {
+  .nav-mobile {
+    width: 100%;
+  }
+}
+
+/* =========================
+   OVERLAY MENU
+========================= */
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 150;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* CONTENEDOR BASE (MISMO QUE HOME) */
+.about-hero-content,
+.about-areas-content,
+.trajectory-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+
+/* CTA */
+.about-cta {
+  text-align: center;
+  padding: 6rem 1.5rem;
+}
+
+/* BOTÓN */
+.btn-outline {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 12px 24px;
+  border: 1px solid black;
+  text-decoration: none;
+  border-radius: 30px;
+  color: black;
+}
+
+.btn-outline:hover { 
+display: inline-block; 
+margin-top: 24px; 
+padding: 12px 24px; 
+border: 1px solid white; 
+color: white; 
+text-decoration: none; 
+border-radius: 30px; 
+background-color: #6DC2B2; 
+} 
+
+.btn-outline:focus { 
+display: inline-block; 
+margin-top: 24px; 
+padding: 12px 24px; 
+border: 1px solid white; 
+color: white; 
+text-decoration: none; 
+border-radius: 30px; 
+background-color: #579B8E; 
+}
+
+/* VOLVER */
+.about-back {
+  margin-bottom: 2.5rem; /* espacio hasta el título */
+}
+
+.back-button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid black;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+font-size: 24px; 
+margin-top: 12px; 
+padding: 12px 24px; 
+}
+
+.back-button:hover { 
+font-size: 24px; 
+margin-top: 12px; 
+padding: 12px 24px; 
+border: 1px solid #6DC2B2; 
+color: white; 
+text-decoration: none; 
+border-radius: 30px; 
+background-color: #6DC2B2; 
+} 
+
+.back-button:focus { 
+font-size: 24px; 
+margin-top: 12px; 
+padding: 12px 24px; 
+border: 1px solid #579B8E; 
+color: white; 
+text-decoration: none; 
+border-radius: 30px; 
+background-color: #579B8E; 
+}
+
+/* CONTENEDOR BASE */
+.projects-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+/* HERO */
+
+.projects {
+  padding-top: 140px; /* misma altura visual que About */
+}
+
+.projects-hero {
+  padding-top: 0;
+}
+
+
+.projects-back {
+  margin-bottom: 2.5rem;
+}
+
+/* GRID PROYECTOS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem 3rem;
+  margin-top: 3rem;
+}
+
+/* CARD */
+.project-card {
+  position: relative;
+}
+
+.project-image {
+  width: 100%;
+  height: 260px;
+  border-radius: 16px;
+  background: #f4f4f4;
+  margin-bottom: 1rem;
+}
+
+/* gradiente del segundo */
+.project-image.gradient {
+  background: radial-gradient(
+    circle at top left,
+    #bfeee3,
+    #a6c9f5
+  );
+}
+
+/* TEXTO */
+.project-info h3 {
+  font-family: "Urbanist", sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* ESTADO */
+.project-status {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #6DC2B2;
+}
+
+.project-status .dot {
+  width: 8px;
+  height: 8px;
+  background: #6DC2B2;
+  border-radius: 50%;
+}
+
+/* LINK FLECHA */
+.project-link {
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .projects-content {
+    padding: 0 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
