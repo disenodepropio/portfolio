@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="about.css">
   <link rel="icon" href="assets/favicon.png" type="image/png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800&family=Source+Sans+Pro:wght@300;400;600&family=Inter:wght@300&family=Bebas+Neue:wght@300&family=Playfair+Display:wght@300&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -72,9 +72,7 @@
 </header>
 
 <main class="about">
-
-  <!-- VOLVER -->
-  <a href="index.html" class="back-button">←</a>
+<main class="page-transition">
 
   <!-- HERO -->
 <section class="about-hero">
@@ -115,31 +113,119 @@
     <div class="about-areas-content">
 
       <article class="area">
-        <span class="area-index">01</span>
+      <div class="area-header">
         <h2>Diseño UX UI</h2>
+        <span class="area-index">01</span>
+      </div>
+        <div class="area-tools">
+          <div class="tool">
+             <img src="assets/icons/figma.png" alt="Figma">
+              <span>Figma</span>
+         </div>
+
+          <div class="tool">
+              <img src="assets/icons/Shapeshifter.png" alt="Shapeshifter">
+              <span>Shapeshifter</span>
+          </div>
+        </div>
+
         <p>Creo interfaces y experiencias digitales para web, SaaS y apps que combinan estética, funcionalidad y usabilidad.</p>
         <p><br>Desarrollo wireframes, prototipos y flujos intuitivos, asegurando que cada interacción sea coherente con los objetivos del producto y del negocio. </p>
       </article>
 
       <article class="area">
-        <span class="area-index">02</span>
+      <div class="area-header">
         <h2>Comunicación y Marketing</h2>
+        <span class="area-index">02</span>
+      </div>
+        <div class="area-tools">
+          <div class="tool">
+             <img src="assets/icons/Hubspot.png" alt="Hubspot">
+              <span>Hubspot</span>
+         </div>
+
+          <div class="tool">
+              <img src="assets/icons/Mailchimp.png" alt="Mailchimp">
+              <span>Mailchimp</span>
+          </div>
+          <div class="tool">
+              <img src="assets/icons/Sendgrid.png" alt="Sendgrid">
+              <span>Sendgrid</span>
+          </div>
+          <div class="tool">
+              <img src="assets/icons/LinkedinAds.png" alt="LinkedinAds">
+              <span>LinkedIn Ads</span>
+          </div>
+        </div>
+
         <p>Integro estrategia y comunicación para reforzar la identidad de marca y su conexión con la audiencia.</p>
         <p><br>Gestiono redes sociales y eventos, alineando cada acción con los objetivos del negocio y asegurando que la marca se exprese de forma consistente y estratégica.</p>
       </article>
 
       <article class="area">
-        <span class="area-index">03</span>
+      <div class="area-header">
         <h2>Diseño gráfico y Branding</h2>
+        <span class="area-index">03</span>
+      </div>
+        <div class="area-tools">
+          <div class="tool">
+             <img src="assets/icons/illustrator.png" alt="Illustrator">
+              <span>Adobe Illustrator</span>
+         </div>
+         <div class="tool">
+             <img src="assets/icons/indesign.png" alt="InDesign">
+              <span>Adobe InDesign</span>
+         </div>
+         <div class="tool">
+             <img src="assets/icons/photoshop.png" alt="Photoshop">
+              <span>Adobe Photoshop</span>
+         </div>
+         <div class="tool">
+             <img src="assets/icons/affinity.png" alt="Affinity">
+              <span>Affinity</span>
+         </div>
+         <div class="tool">
+             <img src="assets/icons/aftereffects.png" alt="After Effects">
+              <span>Adobe After Effects</span>
+         </div>
+         <div class="tool">
+             <img src="assets/icons/cupcut.png" alt="Cupcut">
+              <span>Cupcut</span>
+          </div>
+              <div class="tool">
+             <img src="assets/icons/jitter.png" alt="jitter">
+              <span>Jitter</span>
+          </div>
+
+        </div> 
+
         <p>Diseño piezas gráficas y audiovisuales coherentes y atractivas, adaptadas a cada canal y formato.</p>
         <p><br>Desarrollo identidades visuales sólidas, definiendo paletas de color, tipografías y guías de estilo que aseguran que la marca esté alineada en todos los puntos de contacto.</p>
       </article>
 
       <article class="area">
-        <span class="area-index">04</span>
+      <div class="area-header">
         <h2>Desarrollo Front-end</h2>
-        <p>Estoy aprendiendo HTML, CSS y JavaScript para diseñar con mayor conciencia técnica.</p>
-        <p><br>Aporto soluciones más viables y una visión más completa del proceso.</p>
+        <span class="area-index">04</span>
+      </div>
+        <div class="area-tools">
+          <div class="tool">
+             <img src="assets/icons/html.png" alt="html">
+              <span>HTML</span>
+         </div>
+
+          <div class="tool">
+              <img src="assets/icons/css.png" alt="css">
+              <span>CSS</span>
+          </div>
+          <div class="tool">
+              <img src="assets/icons/js.png" alt="js">
+              <span>JavaScript</span>
+          </div>
+        </div>
+
+        <p>Estoy aprendiendo front-end (HTML, CSS y JavaScript) para diseñar con mayor conciencia técnica.</p>
+        <p><br>Esto me ayuda a proponer soluciones más viables, mejorar la comunicación con desarrollo y aportar una visión más completa al proceso.</p>
       </article>
 
     </div>
@@ -200,6 +286,63 @@
   </section>
 
 </main>
+</main>
+
+<script>
+  const trajectoryItems = document.querySelectorAll(".trajectory-item");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        } else {
+          entry.target.classList.remove("is-visible");
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  trajectoryItems.forEach((item) => observer.observe(item));
+</script>
+
+
+<script>
+  document.querySelectorAll(".area").forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty("--x", `${e.clientX - rect.left}px`);
+      card.style.setProperty("--y", `${e.clientY - rect.top}px`);
+    });
+  });
+</script>
+
+<script>
+  const links = document.querySelectorAll(
+    'a[href]:not([target="_blank"]):not([href^="#"])'
+  );
+
+  const page = document.querySelector(".page-transition");
+
+  links.forEach(link => {
+    link.addEventListener("click", e => {
+      const url = link.getAttribute("href");
+
+      if (url.includes(".html")) {
+        e.preventDefault();
+        page.classList.add("page-exit");
+
+        setTimeout(() => {
+          window.location.href = url;
+        }, 400);
+      }
+    });
+  });
+</script>
 
 </body>
+
 </html>

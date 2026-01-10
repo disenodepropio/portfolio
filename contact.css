@@ -44,6 +44,14 @@ body.contacto {
   color: white;
 }
 
+body.contacto::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 0;
+}
+
 .navbar--light {
   color: white;
 }
@@ -57,9 +65,6 @@ body.contacto {
 }
 
 .back-button {
-  position: absolute;
-  top: 120px;
-  left: 96px;
   width: 44px;
   height: 44px;
   border: 1px solid white;
@@ -97,6 +102,65 @@ body.contacto {
   border-radius: 30px;
   background-color: #579B8E;
 }
+
+/* TRANSICIÓN ENTRE PÁGINAS */
+.page-transition {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: pageEnter 0.6s ease forwards;
+}
+
+@keyframes pageEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estado de salida */
+.page-exit {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+
+/* VOLVER CONTACTO */
+.contacto-back {
+  margin-bottom: 2.5rem; 
+  max-width: 1200px;
+padding: 0 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.contacto .back-button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid white;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  margin-top: 12px;
+  padding: 12px 24px;
+}
+
+.contacto .back-button:hover {
+  border: 1px solid #6DC2B2;
+  background-color: #6DC2B2;
+}
+
+.contacto .back-button:focus {
+  border: 1px solid #579B8E;
+  background-color: #579B8E;
+}
+
+
 
 .contacto__content {
   min-height: 100vh;

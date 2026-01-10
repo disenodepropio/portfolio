@@ -1,3 +1,4 @@
+
 /* TITULARES */
 h1, h2, h3, h4, .primary-title {
   font-family: "Urbanist", sans-serif;
@@ -33,7 +34,7 @@ body, p, li, a {
 body {
   font-family: system-ui, sans-serif;
   color: #111;
-  background: #fff;
+  background: #EEEEEE;
 }
 
 /* NAVBAR */
@@ -45,7 +46,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: white;
+  background: #EEEEEE;
   z-index: 100;
 }
 
@@ -187,7 +188,7 @@ body {
     right: -100%;
     width: 320px;
     height: 100vh;
-    background: white;
+    background: #EEEEEE;
     padding: 120px 40px 40px;
     transition: right 0.3s ease;
     z-index: 200;
@@ -263,6 +264,28 @@ body {
   pointer-events: auto;
 }
 
+/* TRANSICIÓN ENTRE PÁGINAS */
+.page-transition {
+  opacity: 0;
+  animation: pageEnter 0.6s ease forwards;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estado de salida */
+.page-exit {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
 
 /* HERO */
 .hero {
@@ -325,8 +348,8 @@ html {
   font-size: 24px;
   margin-top: 40px;
   padding: 12px 24px;
-  border: 1px solid white;
-  color: white;
+  border: 1px solid #EEEEEE;
+  color: #EEEEEE;
   text-decoration: none;
   border-radius: 30px;
   background-color: #6DC2B2;
@@ -336,8 +359,8 @@ html {
   font-size: 24px;
   margin-top: 40px;
   padding: 12px 24px;
-  border: 1px solid white;
-  color: white;
+  border: 1px solid #EEEEEE;
+  color: #EEEEEE;
   text-decoration: none;
   border-radius: 30px;
   background-color: #579B8E;
@@ -383,9 +406,9 @@ html {
 
 
 .intro {
+  padding: 120px 48px;
   position: relative;
-  padding: 120px 96px;
-  color: white;
+  color: #EEEEEE;
 
   background-image: url("assets/background.jpg");
   background-size: cover;
@@ -397,7 +420,7 @@ html {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.25);
   z-index: 0;
 }
 
@@ -577,8 +600,10 @@ html {
 }
 
 /* PROJECTS */
+
 .projects-preview {
-  padding: 96px 96px;
+  padding: 96px 160px;
+
 }
 
 .projects-preview h2 {
@@ -587,7 +612,7 @@ html {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
 }
 
@@ -607,10 +632,18 @@ html {
 
 /* FOOTER */
 .footer {
-  padding: 48px 96px 63px 96px;
+  padding: 48px 160px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
+  background-color: #EEEEEE;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
 }
 
 .footer p {
@@ -636,12 +669,6 @@ html {
 }
 
 @media (max-width: 768px) {
-
-  .footer {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  .intro, .projects-preview, .footer {
+    padding: 80px 24px;
   }
-
-}
-

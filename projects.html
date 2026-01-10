@@ -72,6 +72,7 @@
 
 
 <main class="projects">
+<main class="page-transition">
 
   <!-- HERO -->
   <section class="projects-hero">
@@ -124,6 +125,8 @@
     <a href="contact.html" class="btn-outline">Hablemos →</a>
   </section>
 
+</main>
+
 
   <!-- MENU -->
 <script>
@@ -147,5 +150,29 @@
     overlay.classList.remove("active");
   });
 </script>
+
+<script>
+  const links = document.querySelectorAll(
+    'a[href]:not([target="_blank"]):not([href^="#"])'
+  );
+
+  const page = document.querySelector(".page-transition");
+
+  links.forEach(link => {
+    link.addEventListener("click", e => {
+      const url = link.getAttribute("href");
+
+      if (url.includes(".html")) {
+        e.preventDefault();
+        page.classList.add("page-exit");
+
+        setTimeout(() => {
+          window.location.href = url;
+        }, 400);
+      }
+    });
+  });
+</script>
+
 </body>
 </html>

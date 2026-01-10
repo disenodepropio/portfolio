@@ -8,6 +8,7 @@
 body {
   font-family: "Source Sans Pro", sans-serif;
   color: #111;
+  background-color: #EEEEEE;
 }
 
 /* TITULARES */
@@ -35,8 +36,13 @@ h2 {
   position: fixed;
   top: 0;
   width: 100%;
-  background: white;
+  background: #EEEEEE;
   z-index: 100;
+}
+
+.navbar {
+  font-size: 14.5px;
+  line-height: 1;
 }
 
 .nav-container {
@@ -53,6 +59,12 @@ h2 {
   text-decoration: none;
   font-weight: 800;
   color: black;
+}
+
+.nav-logo img {
+  height: 38px;   
+  width: auto;
+  display: block;
 }
 
 /* LINKS DESKTOP */
@@ -177,7 +189,7 @@ h2 {
     right: -100%;
     width: 320px;
     height: 100vh;
-    background: white;
+    background: #EEEEEE;
     padding: 120px 40px 40px;
     transition: right 0.3s ease;
     z-index: 200;
@@ -253,8 +265,33 @@ h2 {
   pointer-events: auto;
 }
 
+/* TRANSICIÓN ENTRE PÁGINAS */
+.page-transition {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: pageEnter 0.6s ease forwards;
+}
+
+@keyframes pageEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estado de salida */
+.page-exit {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
 
 /* CONTENEDOR BASE (MISMO QUE HOME) */
+.about {
+  padding-top: 140px;
+}
+
 .about-hero-content,
 .about-areas-content,
 .trajectory-content {
@@ -265,7 +302,7 @@ h2 {
 
 /* HERO */
 .about-hero {
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 
 .about-hero-content {
@@ -273,6 +310,11 @@ h2 {
   margin: 0 auto;
   padding: 0 4rem;
 }
+
+.about-back {
+  margin-bottom: 2.5rem;
+}
+
 
 .about-hero-grid {
   display: grid;
@@ -285,6 +327,18 @@ h2 {
 .about-hero-image img {
   width: 100%;
   height: auto;
+}
+
+@media (max-width: 768px) {
+  .about-hero-image {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ÁREAS */
@@ -301,14 +355,122 @@ h2 {
 .area {
   position: relative;
   max-width: 520px;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  transition: 
+    box-shadow 0.3s ease,
+    border 0.3s ease,
+    transform 0.3s ease;
+}
+
+.area:hover {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); /* blur 10, pos 0,0 */
+  transform: translateY(-2px);
+}
+
+.area::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(
+    600px circle at var(--x) var(--y),
+    rgba(91, 211, 189, 0.12),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.area:hover::after {
+  opacity: 1;
+}
+
+.area-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .area-index {
-  position: absolute;
-  top: -1.2rem;
-  right: 0;
+  position: static; /* importante */
+  font-size: 1rem;
+  font-weight: 600;
+  color: #717171;
+
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.area-index {
+  line-height: 1;
+}
+
+.area:hover .area-index {
+  background: #E6E6E6;
+}
+
+@media (max-width: 768px) {
+  .about-areas {
+    grid-template-columns: 1fr;     /* una card por fila */
+    justify-items: center;          /* centra las cards */
+  }
+
+  .area {
+    width: 100%;
+    max-width: 520px;               /* mantiene el ancho “bonito” */
+  }
+}
+
+
+.area-tools {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.tool {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.6rem;
+  border-radius: 999px;
   font-size: 0.75rem;
-  opacity: 0.4;
+}
+
+.tool img {
+  height: 18px;
+}
+
+.tool span {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  color:#3b5bdb;
+  transition: 
+    max-width 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.area:hover .tool span {
+  max-width: 120px;
+  opacity: 1;
+}
+
+.area:hover .area-tools {
+  display: flex; /* Activa el modelo Flexbox */
+  flex-wrap: wrap;
+}
+
+.area:hover .tool {
+  background: #eef2ff;
 }
 
 /* TRAYECTORIA */
@@ -326,6 +488,21 @@ h2 {
   gap: 2rem;
   padding: 1.5rem 0;
   border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ESTADO INICIAL */
+.trajectory-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  will-change: transform, opacity;
+}
+
+.trajectory-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
