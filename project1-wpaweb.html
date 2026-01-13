@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proyectos · depropio.diseño</title>
-<link rel="stylesheet" href="projects.css">
+<link rel="stylesheet" href="projects-detail.css">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800&family=Source+Sans+Pro:wght@300;400;600&family=Inter:wght@300&family=Bebas+Neue:wght@300&family=Playfair+Display:wght@300&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
 
@@ -79,42 +79,79 @@
     <div class="projects-content">
 
       <div class="projects-back">
-        <a href="index.html" class="back-button">←</a>
+        <a href="projects.html" class="back-button">←</a>
       </div>
 
-      <h1>Proyectos</h1>
+      <h3>DISEÑO WEB</h3>
+      <br></br>
+      <h1>WePlan Analytics</h1>
 
-      <!-- GRID -->
-      <div class="projects-grid">
 
-        <!-- PROYECTO 1 -->
-        <article class="project-card">
-          <div class="project-image"></div>
-
-          <div class="project-info">
-            <h3>WePlan Analytics</h3>
-            <p>Diseño Web</p>
-          </div>
-
-          <a href="project1-wpaweb.html" class="project-link">→</a>
-        </article>
-
-        <!-- PROYECTO 2 -->
-        <article class="project-card">
-          <div class="project-image gradient"></div>
-
-          <div class="project-info">
-            <h3>Nuevo proyecto en proceso</h3>
-            <span class="project-status">
-              <span class="dot"></span> Disponible pronto
-            </span>
-          </div>
-
-          <a href="#" class="project-link">→</a>
-        </article>
-
+      <div class="meta">
+        <div>
+          <strong>Periodo de tiempo</strong>
+          <p>2025</p>
+        </div>
+        <div>
+          <strong>Duración</strong>
+          <p>3 meses</p>
+        </div>
       </div>
+
+    <div class="hero-text">
+      <p>
+        WePlan Analytics, una empresa especializada en software de análisis de datos,
+        necesitaba un sitio web que reflejara su valor: facilitar la toma de decisiones
+        estratégicas a partir de datos complejos.
+      </p>
     </div>
+  </section>
+
+  <section class="mockup">
+    <div class="case-mockup-frame">
+    <img src="assets/mockup-wpaweb.png" alt="Mockup WePlan">
+  </div>
+  </section>
+
+  <section class="content">
+    <h2>Cómo empezó el proyecto</h2>
+    <p>
+      Cuando llegué al proyecto, la web de WePlan Analytics no reflejaba quién era realmente la empresa.
+      La estética era anticuada, la narrativa poco clara y la interacción mínima.
+    </p>
+
+    <h3>1. Benchmarking y análisis</h3>
+    <ul>
+      <li>Falta de claridad en la propuesta de valor.</li>
+      <li>Estructura rígida que no guiaba al usuario.</li>
+      <li>Estética desactualizada.</li>
+    </ul>
+
+    <h3>2. Estructura y narrativa</h3>
+    <p>
+      Diseñé una nueva arquitectura de contenidos para que la web funcionara como un recorrido natural,
+      guiando al usuario desde la comprensión del producto hasta la acción.
+    </p>
+
+    <h3>3. Diseño UX/UI</h3>
+    <ul>
+      <li>Colores y tipografías alineadas con la marca.</li>
+      <li>Secciones modulares y escaneables.</li>
+      <li>Interacciones claras y consistentes.</li>
+    </ul>
+
+    <h3>Colaboración y desarrollo</h3>
+    <p>
+      Trabajé junto a un desarrollador para asegurar que el diseño mantuviera su fluidez en producción,
+      tanto en responsive como en microinteracciones.
+    </p>
+
+    <h3>El resultado</h3>
+    <ul>
+      <li>Web más clara y visual.</li>
+      <li>Mejor experiencia de usuario.</li>
+      <li>Mayor coherencia con la identidad corporativa.</li>
+    </ul>
   </section>
 
 
@@ -125,54 +162,4 @@
     <a href="contact.html" class="btn-outline">Hablemos →</a>
   </section>
 
-</main>
-
-
-  <!-- MENU -->
-<script>
-  const openBtn = document.querySelector(".nav-toggle");
-  const closeBtn = document.querySelector(".nav-close");
-  const mobileMenu = document.querySelector(".nav-mobile");
-  const overlay = document.querySelector(".nav-overlay");
-
-  openBtn.addEventListener("click", () => {
-    mobileMenu.classList.add("active");
-    overlay.classList.add("active");
-  });
-
-  closeBtn.addEventListener("click", () => {
-    mobileMenu.classList.remove("active");
-    overlay.classList.remove("active");
-  });
-
-  overlay.addEventListener("click", () => {
-    mobileMenu.classList.remove("active");
-    overlay.classList.remove("active");
-  });
-</script>
-
-<script>
-  const links = document.querySelectorAll(
-    'a[href]:not([target="_blank"]):not([href^="#"])'
-  );
-
-  const page = document.querySelector(".page-transition");
-
-  links.forEach(link => {
-    link.addEventListener("click", e => {
-      const url = link.getAttribute("href");
-
-      if (url.includes(".html")) {
-        e.preventDefault();
-        page.classList.add("page-exit");
-
-        setTimeout(() => {
-          window.location.href = url;
-        }, 400);
-      }
-    });
-  });
-</script>
-
-</body>
-</html>
+</main>      
