@@ -601,9 +601,9 @@ html {
 
 /* PROJECTS */
 
-.projects-preview {
-  padding: 96px 160px;
-
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .projects-preview h2 {
@@ -621,9 +621,78 @@ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .project-image {
-  height: 200px;
-  background: #eee;
+  width: 100%;
+  height: 260px;
   border-radius: 16px;
+  overflow: hidden; /* CLAVE */
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-image img {
+  width: 100%;
+  height: 70%;
+  margin-top: 30px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.08);
+}
+
+.project-card {
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+
+.project-card h3 {
+  display: inline-block;
+  position: relative;
+}
+
+.project-card h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: black;
+  transition: width 0.3s ease;
+}
+
+.project-card:hover h3::after {
+  width: 100%;
+}
+
+.project-link {
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: black;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-link {
+  background-color: #6DC2B2;
+  border: none;
+  color: white;
+}
+
+.project-card {
+  cursor: pointer;
 }
 
 .project-info {
@@ -632,18 +701,13 @@ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
 /* FOOTER */
 .footer {
-  padding: 48px 160px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
   background-color: #EEEEEE;
 }
 
-.footer {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
 }
 
 .footer p {
@@ -668,7 +732,28 @@ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   font-size: 14px;
 }
 
+.intro,
+.projects-preview,
+.footer {
+  padding: 120px 48px;
+}
+
 @media (max-width: 768px) {
-  .intro, .projects-preview, .footer {
+  .intro,
+  .projects-preview,
+  .footer {
     padding: 80px 24px;
   }
+}
+
+/* CONTROL ESPACIO PROJECTS AND FOOTER */
+
+.footer {
+  padding: 0 48px 120px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 0 24px 80px;
+  }
+}

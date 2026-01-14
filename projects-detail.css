@@ -409,6 +409,7 @@ background-color: #579B8E;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 4rem;
+  margin-bottom: 4rem;
 }
 
 .mockup img {
@@ -425,8 +426,9 @@ background-color: #579B8E;
   background: white;
   border-radius: 24px;
   padding: 3rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-}
+  margin: 0 auto;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+  }
 
 .case-mockup-frame img {
   width: 100%;
@@ -468,5 +470,42 @@ background-color: #579B8E;
 }
 
 
+/* =========================
+   CASE SUMMARY GRID
+========================= */
 
+.case-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2.5fr;
+  gap: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem; /* separación con la imagen */
+}
 
+.case-summary-item strong {
+  font-size: 0.9rem;
+}
+
+.case-summary-item p {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-top: 0.3rem;
+}
+
+.case-summary-text p {
+  font-size: 1rem;
+  max-width: 560px;
+  opacity: 0.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .case-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .case-summary-text p {
+    max-width: 100%;
+  }
+}
