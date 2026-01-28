@@ -127,12 +127,9 @@ body.contacto::before {
 
 /* VOLVER CONTACTO */
 .contacto-back {
-  margin-bottom: 2.5rem; 
   max-width: 1200px;
-padding: 0 4rem;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
+  margin: 0 auto 2.5rem;
+  padding: 0 4rem;
 }
 
 .contacto .back-button {
@@ -160,9 +157,23 @@ padding: 0 4rem;
   background-color: #579B8E;
 }
 
+/* CONTENEDOR PÁGINA CONTACTO */
+.contacto-page {
+  padding-top: 140px; /* MISMO que projects */
+  position: relative;
+  z-index: 1; /* por el overlay */
+}
+
+/* CONTENEDOR INTERNO */
+.contacto-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  text-align: center;
+}
 
 
-.contacto__content {
+/* .contacto-content {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -171,21 +182,38 @@ padding: 0 4rem;
   text-align: center;
   gap: 24px;
 }
+*/
 
-.contacto__title {
+/* CONTENEDOR PÁGINA CONTACTO */
+.contacto-page {
+  padding-top: 140px; /* MISMO que projects */
+  position: relative;
+  z-index: 1; /* por el overlay */
+}
+
+/* CONTENEDOR INTERNO */
+.contacto-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  text-align: center;
+}
+
+
+.contacto-title {
   font-size: 72px;
   font-weight: 300;
   letter-spacing: 1px;
 }
 
-.contacto__subtitle {
+.contacto-subtitle {
   font-size: 18px;
   font-weight: 300;
   line-height: 1.6;
   opacity: 0.9;
 }
 
-.contacto__info {
+.contacto-info {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -416,6 +444,14 @@ padding: 0 4rem;
     opacity: 0.4;
   }
 }
+
+@media (max-width: 768px) {
+  .contacto-content,
+  .contacto-back {
+    padding: 0 1.5rem;
+  }
+}
+
 
 /* =========================
    MOBILE FULLSCREEN

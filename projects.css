@@ -529,3 +529,9 @@ background-color: #579B8E;
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .section-content {
+    padding: 0 24px;
+  }
+}
