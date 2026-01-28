@@ -292,20 +292,16 @@ h2 {
   padding-top: 140px;
 }
 
-.about-hero-content,
-.about-areas-content,
-.trajectory-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 4rem;
-}
+
 
 /* HERO */
 .about-hero {
-  padding: 3rem 0;
+  padding-top: 0;
+  padding-bottom: 3rem;
 }
 
-.about-hero-content {
+
+.section-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 4rem;
@@ -330,12 +326,6 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  .about-hero-image {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
   .about-hero-grid {
     grid-template-columns: 1fr;
   }
@@ -346,11 +336,7 @@ h2 {
   padding: 4rem 0;
 }
 
-.about-areas-content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4rem 3rem;
-}
+
 
 .area {
   position: relative;
@@ -427,6 +413,25 @@ h2 {
     max-width: 520px;               /* mantiene el ancho “bonito” */
   }
 }
+
+.about-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem 3rem;
+}
+
+@media (max-width: 768px) {
+  .about-areas-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .area {
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
 
 
 .area-tools {
@@ -637,18 +642,8 @@ background-color: #579B8E;
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .about-hero-content,
-  .about-areas-content,
-  .trajectory-content {
+  .section-content {
     padding: 0 1.5rem;
-  }
-
-  .about-hero-content {
-    grid-template-columns: 1fr;
-  }
-
-  .about-areas-content {
-    grid-template-columns: 1fr;
   }
 }
 
