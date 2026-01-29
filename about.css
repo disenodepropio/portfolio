@@ -375,6 +375,34 @@ h2 {
   opacity: 1;
 }
 
+
+@media (max-width: 1024px) {
+
+  /* CARD siempre “activa” */
+  .area {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+  }
+
+  .area::after {
+    opacity: 1;
+    transition: none;
+      opacity: var(--glow-opacity, 0);
+  }
+
+  /* herramientas siempre visibles */
+  .tool {
+    background: #eef2ff;
+  }
+
+  .tool span {
+    max-width: 120px;
+    opacity: 1;
+  }
+}
+
+
 .area-header {
   display: flex;
   align-items: baseline;
