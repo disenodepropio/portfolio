@@ -507,7 +507,8 @@ background-color: #579B8E;
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .projects-page .projects-grid .project-card:nth-child(even) {
+  /* Columna central baja */
+  .projects-page .projects-grid .project-card:nth-child(3n + 2) {
     transform: translateY(80px);
   }
 }

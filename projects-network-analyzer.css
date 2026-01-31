@@ -1,161 +1,181 @@
-.case-metrics + .content {
-  padding-top: 0;
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.case-metrics {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+body{
+  font-family:"Source Sans Pro",sans-serif;
+  color:#111;
+  background:#EEEEEE;
 }
 
-/* Card */
-.metric-card {
-  flex: 1;
-  background: #EEEEEE; /* mismo fondo que la página */
-  border-radius: 20px;
-  padding: 2.5rem 2rem;
-  text-align: center;
+/* ================= LAYOUT BASE ================= */
 
- box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+.projects{
+  padding-top:140px;
 }
 
-/* Número grande */
-.metric-card strong {
-  display: block;
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
+.projects-content,
+.content{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 4rem;
 }
 
-/* Texto */
-.metric-card span {
-  font-size: 1.1rem;
-  color: #555;
+/* ================= HERO ================= */
+
+.case-summary-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 2.5fr;
+  gap:3rem;
+  margin:2rem 0 1.5rem;
 }
 
-@media (max-width: 768px) {
-  .case-metrics {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .metric-card {
-    padding: 2rem;
-  }
-
-  .metric-card strong {
-    font-size: 2rem;
+@media(max-width:900px){
+  .case-summary-grid{
+    grid-template-columns:1fr;
+    gap:1.5rem;
   }
 }
 
-.project-network-analyzer .project-metrics {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  max-width: 600px;
-  margin: 3rem auto;
+/* ================= IMAGEN HERO ================= */
+
+.case-image{
+  height:520px;
+  overflow:hidden;
 }
 
-.project-networkanalyzer .case-image {
-  height: 520px;
-  background-color: #e5e5e5; /* gris suave */
+.case-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
 }
 
-@media (max-width: 1024px) {
-  .project-networkanalyzer .case-image {
-    height: 380px;
+@media(max-width:1024px){
+  .case-image{height:380px;}
+}
+
+@media(max-width:600px){
+  .case-image{height:260px;}
+}
+
+/* ================= MÉTRICAS ================= */
+
+.case-metrics{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:2rem;
+  max-width:1100px;
+  margin:2rem auto 3rem;
+}
+
+.metric-card{
+  background:#EEEEEE;
+  border-radius:20px;
+  padding:3rem 2rem;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.metric-card strong{
+  font-size:2.6rem;
+  display:block;
+  margin-bottom:.4rem;
+}
+
+.metric-card span{
+  font-size:1.2rem;
+  color:#555;
+}
+
+@media(max-width:700px){
+  .case-metrics{
+    grid-template-columns:1fr;
   }
 }
 
-@media (max-width: 600px) {
-  .project-networkanalyzer .case-image {
-    height: 260px;
+/* ================= CONTENT ================= */
+
+.content{
+  margin-top:0;
+}
+
+.content h2{
+  margin:0 0 1rem;
+}
+
+/* ================= CASE BLOCKS ================= */
+
+.case-block{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:3.5rem;
+  align-items:center;
+  margin:3rem 0;
+}
+
+.case-block.reverse{
+    grid-template-columns: 1fr 2fr;
+}
+
+.case-block.reverse .case-block-text{
+  order:2;
+}
+
+.case-block.reverse .case-block-image{
+  order:1;
+}
+
+/* Imagen cuadrada */
+.case-block-image{
+  aspect-ratio:1/1;
+  width:100%;
+  overflow:hidden;
+  border-radius:18px;
+  background:#e5e5e5;
+}
+
+.case-block-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ================= RESPONSIVE  ================= */
+
+@media(max-width:900px){
+
+  .case-block{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+
+  /* En móvil SIEMPRE texto arriba e imagen abajo */
+  .case-block .case-block-text{
+    order:1 !important;
+  }
+
+  .case-block.reverse {
+    order:1 !important;
+        grid-template-columns:1fr;
+    gap:2rem;
+  }
+
+  .case-block .case-block-image{
+    order:2 !important;
+    max-width:420px;
+    margin:0 auto;
   }
 }
 
-.project-networkanalyzer .project-metrics {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  max-width: 600px;
-  margin: 3rem auto;
+
+/* ================= CTA ================= */
+
+.about-cta{
+  text-align:center;
+  padding:6rem 1.5rem;
 }
-
-
-.project-networkanalyzer .case-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.project-networkanalyzer .case-block:nth-child(even) {
-  grid-template-columns: 1fr 1fr;
-}
-
-@media (max-width: 900px) {
-  .project-networkanalyzer .case-block {
-    grid-template-columns: 1fr;
-  }
-}
-
-.case-block {
-  display: grid;
-  grid-template-columns: 2fr 1fr; /* texto 2/3 · imagen 1/3 */
-  gap: 3rem;
-  align-items: center;
-    margin: 2.5rem 0;
-}
-
-.case-block.reverse {
-  grid-template-columns: 1fr 2fr;
-}
-
-.case-block.reverse .case-block-image {
-  order: -1;
-}
-
-.case-block-image {
-  aspect-ratio: 1 / 1;
-  width: 100%;                    
-  overflow: hidden;
-  border-radius: 16px;
-  background: #eee;
-}
-
-
-.case-block-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-@media (max-width: 900px) {
-  .case-block {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .case-block-image {
-    max-width: 420px;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 600px) {
-  .case-block {
-    margin: 3rem 0;
-  }
-}
-
-.case-summary-grid {
-  margin-bottom: 1.5rem;
-}
-
-.content {
-  padding-top: 0;
-  margin-top: 0;
-}
-
-

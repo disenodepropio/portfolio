@@ -269,6 +269,20 @@ h2 {
   }
 }
 
+/* Identidad logos */
+
+.case-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:#EEEEEE;
+  border-radius:20px;
+  padding:3rem;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  margin-top: 2.5rem;
+
+}
+
 /* Estado de salida */
 .page-exit {
   opacity: 0;
