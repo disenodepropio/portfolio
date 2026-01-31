@@ -288,6 +288,28 @@
 </main>
 
 <script>
+  const openBtn = document.querySelector(".nav-toggle");
+  const closeBtn = document.querySelector(".nav-close");
+  const mobileMenu = document.querySelector(".nav-mobile");
+  const overlay = document.querySelector(".nav-overlay");
+
+  openBtn.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+    overlay.classList.add("active");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+</script>
+
+<script>
   const trajectoryItems = document.querySelectorAll(".trajectory-item");
 
   const observer = new IntersectionObserver(
