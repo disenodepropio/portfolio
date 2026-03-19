@@ -288,14 +288,20 @@ body {
 
 
 /* HERO */
+
 .hero {
-  position: relative; /* MUY IMPORTANTE */
-  height: calc(100vh - 100px);
+  position: relative;
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   text-align: center;
+
+  padding-top: 100px;   /* altura navbar */
+  padding-bottom: 40px; /* mismo "peso visual" abajo */
 }
 
 .hero-credit {
@@ -693,7 +699,7 @@ html {
 
 .project-card {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   border-radius: 20px;
   overflow: hidden;
   text-decoration: none;
@@ -749,7 +755,7 @@ html {
   right: 24px;
   z-index: 2;
 }
-
+/* 
 .card-content h3 {
   font-family: "Vastago Grotesk", sans-serif;
   font-size: 20px;
@@ -761,6 +767,7 @@ html {
   font-size: 14px;
   opacity: 0.85;
 }
+*/
 
 .project-card:hover .card-overlay {
   background: rgba(0, 0, 0, 0.25);

@@ -27,6 +27,10 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.color-text {
+  color: #2563eb;
+}
+
 /* NAVBAR */
 /* =========================
    NAVBAR BASE (DESKTOP)
@@ -297,9 +301,8 @@ h2 {
 /* HERO */
 .about-hero {
   padding-top: 0;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem; /* un poco menos para que no empuje tanto */
 }
-
 
 .section-content {
   max-width: 1200px;
@@ -308,27 +311,42 @@ h2 {
 }
 
 .about-back {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem; /* menos espacio → título más cerca como en otras páginas */
 }
 
-
+/* GRID */
 .about-hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 4rem;
-  align-items: center;
+  grid-template-columns: 1.3fr 0.7fr; /* más peso al texto */
+  gap: 3rem;
+  align-items: start; /* 👈 clave: alinear arriba (no centrado) */
 }
 
+/* IMAGEN */
+.about-hero-image {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .about-hero-image img {
-  width: 100%;
-  height: auto;
+  max-height: 300px; /* 👈 controla el tamaño real */
+  width: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
   .about-hero-grid {
     grid-template-columns: 1fr;
   }
+
+  .about-hero-image {
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+
 }
 
 /* ÁREAS */

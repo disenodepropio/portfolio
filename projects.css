@@ -412,7 +412,7 @@ background-color: #579B8E;
 .project-card {
   display: block;
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   border-radius: 20px;
   overflow: hidden;
   text-decoration: none;
@@ -474,7 +474,7 @@ background-color: #579B8E;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  margin-top: 64px;
+  margin-top: 32px;
 }
 
 @media (max-width: 1024px) {
@@ -509,7 +509,7 @@ background-color: #579B8E;
 
   /* Columna central baja */
   .projects-page .projects-grid .project-card:nth-child(3n + 2) {
-    transform: translateY(80px);
+    transform: translateY(40px);
   }
 }
 
