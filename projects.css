@@ -107,7 +107,7 @@ h2 {
 
 /* IDIOMA */
 .lang-switch {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .lang-switch a {
@@ -217,7 +217,7 @@ h2 {
     display: block;
     margin-top: auto;
     font-family: "Antebas", sans-serif;
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .lang-switch.mobile span {

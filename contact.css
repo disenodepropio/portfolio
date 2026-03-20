@@ -327,7 +327,7 @@ body.contacto::before {
 
 /* IDIOMA */
 .lang-switch {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .lang-switch a {
@@ -437,7 +437,7 @@ body.contacto::before {
     display: block;
     margin-top: auto;
     font-family: "Antebas", sans-serif;
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .lang-switch.mobile span {
