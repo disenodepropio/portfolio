@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — depropio.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="contacto.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <div class="nav__left">
+        <a href="proyectos.html" class="nav__link">Proyectos</a>
+        <a href="sobre-mi.html" class="nav__link">Sobre mí</a>
+      </div>
+      <a href="index.html" class="nav__logo">depropio.</a>
+      <div class="nav__right">
+        <a href="contacto.html" class="btn btn--primary">Hablemos</a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__top">
+      <span class="mobile-menu__logo">depropio.</span>
+      <button class="mobile-menu__close" id="closeMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu__links">
+      <a href="proyectos.html" class="mobile-menu__link">Proyectos <span class="mobile-menu__arrow">↗</span></a>
+      <a href="sobre-mi.html"  class="mobile-menu__link">Sobre mí  <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contacto.html"  class="mobile-menu__link">Hablemos  <span class="mobile-menu__arrow">↗</span></a>
+    </div>
+  </div>
+
+  <main class="page">
+    <section class="ct-hero container">
+      <div class="ct-hero__availability">
+        <span class="tag tag--bordered tag--dot">Valencia · Remoto</span>
+      </div>
+
+      <h1 class="ct-hero__heading">
+        Abierta a nuevos retos que unan diseño, estrategia e impacto.
+      </h1>
+
+      <div class="ct-hero__links">
+        <a href="mailto:martalopez2405@gmail.com?subject=¡Conectamos!" class="ct-link">
+          <span>¿Conectamos?</span>
+          <span class="ct-link__arrow">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/martalopezlanuza/" target="_blank" rel="noopener" class="ct-link">
+          <span>LinkedIn</span>
+          <span class="ct-link__arrow">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <span class="footer__copy">© 2025 Marta. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  </script>
+</body>
+</html>

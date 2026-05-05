@@ -1,0 +1,331 @@
+/* ===== HERO ===== */
+.sm-hero {
+  padding: 60px 0 80px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: center;
+}
+
+.sm-hero__left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.sm-hero__title {
+  font-size: clamp(30px, 4vw, 56px);
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+}
+
+.sm-hero__photo {
+  width: 280px;
+  height: 340px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(160deg, #c8d4f0, #a8b8e8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sm-hero__photo-placeholder {
+  font-size: 80px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.5);
+}
+
+.sm-hero__photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== SHARED ICON ===== */
+.sm-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(42,92,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ===== SECTION TITLE ===== */
+.sm-section-title {
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 700;
+  letter-spacing: -1.2px;
+  margin-bottom: 36px;
+}
+
+/* ===== BLOQUE BLANCO UNIFICADO ===== */
+/* Skills + Inspira + Explorando comparten el mismo bloque blanco */
+.sm-white-block {
+  background: var(--bg-white);
+  padding: 80px 0;
+}
+
+/* ===== SKILLS ===== */
+.sm-skills__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.sm-skill-card {
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sm-skill-card__label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.sm-skill-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ===== INSPIRA ===== */
+.sm-inspira__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.sm-inspira-card {
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sm-inspira-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.sm-inspira-card__desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Títulos sin negrita para Inspira y Explorando */
+.sm-inspira .sm-section-title,
+.sm-explorando .sm-section-title {
+  font-weight: 400;
+}
+
+/* ===== EXPLORANDO ===== */
+.sm-explorando__track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.sm-inspira,
+.sm-explorando {
+  padding-top: 60px;
+}
+
+/* Horizontal connector line */
+.sm-explorando__track::before {
+  content: '';
+  position: absolute;
+  top: 19px;
+  left: 19px;
+  right: 19px;
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.sm-exp-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding-top: 52px;
+  position: relative;
+}
+
+.sm-exp-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.sm-exp-icon--active {
+  background: var(--accent);
+}
+
+.sm-exp-item__title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.sm-exp-item__title--muted { color: var(--text-muted); }
+
+/* Separador entre bloques blancos */
+.sm-block-divider {
+  display: none;
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+/* ===== TRAYECTORIA ===== */
+.sm-trayectoria {
+  padding: 80px 0 60px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.sm-tray__heading {
+  font-size: clamp(32px, 4vw, 60px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1;
+  position: sticky;
+  top: 90px;
+}
+
+.sm-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.sm-tl-item {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 24px;
+  padding-bottom: 36px;
+  position: relative;
+}
+
+.sm-tl-item::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 16px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.sm-tl-item:last-child::before { display: none; }
+
+.sm-tl-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  margin-top: 3px;
+}
+
+.sm-tl-dot--filled {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.sm-tl-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 4px;
+}
+
+.sm-tl-period {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.sm-tl-role {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.sm-tl-company {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.sm-tl-company:hover { text-decoration: underline; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .sm-skills__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .sm-trayectoria {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .sm-tray__heading { position: static; }
+}
+
+@media (max-width: 768px) {
+  .sm-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 0 60px;
+  }
+  .sm-hero__right { order: -1; }
+  .sm-hero__photo { width: 100%; height: 260px; border-radius: var(--radius-md); }
+
+  .sm-white-block { padding: 60px 0; }
+
+  .sm-inspira__grid { grid-template-columns: 1fr; gap: 12px; }
+
+  .sm-explorando__track {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .sm-explorando__track::before { display: none; }
+  .sm-exp-item { padding-top: 0; padding-left: 52px; min-height: 44px; }
+  .sm-exp-icon { top: 0; }
+}
+
+@media (max-width: 600px) {
+  .sm-skills__grid { grid-template-columns: 1fr; }
+}

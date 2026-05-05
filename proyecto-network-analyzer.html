@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Network Analyzer — depropio.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="proyecto.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <div class="nav__left">
+        <a href="proyectos.html" class="nav__link active">Proyectos</a>
+        <a href="sobre-mi.html" class="nav__link">Sobre mí</a>
+      </div>
+      <a href="index.html" class="nav__logo">depropio.</a>
+      <div class="nav__right">
+        <a href="contacto.html" class="btn btn--primary">Hablemos</a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__top">
+      <span class="mobile-menu__logo">depropio.</span>
+      <button class="mobile-menu__close" id="closeMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu__links">
+      <a href="proyectos.html" class="mobile-menu__link">Proyectos <span class="mobile-menu__arrow">↗</span></a>
+      <a href="sobre-mi.html"  class="mobile-menu__link">Sobre mí  <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contacto.html"  class="mobile-menu__link">Hablemos  <span class="mobile-menu__arrow">↗</span></a>
+    </div>
+  </div>
+
+  <main class="page">
+
+    <!-- HEADER -->
+    <section class="pj-header container">
+      <p class="section-label">Proyecto UX UI</p>
+      <h1 class="pj-header__title">Network Analyzer</h1>
+      <p class="pj-header__desc">
+        Herramienta profesional diseñada para expertos en RF y expertos en datos, que ofrece mediciones avanzadas en tiempo real para evaluar la calidad y el rendimiento de las redes móviles y WiFi.
+      </p>
+    </section>
+
+    <!-- HERO MOCKUP -->
+    <div class="pj-hero-img container">
+        <img src="assets/mockup-netanalyzer.jpg" alt="Network analyzer" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px;" />
+      </div>
+    </div>
+
+    <!-- OBJETIVO -->
+    <section class="pj-objetivo container">
+      <div class="pj-objetivo__grid">
+        <div>
+          <h2 class="pj-section-title">Objetivo del proyecto</h2>
+          <ul class="pj-objetivo__list">
+            <li><span class="pj-check">○</span>Optimizar la visualización de datos técnicos en dispositivos móviles.</li>
+            <li><span class="pj-check">○</span>Garantizar una navegación fluida entre métricas de red complejas.</li>
+            <li><span class="pj-check">○</span>Reforzar la identidad de marca profesional de Weplan.</li>
+            <li><span class="pj-check">○</span>Mejorar la usabilidad para técnicos en campo.</li>
+          </ul>
+        </div>
+        <div class="pj-meta">
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Período</span>
+            <span class="pj-meta__val">2025</span>
+          </div>
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Duración</span>
+            <span class="pj-meta__val">9 meses</span>
+          </div>
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Tipo</span>
+            <span class="pj-meta__val">Diseño UX UI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UX/UI -->
+    <section class="pj-block container">
+      <div class="pj-block__grid">
+        <div class="pj-block__text">
+          <h2 class="pj-section-title">UX/UI de la app</h2>
+          <p class="pj-block__desc">Diseño integral de la aplicación para Android, priorizando la legibilidad y la rapidez en la toma de decisiones. <a href="https://play.google.com/store/apps/details?id=com.cumberland.rf.app&hl=en" class="pj-inline-link">Ver en store ↗</a></p>
+          <ul class="pj-block__list">
+            <li>Dashboard de métricas en tiempo real.</li>
+            <li>Mapas de cobertura interactivos.</li>
+            <li>Gráficos avanzados de señal y latencia.</li>
+            <li>Modos claro y oscuro, customizable por el usuario.</li>
+          </ul>
+        </div>
+        <!-- Visual oscuro (UX/UI) -->
+        <div class="pj-block__visual pj-visual--dark">
+          <img src="assets/diseno-netanalyzer.jpg" alt="UX UI de la app" />
+        </div>
+      </div>
+    </section>
+
+    <!-- WEB -->
+    <section class="pj-block container">
+      <div class="pj-block__grid pj-block__grid--rev">
+        <!-- Visual teal (Web) -->
+        <div class="pj-block__visual pj-visual--teal">
+          <img src="assets/web-netanalyzer.jpg" alt="Web y presencia digital" />
+        </div>
+        <div class="pj-block__text">
+          <h2 class="pj-section-title">Web y presencia digital</h2>
+          <p class="pj-block__desc">Creación de la landing page oficial para la promoción de la herramienta y captación de clientes corporativos. <a href="https://www.mobilenetworkanalyzer.com/en" class="pj-inline-link">Visitar web ↗</a></p>
+          <ul class="pj-block__list">
+            <li>Diseño responsive orientado a conversión.</li>
+            <li>Secciones técnicas explicativas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANDING -->
+    <section class="pj-block container">
+      <div class="pj-block__grid">
+        <div class="pj-block__text">
+          <h2 class="pj-section-title">Branding y promoción</h2>
+          <p class="pj-block__desc">Desarrollo de piezas gráficas y materiales promocionales para el lanzamiento de Network Analyzer.</p>
+          <ul class="pj-block__list">
+            <li>Social Media Kit (LinkedIn, Google Ads).</li>
+            <li>Material para ferias y eventos técnicos (flyer).</li>
+            <li>Guía de estilo para comunicaciones B2B.</li>
+          </ul>
+        </div>
+        <!-- Visual teal radial (Branding) -->
+        <div class="pj-block__visual pj-visual--teal-radial">
+          <img src="assets/social-netanalyzer.jpg" alt="Branding y promoción" />
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACTO -->
+    <section class="pj-impacto">
+      <div class="container">
+        <p class="section-label" style="text-align:center; margin-bottom:10px;">Impacto</p>
+        <p class="pj-impacto__sub">Resultados tras el lanzamiento oficial de la plataforma.</p>
+        <div class="pj-impacto__stats">
+          <div class="pj-stat">
+            <span class="pj-stat__num">10K+</span>
+            <span class="pj-stat__label">Descargas</span>
+          </div>
+          <div class="pj-stat__div"></div>
+          <div class="pj-stat">
+            <span class="pj-stat__num">4.5</span>
+            <div class="pj-stat__stars">★★★★★</div>
+            <span class="pj-stat__label">Valoración</span>
+          </div>
+          <div class="pj-stat__div"></div>
+          <div class="pj-stat">
+            <span class="pj-stat__num">401</span>
+            <span class="pj-stat__label">Reviews</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="pj-next container">
+      <p class="section-label" style="text-align:center;">Siguiente proyecto</p>
+      <a href="proyecto-wpaweb.html" class="pj-next__link">
+        <h2 class="pj-next__title">WePlan Analytics · Web</h2>
+        <span class="pj-next__arrow">→</span>
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <span class="footer__copy">© 2025 Marta. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speed Test + — depropio.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="proyecto.css" />
+  <style>
+
+    /* ===== FUNCIONALIDADES ===== */
+    .pj-funciones {
+      padding: 0 0 80px;
+    }
+
+    .pj-funciones__intro {
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    .pj-funciones__intro p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-top: 12px;
+    }
+
+    .pj-funciones__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+    }
+
+    .pj-funcion {
+      background: var(--bg-dark);
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      color: #fff;
+    }
+
+    .pj-funcion:nth-child(1) { border-radius: var(--radius-md) 0 0 var(--radius-md); }
+    .pj-funcion:nth-child(3) { border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+
+    .pj-funcion__icon {
+      font-size: 22px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pj-funcion__title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pj-funcion__body {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+
+    .pj-funcion__list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .pj-funcion__list li {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .pj-funcion__list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ===== MODOS CLARO / OSCURO ===== */
+    .pj-modos {
+      padding: 0 0 80px;
+    }
+
+    .pj-modos__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .pj-modos__visual {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pj-modos__visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pj-modos__visual--light {
+      background: #f0f0f0;
+    }
+
+    .pj-modos__visual--dark {
+      background: #111;
+    }
+
+    .pj-modos__desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .pj-modos__tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .pj-modo-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .pj-modo-tag__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .pj-modo-tag--light .pj-modo-tag__dot { background: #f0f0f0; border: 1.5px solid #ccc; }
+    .pj-modo-tag--dark  .pj-modo-tag__dot { background: #1a1a1a; border: 1.5px solid #555; }
+
+    /* ===== BRANDING FULL-WIDTH ===== */
+    .pj-branding {
+      background: var(--bg-dark);
+      border-radius: var(--radius-lg);
+      margin: 0 48px 80px;
+      padding: 80px 64px;
+      color: #fff;
+    }
+
+    .pj-branding__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .pj-branding__tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .pj-branding__title {
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+
+    .pj-branding__desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .pj-branding__items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pj-branding__item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    .pj-branding__item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .pj-branding__img {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .pj-branding__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ===== STORE BANNER ===== */
+    .pj-store {
+      padding: 0 0 80px;
+    }
+
+    .pj-store__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px 64px;
+    }
+
+    .pj-store__text {
+      max-width: 480px;
+    }
+
+    .pj-store__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .pj-store__title {
+      font-size: clamp(22px, 2.5vw, 34px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .pj-store__desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .pj-store__cta {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .pj-store__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: var(--radius-md);
+      padding: 14px 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .pj-store__badge:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    .pj-store__badge svg {
+      flex-shrink: 0;
+    }
+
+    .pj-store__meta {
+      display: flex;
+      gap: 24px;
+    }
+
+    .pj-store__stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .pj-store__stat-num {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .pj-store__stat-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .pj-branding { margin-left: 32px; margin-right: 32px; padding: 60px 40px; }
+      .pj-store__inner { padding: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      .pj-funciones__grid { grid-template-columns: 1fr; gap: 2px; }
+      .pj-funcion:nth-child(1) { border-radius: var(--radius-md) var(--radius-md) 0 0; }
+      .pj-funcion:nth-child(3) { border-radius: 0 0 var(--radius-md) var(--radius-md); }
+
+      .pj-modos__grid { grid-template-columns: 1fr; gap: 36px; }
+
+      .pj-branding { margin-left: 20px; margin-right: 20px; padding: 48px 24px; border-radius: var(--radius-md); }
+      .pj-branding__grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .pj-store__inner { flex-direction: column; padding: 32px 24px; gap: 32px; }
+      .pj-store__cta { width: 100%; }
+      .pj-store__badge { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <div class="nav__left">
+        <a href="proyectos.html" class="nav__link active">Proyectos</a>
+        <a href="sobre-mi.html" class="nav__link">Sobre mí</a>
+      </div>
+      <a href="index.html" class="nav__logo">depropio.</a>
+      <div class="nav__right">
+        <a href="contacto.html" class="btn btn--primary">Hablemos</a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__top">
+      <span class="mobile-menu__logo">depropio.</span>
+      <button class="mobile-menu__close" id="closeMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu__links">
+      <a href="proyectos.html" class="mobile-menu__link">Proyectos <span class="mobile-menu__arrow">↗</span></a>
+      <a href="sobre-mi.html"  class="mobile-menu__link">Sobre mí  <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contacto.html"  class="mobile-menu__link">Hablemos  <span class="mobile-menu__arrow">↗</span></a>
+    </div>
+  </div>
+
+  <main class="page">
+
+    <!-- HEADER -->
+    <section class="pj-header container">
+      <p class="section-label">Proyecto UX UI</p>
+      <h1 class="pj-header__title">Speed Test +</h1>
+      <p class="pj-header__desc">
+        App Android para pruebas activas de red: Diseño UX/UI completo en modo claro y oscuro, sistema de estadísticas, scheduler inteligente e identidad visual propia.
+      </p>
+    </section>
+
+    <!-- HERO MOCKUP -->
+    <div class="pj-hero-img container">
+      <img src="assets/mockup-speedtest.jpg" alt="Speed Test + app Android" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px;" />
+    </div>
+
+    <!-- OBJETIVO -->
+    <section class="pj-objetivo container">
+      <div class="pj-objetivo__grid">
+        <div>
+          <h2 class="pj-section-title">Objetivo del proyecto</h2>
+          <ul class="pj-objetivo__list">
+            <li><span class="pj-check">○</span>Diseñar una app técnica que fuera a la vez precisa y accesible para cualquier usuario.</li>
+            <li><span class="pj-check">○</span>Facilitar el análisis de red en el tiempo mediante estadísticas y programación de tests.</li>
+            <li><span class="pj-check">○</span>Construir una identidad visual diferenciada dentro del ecosistema de apps de red.</li>
+          </ul>
+        </div>
+        <div class="pj-meta">
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Período</span>
+            <span class="pj-meta__val">2024</span>
+          </div>
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Duración</span>
+            <span class="pj-meta__val">7 meses</span>
+          </div>
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Rol</span>
+            <span class="pj-meta__val">Diseño UX UI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNCIONALIDADES CLAVE -->
+    <section class="pj-funciones container">
+      <div class="pj-funciones__intro">
+        <h2 class="pj-section-title">Una app, tres pilares</h2>
+        <p>Speed Test + no es solo un medidor de velocidad. Es una herramienta de diagnóstico completa pensada para usuarios técnicos y para cualquiera que quiera entender de verdad cómo se comporta su red. Cada módulo tiene un propósito claro y una interfaz diseñada para no interrumpir el análisis.</p>
+      </div>
+      <div class="pj-funciones__grid">
+
+        <div class="pj-funcion">
+          <div class="pj-funcion__icon">1.</div>
+          <span class="pj-funcion__title">Tests activos</span>
+          <p class="pj-funcion__body">Pruebas de red en tiempo real con resultados claros e inmediatos. El núcleo de la app: mide velocidad de descarga, subida, latencia y jitter en segundos.</p>
+          <ul class="pj-funcion__list">
+            <li>Velocidad de descarga y subida</li>
+            <li>Latencia y jitter</li>
+            <li>Indicadores visuales en tiempo real</li>
+          </ul>
+        </div>
+
+        <div class="pj-funcion">
+          <div class="pj-funcion__icon">2.</div>
+          <span class="pj-funcion__title">Stats &amp; Overview</span>
+          <p class="pj-funcion__body">Histórico de todas las pruebas en un solo panel. Gráficos y métricas agregadas que permiten detectar patrones, picos de caída y evolución del rendimiento de red a lo largo del tiempo.</p>
+          <ul class="pj-funcion__list">
+            <li>Vista agregada de todos los tests</li>
+            <li>Gráficos de tendencia y comparativa</li>
+            <li>Filtros por fecha y tipo de red</li>
+          </ul>
+        </div>
+
+        <div class="pj-funcion">
+          <div class="pj-funcion__icon">3.</div>
+          <span class="pj-funcion__title">Scheduler</span>
+          <p class="pj-funcion__body">Programa tests automáticos con la frecuencia que necesites. La app ejecuta las pruebas en segundo plano y acumula datos sin intervención del usuario, generando insights a lo largo del tiempo.</p>
+          <ul class="pj-funcion__list">
+            <li>Programación flexible de tests</li>
+            <li>Ejecución automática en background</li>
+            <li>Datos continúos sin intervención</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODOS CLARO Y OSCURO -->
+    <section class="pj-modos container">
+      <div class="pj-modos__grid">
+        <div class="pj-modos__visual pj-modos__visual--light">
+          <img src="assets/light-speedtest.jpg" alt="Speed Test + modo claro" />
+        </div>
+        <div>
+          <h2 class="pj-section-title">Diseñado para cualquier entorno</h2>
+          <p class="pj-modos__desc">Los técnicos de campo trabajan en condiciones muy distintas: interiores con poca luz, exteriores con sol directo. Speed Test + se adapta a todos ellos con dos modos de visualización completamente diseñados.</p>
+          <div class="pj-modos__tags">
+            <span class="pj-modo-tag pj-modo-tag--light">
+              <span class="pj-modo-tag__dot"></span>
+              Modo claro
+            </span>
+            <span class="pj-modo-tag pj-modo-tag--dark">
+              <span class="pj-modo-tag__dot"></span>
+              Modo oscuro
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANDING FULL-WIDTH -->
+    <section class="pj-branding">
+      <div class="pj-branding__grid">
+        <div>
+          <span class="pj-branding__tag">Identidad visual</span>
+          <h2 class="pj-branding__title">Marca propia dentro del ecosistema de WePlan.</h2>
+          <p class="pj-branding__desc">Speed Test + necesitaba una identidad que la diferenciara en la Play Store y que conectara con el resto del ecosistema de herramientas de WePlan. Diseñé el logo, los assets de promoción y los materiales de Google Ads desde cero.</p>
+          <div class="pj-branding__items">
+            <div class="pj-branding__item">Logotipo e icono de app adaptados a todos los tamaños de pantalla.</div>
+            <div class="pj-branding__item">Screenshots y gráficos para la ficha de Play Store.</div>
+            <div class="pj-branding__item">Banners y piezas para campañas de Google Ads.</div>
+            <div class="pj-branding__item">Coherencia visual con el ecosistema de marca WePlan.</div>
+          </div>
+        </div>
+        <div class="pj-branding__img">
+          <img src="assets/branding-speedtest.jpg" alt="Branding Speed Test +" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY STORE BANNER -->
+    <section class="pj-store container">
+      <div class="pj-store__inner">
+        <div class="pj-store__text">
+          <span class="pj-store__label">Disponible en</span>
+          <h2 class="pj-store__title">Speed Test + en Google Play</h2>
+          <p class="pj-store__desc">La app está publicada y disponible para cualquier dispositivo Android. Descárgala y comprueba el rendimiento de tu red móvil o Wi-Fi en cuestión de segundos.</p>
+        </div>
+        <div class="pj-store__cta">
+          <a href="https://play.google.com/store/apps/details?id=com.cumberland.speedtest" class="pj-store__badge" target="_blank">
+            <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 1L11 11L1.5 21" stroke="#34A853" stroke-width="2" stroke-linecap="round"/>
+              <path d="M1.5 21L18.5 12.118C19.5 11.566 19.5 10.434 18.5 9.882L1.5 1" stroke="#FBBC04" stroke-width="2" stroke-linecap="round"/>
+              <path d="M1.5 1C1.5 1 1 1.3 1 2V20C1 20.7 1.5 21 1.5 21L11 11L1.5 1Z" fill="#EA4335"/>
+              <path d="M11 11L1.5 21C1.5 21 6.5 18.5 11 16L16 13.5L11 11Z" fill="#34A853"/>
+              <path d="M11 11L16 8.5L11 6C6.5 3.5 1.5 1 1.5 1L11 11Z" fill="#FBBC04"/>
+            </svg>
+            Descargar en Google Play
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="pj-next container">
+      <p class="section-label" style="text-align:center;">Ver todos los proyectos</p>
+      <a href="proyectos.html" class="pj-next__link">
+        <h2 class="pj-next__title">Todos los proyectos</h2>
+        <span class="pj-next__arrow">→</span>
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <span class="footer__copy">© 2025 Marta. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  </script>
+</body>
+</html>

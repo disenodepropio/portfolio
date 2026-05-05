@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre mí — depropio.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sobre-mi.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <div class="nav__left">
+        <a href="proyectos.html" class="nav__link">Proyectos</a>
+        <a href="sobre-mi.html" class="nav__link active">Sobre mí</a>
+      </div>
+      <a href="index.html" class="nav__logo">depropio.</a>
+      <div class="nav__right">
+        <a href="contacto.html" class="btn btn--primary">Hablemos</a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__top">
+      <span class="mobile-menu__logo">depropio.</span>
+      <button class="mobile-menu__close" id="closeMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu__links">
+      <a href="proyectos.html" class="mobile-menu__link">Proyectos <span class="mobile-menu__arrow">↗</span></a>
+      <a href="sobre-mi.html"  class="mobile-menu__link">Sobre mí  <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contacto.html"  class="mobile-menu__link">Hablemos  <span class="mobile-menu__arrow">↗</span></a>
+    </div>
+  </div>
+
+  <main class="page">
+
+    <!-- HERO -->
+    <section class="sm-hero container">
+      <div class="sm-hero__left">
+        <span class="tag tag--dot-green tag--bordered">Disponible para nuevas oportunidades</span>
+        <h1 class="sm-hero__title">Hola. Soy Marta,<br />Product Designer.</h1>
+        <a href="contacto.html" class="btn btn--primary">Hablemos →</a>
+      </div>
+      <div class="sm-hero__right">
+        <img src="assets/me.png" alt="Foto de perfil" class="sm-hero__photo-img">
+      </div>
+    </section>
+
+    <!-- BLOQUE BLANCO UNIFICADO: Habilidades + Lo que me inspira + Explorando -->
+    <div class="sm-white-block">
+
+      <!-- HERRAMIENTAS & HABILIDADES -->
+      <section class="sm-skills container">
+        <h2 class="sm-section-title">Herramientas &amp; Habilidades</h2>
+        <div class="sm-skills__grid">
+
+          <div class="sm-skill-card">
+            <div class="sm-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            </div>
+            <span class="sm-skill-card__label">Design Core</span>
+            <div class="sm-skill-card__tags">
+              <span class="tag">User flows</span><span class="tag">Wireframing</span>
+              <span class="tag">Design Systems</span><span class="tag">Prototyping</span><span class="tag">Interaction Design</span><span class="tag">Usability testing</span>
+            </div>
+          </div>
+
+          <div class="sm-skill-card">
+            <div class="sm-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <span class="sm-skill-card__label">Software</span>
+            <div class="sm-skill-card__tags">
+              <span class="tag">Figma</span><span class="tag">Illustrator</span>
+              <span class="tag">Photoshop</span><span class="tag">InDesign</span>
+              <span class="tag">After Effects</span><span class="tag">Affinity</span><span class="tag">Jitter</span><span class="tag">ShapeShifter</span>
+            </div>
+          </div>
+
+          <div class="sm-skill-card">
+            <div class="sm-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <span class="sm-skill-card__label">Frontend (básico)</span>
+            <div class="sm-skill-card__tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span>
+              <span class="tag">JS</span><span class="tag">Github</span><span class="tag">Wordpress</span>
+            </div>
+          </div>
+
+          <div class="sm-skill-card">
+            <div class="sm-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+            </div>
+            <span class="sm-skill-card__label">Data &amp; Marketing</span>
+            <div class="sm-skill-card__tags">
+              <span class="tag">Looker Studio</span><span class="tag">Hubspot</span>
+              <span class="tag">Mailchimp</span><span class="tag">Sendgrid</span><span class="tag">LinkedIn Ads</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Divisor -->
+      <div class="sm-block-divider"></div>
+
+      <!-- LO QUE ME INSPIRA -->
+      <section class="sm-inspira container">
+        <h2 class="sm-section-title">Lo que me inspira</h2>
+        <div class="sm-inspira__grid">
+
+          <div class="sm-inspira-card">
+            <div class="sm-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="sm-inspira-card__title">Diseño creativo</h3>
+            <p class="sm-inspira-card__desc">Búsqueda constante de estéticas disruptivas y funcionales.</p>
+          </div>
+
+          <div class="sm-inspira-card">
+            <div class="sm-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            </div>
+            <h3 class="sm-inspira-card__title">Motion graphics</h3>
+            <p class="sm-inspira-card__desc">Dando vida a las interfaces a través del movimiento fluido.</p>
+          </div>
+
+          <div class="sm-inspira-card">
+            <div class="sm-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <h3 class="sm-inspira-card__title">Interacciones</h3>
+            <p class="sm-inspira-card__desc">Diseño de diálogos significativos entre el usuario y el producto.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Divisor -->
+      <div class="sm-block-divider"></div>
+
+      <!-- ACTUALMENTE EXPLORANDO -->
+      <section class="sm-explorando container">
+        <h2 class="sm-section-title">Actualmente explorando</h2>
+        <div class="sm-explorando__track">
+
+          <div class="sm-exp-item sm-exp-item--active">
+            <div class="sm-exp-icon sm-exp-icon--active">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h4 class="sm-exp-item__title">Design Systems</h4>
+            <span class="tag tag--blue">Realizando cursos especializados</span>
+          </div>
+
+          <div class="sm-exp-item sm-exp-item--active">
+            <div class="sm-exp-icon sm-exp-icon--active">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+            </div>
+            <h4 class="sm-exp-item__title">Artificial Intelligence</h4>
+            <span class="tag tag--blue">Aplicación en flujos UX &amp; Vibe coding</span>
+          </div>
+
+          <div class="sm-exp-item">
+            <div class="sm-exp-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h4 class="sm-exp-item__title sm-exp-item__title--muted">Frontend</h4>
+            <span class="tag">Next on path</span>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+    <!-- FIN BLOQUE BLANCO -->
+
+    <!-- TRAYECTORIA -->
+    <section class="sm-trayectoria container">
+      <h2 class="sm-tray__heading">Trayectoria</h2>
+      <div class="sm-timeline">
+
+        <div class="sm-tl-item">
+          <div class="sm-tl-dot sm-tl-dot--filled"></div>
+          <div class="sm-tl-content">
+            <span class="sm-tl-period">2023 · Actualidad</span>
+            <h3 class="sm-tl-role">Product Designer (UX UI) &amp; Marketing Specialist</h3>
+            <a class="sm-tl-company">WePlan Analytics</a>
+            <span class="tag">Experiencia laboral</span>
+          </div>
+        </div>
+
+        <div class="sm-tl-item">
+          <div class="sm-tl-dot"></div>
+          <div class="sm-tl-content">
+            <span class="sm-tl-period">2022 · 2023</span>
+            <h3 class="sm-tl-role">Master's Degree in Advertising Communication</h3>
+            <a class="sm-tl-company">Universidad Carlos III de Madrid</a>
+            <span class="tag">Educación</span>
+          </div>
+        </div>
+
+        <div class="sm-tl-item">
+          <div class="sm-tl-dot"></div>
+          <div class="sm-tl-content">
+            <span class="sm-tl-period">2022</span>
+            <h3 class="sm-tl-role">Investigadora de diseño</h3>
+            <a class="sm-tl-company">HowLab Research Group</a>
+            <span class="tag">Experiencia de prácticas</span>
+          </div>
+        </div>
+
+        <div class="sm-tl-item">
+          <div class="sm-tl-dot"></div>
+          <div class="sm-tl-content">
+            <span class="sm-tl-period">2018 · 2022</span>
+            <h3 class="sm-tl-role">Grado de Ingeniería en Diseño Industrial y Desarrollo del Producto</h3>
+            <a class="sm-tl-company">Universidad de Zaragoza</a>
+            <span class="tag">Educación</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cta-section container">
+      <p class="cta-section__label">¿Tienes un reto para mí?</p>
+      <h2 class="cta-section__heading">Abierta a nuevos retos que unan diseño, estrategia e impacto.</h2>
+      <a href="mailto:martalopez2405@gmail.com?subject=¡Conectamos!" class="cta-section__connect">¿Conectamos? <span class="arrow-diag">↗</span></a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <span class="footer__copy">© 2025 Marta. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  </script>
+</body>
+</html>
