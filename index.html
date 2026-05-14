@@ -10,8 +10,140 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="index.css" />
-    <!-- Umami tracking -->
+  <!-- Umami tracking -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
+
+  <style>
+    /* ─────────────────────────────────────────────
+       REVEAL BASE — bidireccional (entra y sale)
+    ───────────────────────────────────────────── */
+
+    /* Genérico: sube al entrar, baja al salir */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(60px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    [data-reveal].in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Salida hacia arriba (scroll hacia abajo y el elemento queda atrás) */
+    [data-reveal].out-up {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    /* Salida hacia abajo (scroll hacia arriba, elemento vuelve a desaparecer) */
+    [data-reveal].out-down {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+
+    /* Variantes de dirección de entrada */
+    [data-reveal="left"] { transform: translateX(-60px); }
+    [data-reveal="left"].in { transform: translateX(0); }
+    [data-reveal="left"].out-up { transform: translateX(-40px); opacity: 0; }
+    [data-reveal="left"].out-down { transform: translateX(-60px); opacity: 0; }
+
+    [data-reveal="right"] { transform: translateX(60px); }
+    [data-reveal="right"].in { transform: translateX(0); }
+    [data-reveal="right"].out-up { transform: translateX(40px); opacity: 0; }
+    [data-reveal="right"].out-down { transform: translateX(60px); opacity: 0; }
+
+    /* Scale reveal: para el CTA */
+    [data-reveal="scale"] {
+      opacity: 0;
+      transform: scale(0.92) translateY(40px);
+    }
+    [data-reveal="scale"].in {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    [data-reveal="scale"].out-up {
+      opacity: 0;
+      transform: scale(0.96) translateY(-30px);
+    }
+    [data-reveal="scale"].out-down {
+      opacity: 0;
+      transform: scale(0.92) translateY(40px);
+    }
+
+    /* Stagger: los hijos directos se animan en cascada */
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(50px);
+      transition:
+        opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    [data-stagger].in > *       { opacity: 1; transform: translateY(0); }
+    [data-stagger].out-up > *   { opacity: 0; transform: translateY(-40px); }
+    [data-stagger].out-down > * { opacity: 0; transform: translateY(50px); }
+
+    [data-stagger] > *:nth-child(1) { transition-delay: 0s; }
+    [data-stagger] > *:nth-child(2) { transition-delay: 0.1s; }
+    [data-stagger] > *:nth-child(3) { transition-delay: 0.2s; }
+    [data-stagger] > *:nth-child(4) { transition-delay: 0.3s; }
+    [data-stagger] > *:nth-child(5) { transition-delay: 0.4s; }
+    [data-stagger] > *:nth-child(6) { transition-delay: 0.5s; }
+
+    /* ─────────────────────────────────────────────
+       HERO — entrada inicial al cargar
+    ───────────────────────────────────────────── */
+
+    /* ─── Tarjetas: hover funciona sobre cualquier estado de transform ─── */
+    .proj-card {
+      transition: transform 0.3s ease;
+    }
+    /* El stagger anima el padre (.rp-grid), las cards son hijas.
+       El hover se aplica además del transform heredado usando translateY relativo */
+    .proj-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Quitar fondos de color detrás de las imágenes */
+    .proj-card__img--dark { background: none !important; }
+    .proj-card__img--teal { background: none !important; }
+
+    .hero__heading { overflow: hidden; }
+
+    .hero__heading .line {
+      display: block;
+      opacity: 0;
+      transform: translateY(110%) skewY(4deg);
+      transition:
+        opacity 0.01s,
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero__heading .line:nth-child(2) { transition-delay: 0.12s; }
+
+    .hero__heading.hero-in .line {
+      opacity: 1;
+      transform: translateY(0) skewY(0deg);
+    }
+
+    .hero__meta-row {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease 0.55s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.55s;
+    }
+    .hero__meta-row.hero-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero__scroll {
+      opacity: 0;
+      transition: opacity 0.6s ease 1s;
+    }
+    .hero__scroll.hero-in { opacity: 1; }
+
+
+  </style>
 </head>
 <body>
 
@@ -54,12 +186,12 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container">
-        <h1 class="hero__heading">
-          Diseño que conecta<br />usuario y negocio.
+        <h1 class="hero__heading" id="heroHeading">
+          <span class="line">Diseño que conecta</span>
+          <span class="line">usuario y negocio.</span>
         </h1>
 
-        <!-- Row: tags left | desc right -->
-        <div class="hero__meta-row">
+        <div class="hero__meta-row" id="heroMeta">
           <p class="hero__sub">
             Product Designer UX UI centrada en transformar insights de usuario en decisiones de producto que impulsan el negocio, del concepto a producción validada.
           </p>
@@ -67,10 +199,9 @@
             <span class="tag tag--dot-green tag--bordered">Disponible para nuevas oportunidades</span>
             <span class="tag tag--bordered">Valencia · Remoto</span>
           </div>
-          
         </div>
 
-        <div class="hero__scroll">
+        <div class="hero__scroll" id="heroScroll">
           <span>SCROLL</span>
           <div class="hero__scroll-line"></div>
         </div>
@@ -78,36 +209,35 @@
     </section>
 
     <!-- MARQUEE -->
-    <div class="marquee-wrapper">
-  <div class="marquee-track">
-    <!-- Primera copia -->
-    <span>UX UI Design</span>
-    <span>Design Systems</span>
-    <span>SaaS Product</span>
-    <span>Prototyping</span>
-    <span>Handoff</span>    
-    <span>Frontend</span>
-    <span>Interaction Design</span>
-    <span>Graphic Design</span>
-    <span>Branding</span>
-    <span>Motion Graphics</span>
-    <!-- Segunda copia — idéntica -->
-    <span>UX UI Design</span>
-    <span>Design Systems</span>
-    <span>SaaS Product</span>
-    <span>Prototyping</span>
-    <span>Handoff</span>    
-    <span>Frontend</span>
-    <span>Interaction Design</span>
-    <span>Graphic Design</span>
-    <span>Branding</span>
-    <span>Motion Graphics</span>
-  </div>
-</div>
+    <div class="marquee-wrapper" data-reveal>
+      <div class="marquee-track">
+        <span>UX UI Design</span>
+        <span>Design Systems</span>
+        <span>SaaS Product</span>
+        <span>Prototyping</span>
+        <span>Handoff</span>
+        <span>Frontend</span>
+        <span>Interaction Design</span>
+        <span>Graphic Design</span>
+        <span>Branding</span>
+        <span>Motion Graphics</span>
+        <span>UX UI Design</span>
+        <span>Design Systems</span>
+        <span>SaaS Product</span>
+        <span>Prototyping</span>
+        <span>Handoff</span>
+        <span>Frontend</span>
+        <span>Interaction Design</span>
+        <span>Graphic Design</span>
+        <span>Branding</span>
+        <span>Motion Graphics</span>
+      </div>
+    </div>
 
     <!-- RECENT PROJECTS -->
     <section class="recent-projects container">
-      <div class="rp-header">
+
+      <div class="rp-header" data-reveal>
         <div>
           <p class="section-label">Selección de trabajos recientes</p>
           <h2 class="rp-title">Últimos proyectos</h2>
@@ -115,19 +245,12 @@
         <a href="proyectos.html" class="rp-all">Ver todos →</a>
       </div>
 
-      <div class="rp-grid">
+      <div class="rp-grid" data-stagger>
 
-        <a href="proyecto-network-analyzer.html" class="proj-card">
+        <a href="proyecto-web-app.html" class="proj-card">
           <div class="proj-card__img proj-card__img--dark">
-            <div class="proj-card__overlay">
-              <!--
-              <div class="proj-card__tags-top">
-                <span class="tag tag--blue">App Análisis</span>
-                <span class="tag tag--blue">UX Research</span>
-              </div>
-              -->
-            </div>
-            <img src="assets/mockup-netanalyzer.jpg" alt="Network analyzer" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            <div class="proj-card__overlay"></div>
+            <img src="assets/mockup-netanalyzer.jpg" alt="App web" style="width:100%;height:100%;object-fit:cover;display:block;" />
           </div>
           <div class="proj-card__body">
             <span class="proj-card__cat">Diseño UX UI</span>
@@ -135,16 +258,9 @@
           </div>
         </a>
 
-        <a href="proyecto-wpaweb.html" class="proj-card">
+        <a href="proyecto-web.html" class="proj-card">
           <div class="proj-card__img proj-card__img--teal">
-            <!--<div class="proj-card__overlay">
-              <div class="proj-card__tags-top">
-                <span class="tag">SaaS Web</span>
-                <span class="tag">User Flows</span>
-                <span class="tag tag--blue">Production</span>
-              </div>
-            </div>-->
-            <img src="assets/mockup-wpaweb.jpg" alt="WPA Web" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            <img src="assets/mockup-wpaweb.jpg" alt="WPA Web" style="width:100%;height:100%;object-fit:cover;display:block;" />
           </div>
           <div class="proj-card__body">
             <span class="proj-card__cat">Diseño UX UI</span>
@@ -159,51 +275,110 @@
     <section class="about-snippet">
       <div class="container">
         <div class="about-snippet__inner">
-          <div class="about-snippet__left">
+
+          <div class="about-snippet__left" data-reveal="left">
             <h2 class="about-snippet__title">Diseño de propio.</h2>
             <a href="sobre-mi.html" class="about-snippet__link">Sobre mí →</a>
           </div>
-          <div class="about-snippet__right">
+
+          <div class="about-snippet__right" data-reveal="right">
             <p class="about-snippet__text">En Aragón, decimos que algo se hace "de propio" cuando se hace con propósito, con ganas y pensando bien lo que se hace. Así entiendo yo el diseño: cada decisión tiene un porqué.</p>
             <p class="about-snippet__text">Product Designer con base en ingeniería de diseño industrial y máster en comunicación. Más de 3 años trabajando end-to-end en un entorno SaaS donde diseño y negocio van siempre de la mano.</p>
-            <div class="about-snippet__skills">
+            <div class="about-snippet__skills" data-stagger>
               <div class="as-col"><span class="as-label">UX/UI &amp; Producto</span><p>User flows · Wireframing · Prototyping · Interaction design · Design Systems · Usability testing</p></div>
-              <div class="as-col"><span class="as-label">Herramientas</span><p>Figma · Adobe Suite (Illustrator, InDesign, Photoshop, After Effects) · Affinity · Jitter · ShapeShifter </p></div>
+              <div class="as-col"><span class="as-label">Herramientas</span><p>Figma · Adobe Suite (Illustrator, InDesign, Photoshop, After Effects) · Affinity · Jitter · ShapeShifter</p></div>
               <div class="as-col"><span class="as-label">Datos &amp; Negocio</span><p>HubSpot · Looker Studio · Mailchimp · SendGrid · LinkedIn Ads</p></div>
               <div class="as-col"><span class="as-label">Frontend Básico</span><p>HTML · CSS · JavaScript — para colaborar mejor con desarrollo y proponer soluciones viables.</p></div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="cta-section container">
+    <section class="cta-section container" data-reveal="scale">
       <p class="cta-section__label">¿Tienes un reto para mí?</p>
       <h2 class="cta-section__heading">Abierta a nuevos retos que unan diseño, estrategia e impacto.</h2>
       <a href="mailto:martalopez2405@gmail.com?subject=¡Conectamos!" class="cta-section__connect">
-  ¿Conectamos? <span class="arrow-diag">↗</span>
-</a>
+        ¿Conectamos? <span class="arrow-diag">↗</span>
+      </a>
     </section>
 
   </main>
 
-  <footer class="footer">
-  <div class="footer__inner">
-    <span class="footer__logo">depropio.</span>
-    <div class="footer__contact">
-      <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
-      <span class="footer__sep">·</span>
-      <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+  <footer class="footer" data-reveal>
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <div class="footer__contact">
+        <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
+        <span class="footer__sep">·</span>
+        <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+      </div>
+      <span class="footer__copy">© 2026 Marta.</span>
     </div>
-    <span class="footer__copy">© 2026 Marta.</span>
-  </div>
-</footer>
+  </footer>
+
   <script>
+    /* ── Nav scroll ── */
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+    /* ── Mobile menu ── */
     document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+
+    /* ── Hero: animación inicial ── */
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.getElementById('heroHeading').classList.add('hero-in');
+        document.getElementById('heroMeta').classList.add('hero-in');
+        document.getElementById('heroScroll').classList.add('hero-in');
+      }, 80);
+    });
+
+    /* ────────────────────────────────────────────
+       SCROLL REVEAL BIDIRECCIONAL
+       - Al entrar en viewport → clase "in"
+       - Al salir por arriba (scroll down) → "out-up"
+       - Al salir por abajo (scroll up) → "out-down"
+    ──────────────────────────────────────────── */
+
+    const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
+
+    /* Guardamos la posición top de cada elemento para saber de qué dirección sale */
+    const positions = new Map();
+    allTargets.forEach(el => positions.set(el, el.getBoundingClientRect().top + window.scrollY));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        const elTop = positions.get(el);
+
+        if (entry.isIntersecting) {
+          el.classList.remove('out-up', 'out-down');
+          el.classList.add('in');
+        } else {
+          const scrolled = window.scrollY + window.innerHeight * 0.5;
+          if (scrolled > elTop) {
+            /* Elemento quedó atrás → sale por arriba */
+            el.classList.remove('in', 'out-down');
+            el.classList.add('out-up');
+          } else {
+            /* Todavía no hemos llegado → sale por abajo */
+            el.classList.remove('in', 'out-up');
+            el.classList.add('out-down');
+          }
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: '-40px 0px -40px 0px'
+    });
+
+    allTargets.forEach(el => observer.observe(el));
+
+
   </script>
 </body>
 </html>

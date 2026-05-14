@@ -10,8 +10,55 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="proyectos.css" />
-      <!-- Umami tracking -->
+  <!-- Umami tracking -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
+
+  <style>
+    /* ── REVEAL BASE ── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+      will-change: opacity, transform;
+    }
+    [data-reveal].in  { opacity: 1; transform: translateY(0); }
+    [data-reveal].out-up   { opacity: 0; transform: translateY(-50px); }
+    [data-reveal].out-down { opacity: 0; transform: translateY(60px); }
+
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+      will-change: opacity, transform;
+    }
+    [data-stagger].in > *       { opacity: 1; transform: translateY(0); }
+    [data-stagger].out-up > *   { opacity: 0; transform: translateY(-40px); }
+    [data-stagger].out-down > * { opacity: 0; transform: translateY(50px); }
+    [data-stagger] > *:nth-child(1) { transition-delay: 0s; }
+    [data-stagger] > *:nth-child(2) { transition-delay: 0.08s; }
+    [data-stagger] > *:nth-child(3) { transition-delay: 0.16s; }
+    [data-stagger] > *:nth-child(4) { transition-delay: 0.24s; }
+    [data-stagger] > *:nth-child(5) { transition-delay: 0.32s; }
+
+    /* ── HERO PROYECTOS ── */
+    .proy-header__title {
+      opacity: 0;
+      transform: translateY(50px) skewY(2deg);
+      transition: opacity 0.01s, transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.08s;
+    }
+    .proy-header__title.hero-in { opacity: 1; transform: translateY(0) skewY(0deg); }
+
+    .proy-filters {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease 0.35s, transform 0.7s cubic-bezier(0.16,1,0.3,1) 0.35s;
+    }
+    .proy-filters.hero-in { opacity: 1; transform: translateY(0); }
+
+    /* Card hover */
+    .pitem { transition: transform 0.3s ease; }
+    .pitem:hover { transform: translateY(-6px); }
+  </style>
 </head>
 <body>
 
@@ -48,7 +95,7 @@
   <main class="page">
 
     <section class="proy-header container">
-      <h1 class="proy-header__title">Proyectos</h1>
+      <h1 class="proy-header__title" id="proyTitle">Proyectos</h1>
       <div class="proy-filters" id="filters">
         <button class="filter-btn active" data-filter="todos">Todos</button>
         <button class="filter-btn" data-filter="ux">Diseño UX UI</button>
@@ -56,12 +103,11 @@
       </div>
     </section>
 
-    <section class="proy-grid container" id="projectsGrid">
+    <section class="proy-grid container" id="projectsGrid" data-stagger>
 
-      <!-- 1 -->
-      <a href="proyecto-network-analyzer.html" class="pitem" data-cat="ux">
-        <div class="pitem__img pitem__bg--dark">
-          <img src="assets/mockup-netanalyzer.jpg" alt="Network analyzer" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+      <a href="proyecto-web-app.html" class="pitem" data-cat="ux">
+        <div class="pitem__img pitem__bg--white">
+          <img src="assets/mockup-netanalyzer.jpg" alt="App web" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="pitem__body">
           <span class="pitem__cat pitem__cat--dark">Diseño UX UI</span>
@@ -69,114 +115,39 @@
         </div>
       </a>
 
-      <!-- 2 -->
-      <a href="proyecto-wpaweb.html" class="pitem" data-cat="ux">
+      <a href="proyecto-web.html" class="pitem" data-cat="ux">
         <div class="pitem__img pitem__bg--white">
-          <img src="assets/mockup-wpaweb.jpg" alt="WPA Web" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+          <img src="assets/mockup-wpaweb.jpg" alt="WPA Web" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="pitem__body">
-          <span class="pitem__cat pitem__cat--dark">Diseño UX UI</span>          
+          <span class="pitem__cat pitem__cat--dark">Diseño UX UI</span>
           <h3 class="pitem__name">Web</h3>
         </div>
       </a>
 
-      <!-- 3 
-      <a href="proyectos.html" class="pitem" data-cat="ux">
-        <div class="pitem__img pitem__bg--teal">
-          <div class="pitem__overlay">
-            <span class="pitem__cat pitem__cat--dark">Diseño UX UI | App</span>
-          </div>
-          <div class="pm-phone">
-            <div class="pm-phone__screen">
-              <div class="pm-phone__name">Transusialator</div>
-              <div class="pm-phone__code">L28TE</div>
-              <div class="pm-phone__icons">
-                <span>⊕</span><span>◻</span><span>☰</span>
-              </div>
-            </div>
-          </div>
+      <a href="proyecto-video.html" class="pitem" data-cat="brand">
+        <div class="pitem__img pitem__bg--white">
+          <img src="assets/mockup-videowpa.jpg" alt="WPA Web" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="pitem__body">
-          <h3 class="pitem__name">Screen translator</h3>
-        </div>
-      </a> -->
-
-      <!-- 4 
-      <a href="proyectos.html" class="pitem" data-cat="ux">
-        <div class="pitem__img pitem__bg--black">
-          <div class="pitem__overlay">
-            <span class="pitem__cat pitem__cat--dark">Diseño UX UI | Web</span>
-          </div>
-          <div class="pm-empty"><span>Evently</span></div>
-        </div>
-        <div class="pitem__body">
-          <h3 class="pitem__name">Evently</h3>
-        </div>
-      </a> -->
-
-     <!-- 5  
-      <a href="proyecto-duocuerda.html" class="pitem" data-cat="brand">
-        <div class="pitem__img pitem__bg--teal2">
-          <img src="assets/mockup-duocuerda.jpg" alt="WPA Identity" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        </div>
-        <div class="pitem__body">
-          <span class="pitem__cat pitem__cat--dark">Brand</span>
-          <h3 class="pitem__name">Marta &amp; Victoria | Duo Cuerda</h3>
-        </div>
-      </a> -->
-
-      <!-- 6 
-      <a href="proyecto-wpaidentity.html" class="pitem" data-cat="brand">
-        <div class="pitem__img pitem__bg--navy">
-          <img src="assets/mockup-wpaidentity.jpg" alt="WPA Identity" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        </div>
-        <div class="pitem__body">
-            <span class="pitem__cat pitem__cat--dark">Brand</span>
-          <h3 class="pitem__name">WePlan Analytics</h3>
-        </div>
-      </a> -->
-
-      <!-- 7 -->
-      <a href="proyecto-videowpa.html" class="pitem" data-cat="brand">
-        <div class="pitem__img pitem__bg--bluedark">
-          <img src="assets/mockup-videowpa.jpg" alt="WPA Web" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        </div>
-        <div class="pitem__body">
-         <span class="pitem__cat pitem__cat--dark">Graphic Design</span>
+          <span class="pitem__cat pitem__cat--dark">Graphic Design</span>
           <h3 class="pitem__name">Vídeo corporativo</h3>
         </div>
       </a>
 
-      <!-- 8 
-      <a href="proyectos.html" class="pitem" data-cat="brand">
-        <div class="pitem__img pitem__bg--cream">
-          <div class="pitem__overlay">
-            <span class="pitem__cat pitem__cat--dark">Brand &amp; Graphic Design</span>
-          </div>
-          <div class="pm-abstract">
-            <div class="pm-circle"></div>
-            <div class="pm-square"></div>
-          </div>
+      <a href="proyecto-app.html" class="pitem" data-cat="ux">
+        <div class="pitem__img pitem__bg--white">
+          <img src="assets/mockup-speedtest.jpg" alt="WPA Web" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="pitem__body">
-          <h3 class="pitem__name">Ayuntamiento de Sabiñánigo</h3>
-        </div>
-      </a> -->
-
-            <!-- 9 -->
-      <a href="proyecto-speedtest.html" class="pitem" data-cat="ux">
-        <div class="pitem__img pitem__bg--bluedark">
-          <img src="assets/mockup-speedtest.jpg" alt="WPA Web" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        </div>
-        <div class="pitem__body">
-            <span class="pitem__cat pitem__cat--dark">Diseño UX UI</span>
+          <span class="pitem__cat pitem__cat--dark">Diseño UX UI</span>
           <h3 class="pitem__name">Aplicación móvil</h3>
         </div>
       </a>
 
     </section>
 
-    <section class="cta-section container">
+    <section class="cta-section container" data-reveal>
       <p class="cta-section__label">¿Tienes un reto para mí?</p>
       <h2 class="cta-section__heading">Abierta a nuevos retos que unan diseño, estrategia e impacto.</h2>
       <a href="contacto.html" class="cta-section__connect">¿Conectamos? <span class="arrow-diag">↗</span></a>
@@ -184,17 +155,17 @@
 
   </main>
 
-  <footer class="footer">
-  <div class="footer__inner">
-    <span class="footer__logo">depropio.</span>
-    <div class="footer__contact">
-      <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
-      <span class="footer__sep">·</span>
-      <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+  <footer class="footer" data-reveal>
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <div class="footer__contact">
+        <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
+        <span class="footer__sep">·</span>
+        <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+      </div>
+      <span class="footer__copy">© 2026 Marta.</span>
     </div>
-    <span class="footer__copy">© 2026 Marta.</span>
-  </div>
-</footer>
+  </footer>
 
   <script>
     const nav = document.getElementById('nav');
@@ -202,6 +173,15 @@
     document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
 
+    /* Hero entrada */
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.getElementById('proyTitle').classList.add('hero-in');
+        document.getElementById('filters').classList.add('hero-in');
+      }, 80);
+    });
+
+    /* Filtros */
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -217,6 +197,28 @@
         });
       });
     });
+
+    /* Scroll reveal bidireccional */
+    const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
+    const positions = new Map();
+    allTargets.forEach(el => positions.set(el, el.getBoundingClientRect().top + window.scrollY));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        const elTop = positions.get(el);
+        if (entry.isIntersecting) {
+          el.classList.remove('out-up', 'out-down'); el.classList.add('in');
+        } else {
+          const scrolled = window.scrollY + window.innerHeight * 0.5;
+          if (scrolled > elTop) {
+            el.classList.remove('in', 'out-down'); el.classList.add('out-up');
+          } else {
+            el.classList.remove('in', 'out-up'); el.classList.add('out-down');
+          }
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '-40px 0px -40px 0px' });
+    allTargets.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

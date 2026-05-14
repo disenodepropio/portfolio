@@ -10,8 +10,78 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="sobre-mi.css" />
-      <!-- Umami tracking -->
+  <!-- Umami tracking -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
+
+  <style>
+    /* ── REVEAL BASE ── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+      will-change: opacity, transform;
+    }
+    [data-reveal].in  { opacity: 1; transform: translateY(0); }
+    [data-reveal].out-up   { opacity: 0; transform: translateY(-50px); }
+    [data-reveal].out-down { opacity: 0; transform: translateY(60px); }
+
+    [data-reveal="left"]  { transform: translateX(-60px); }
+    [data-reveal="left"].in { transform: translateX(0); }
+    [data-reveal="left"].out-up   { opacity: 0; transform: translateX(-40px); }
+    [data-reveal="left"].out-down { opacity: 0; transform: translateX(-60px); }
+
+    [data-reveal="right"]  { transform: translateX(60px); }
+    [data-reveal="right"].in { transform: translateX(0); }
+    [data-reveal="right"].out-up   { opacity: 0; transform: translateX(40px); }
+    [data-reveal="right"].out-down { opacity: 0; transform: translateX(60px); }
+
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+      will-change: opacity, transform;
+    }
+    [data-stagger].in > *       { opacity: 1; transform: translateY(0); }
+    [data-stagger].out-up > *   { opacity: 0; transform: translateY(-40px); }
+    [data-stagger].out-down > * { opacity: 0; transform: translateY(50px); }
+    [data-stagger] > *:nth-child(1) { transition-delay: 0s; }
+    [data-stagger] > *:nth-child(2) { transition-delay: 0.1s; }
+    [data-stagger] > *:nth-child(3) { transition-delay: 0.2s; }
+    [data-stagger] > *:nth-child(4) { transition-delay: 0.3s; }
+    [data-stagger] > *:nth-child(5) { transition-delay: 0.4s; }
+
+    /* ── HERO SOBRE MÍ ── */
+    .sm-hero__left .tag {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease 0.05s, transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.05s;
+    }
+    .sm-hero__left .tag.hero-in { opacity: 1; transform: translateY(0); }
+
+    .sm-hero__title { overflow: hidden; }
+    .sm-hero__title .line {
+      display: block;
+      opacity: 0;
+      transform: translateY(110%) skewY(3deg);
+      transition: opacity 0.01s, transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    .sm-hero__title .line:nth-child(2) { transition-delay: 0.12s; }
+    .sm-hero__title.hero-in .line { opacity: 1; transform: translateY(0) skewY(0deg); }
+
+    .sm-hero__left .btn {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease 0.5s, transform 0.7s cubic-bezier(0.16,1,0.3,1) 0.5s;
+    }
+    .sm-hero__left .btn.hero-in { opacity: 1; transform: translateY(0); }
+
+    .sm-hero__right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.9s ease 0.25s, transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s;
+    }
+    .sm-hero__right.hero-in { opacity: 1; transform: translateX(0); }
+  </style>
 </head>
 <body>
 
@@ -50,22 +120,24 @@
     <!-- HERO -->
     <section class="sm-hero container">
       <div class="sm-hero__left">
-        <span class="tag tag--dot-green tag--bordered">Disponible para nuevas oportunidades</span>
-        <h1 class="sm-hero__title">Hola. Soy Marta,<br />Product Designer.</h1>
-        <a href="contacto.html" class="btn btn--primary">Hablemos →</a>
+        <span class="tag tag--dot-green tag--bordered" id="smTag">Disponible para nuevas oportunidades</span>
+        <h1 class="sm-hero__title" id="smTitle">
+          <span class="line">Hola. Soy Marta,</span>
+          <span class="line">Product Designer.</span>
+        </h1>
+        <a href="contacto.html" class="btn btn--primary" id="smBtn">Hablemos →</a>
       </div>
-      <div class="sm-hero__right">
+      <div class="sm-hero__right" id="smPhoto">
         <img src="assets/me.png" alt="Foto de perfil" class="sm-hero__photo-img">
       </div>
     </section>
 
-    <!-- BLOQUE BLANCO UNIFICADO: Habilidades + Lo que me inspira + Explorando -->
+    <!-- BLOQUE BLANCO -->
     <div class="sm-white-block">
 
-      <!-- HERRAMIENTAS & HABILIDADES -->
-      <section class="sm-skills container">
+      <section class="sm-skills container" data-reveal>
         <h2 class="sm-section-title">Herramientas &amp; Habilidades</h2>
-        <div class="sm-skills__grid">
+        <div class="sm-skills__grid" data-stagger>
 
           <div class="sm-skill-card">
             <div class="sm-icon">
@@ -115,13 +187,11 @@
         </div>
       </section>
 
-      <!-- Divisor -->
       <div class="sm-block-divider"></div>
 
-      <!-- LO QUE ME INSPIRA -->
-      <section class="sm-inspira container">
+      <section class="sm-inspira container" data-reveal>
         <h2 class="sm-section-title">Lo que me inspira</h2>
-        <div class="sm-inspira__grid">
+        <div class="sm-inspira__grid" data-stagger>
 
           <div class="sm-inspira-card">
             <div class="sm-icon">
@@ -150,13 +220,11 @@
         </div>
       </section>
 
-      <!-- Divisor -->
       <div class="sm-block-divider"></div>
 
-      <!-- ACTUALMENTE EXPLORANDO -->
-      <section class="sm-explorando container">
+      <section class="sm-explorando container" data-reveal>
         <h2 class="sm-section-title">Actualmente explorando</h2>
-        <div class="sm-explorando__track">
+        <div class="sm-explorando__track" data-stagger>
 
           <div class="sm-exp-item sm-exp-item--active">
             <div class="sm-exp-icon sm-exp-icon--active">
@@ -186,12 +254,11 @@
       </section>
 
     </div>
-    <!-- FIN BLOQUE BLANCO -->
 
     <!-- TRAYECTORIA -->
-    <section class="sm-trayectoria container">
+    <section class="sm-trayectoria container" data-reveal>
       <h2 class="sm-tray__heading">Trayectoria</h2>
-      <div class="sm-timeline">
+      <div class="sm-timeline" data-stagger>
 
         <div class="sm-tl-item">
           <div class="sm-tl-dot sm-tl-dot--filled"></div>
@@ -236,7 +303,7 @@
       </div>
     </section>
 
-    <section class="cta-section container">
+    <section class="cta-section container" data-reveal>
       <p class="cta-section__label">¿Tienes un reto para mí?</p>
       <h2 class="cta-section__heading">Abierta a nuevos retos que unan diseño, estrategia e impacto.</h2>
       <a href="mailto:martalopez2405@gmail.com?subject=¡Conectamos!" class="cta-section__connect">¿Conectamos? <span class="arrow-diag">↗</span></a>
@@ -244,23 +311,55 @@
 
   </main>
 
-  <footer class="footer">
-  <div class="footer__inner">
-    <span class="footer__logo">depropio.</span>
-    <div class="footer__contact">
-      <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
-      <span class="footer__sep">·</span>
-      <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+  <footer class="footer" data-reveal>
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <div class="footer__contact">
+        <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
+        <span class="footer__sep">·</span>
+        <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+      </div>
+      <span class="footer__copy">© 2026 Marta.</span>
     </div>
-    <span class="footer__copy">© 2026 Marta.</span>
-  </div>
-</footer>
+  </footer>
 
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
     document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+
+    /* Hero entrada */
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.getElementById('smTag').classList.add('hero-in');
+        document.getElementById('smTitle').classList.add('hero-in');
+        document.getElementById('smBtn').classList.add('hero-in');
+        document.getElementById('smPhoto').classList.add('hero-in');
+      }, 80);
+    });
+
+    /* Scroll reveal bidireccional */
+    const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
+    const positions = new Map();
+    allTargets.forEach(el => positions.set(el, el.getBoundingClientRect().top + window.scrollY));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        const elTop = positions.get(el);
+        if (entry.isIntersecting) {
+          el.classList.remove('out-up', 'out-down'); el.classList.add('in');
+        } else {
+          const scrolled = window.scrollY + window.innerHeight * 0.5;
+          if (scrolled > elTop) {
+            el.classList.remove('in', 'out-down'); el.classList.add('out-up');
+          } else {
+            el.classList.remove('in', 'out-up'); el.classList.add('out-down');
+          }
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '-40px 0px -40px 0px' });
+    allTargets.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

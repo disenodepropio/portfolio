@@ -10,11 +10,73 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="contacto.css" />
-    <!-- Umami tracking -->
+  <!-- Umami tracking -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
+
+  <style>
+    /* ── REVEAL BASE ── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+      will-change: opacity, transform;
+    }
+    [data-reveal].in  { opacity: 1; transform: translateY(0); }
+    [data-reveal].out-up   { opacity: 0; transform: translateY(-50px); }
+    [data-reveal].out-down { opacity: 0; transform: translateY(60px); }
+
+    [data-reveal="left"]  { transform: translateX(-60px); }
+    [data-reveal="left"].in { transform: translateX(0); }
+    [data-reveal="left"].out-up   { opacity: 0; transform: translateX(-40px); }
+    [data-reveal="left"].out-down { opacity: 0; transform: translateX(-60px); }
+
+    [data-reveal="right"]  { transform: translateX(60px); }
+    [data-reveal="right"].in { transform: translateX(0); }
+    [data-reveal="right"].out-up   { opacity: 0; transform: translateX(40px); }
+    [data-reveal="right"].out-down { opacity: 0; transform: translateX(60px); }
+
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+      will-change: opacity, transform;
+    }
+    [data-stagger].in > *       { opacity: 1; transform: translateY(0); }
+    [data-stagger].out-up > *   { opacity: 0; transform: translateY(-40px); }
+    [data-stagger].out-down > * { opacity: 0; transform: translateY(50px); }
+    [data-stagger] > *:nth-child(1) { transition-delay: 0s; }
+    [data-stagger] > *:nth-child(2) { transition-delay: 0.1s; }
+    [data-stagger] > *:nth-child(3) { transition-delay: 0.2s; }
+    [data-stagger] > *:nth-child(4) { transition-delay: 0.3s; }
+
+    /* ── HERO CONTACTO ── */
+    .ct-hero__availability {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease 0.1s, transform 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s;
+    }
+    .ct-hero__availability.hero-in { opacity: 1; transform: translateY(0); }
+
+    .ct-hero__heading { overflow: hidden; }
+    .ct-hero__heading .line {
+      display: block;
+      opacity: 0;
+      transform: translateY(110%) skewY(3deg);
+      transition: opacity 0.01s, transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    .ct-hero__heading .line:nth-child(2) { transition-delay: 0.1s; }
+    .ct-hero__heading .line:nth-child(3) { transition-delay: 0.2s; }
+    .ct-hero__heading.hero-in .line { opacity: 1; transform: translateY(0) skewY(0deg); }
+
+    .ct-hero__links {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease 0.6s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.6s;
+    }
+    .ct-hero__links.hero-in { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
 <body>
-
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <div class="nav__left">
@@ -30,7 +92,6 @@
       </div>
     </div>
   </nav>
-
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu__top">
       <span class="mobile-menu__logo">depropio.</span>
@@ -44,18 +105,17 @@
       <a href="contacto.html"  class="mobile-menu__link">Hablemos  <span class="mobile-menu__arrow">↗</span></a>
     </div>
   </div>
-
   <main class="page">
     <section class="ct-hero container">
-      <div class="ct-hero__availability">
+      <div class="ct-hero__availability" id="ctAvail">
         <span class="tag tag--bordered tag--dot">Valencia · Remoto</span>
       </div>
-
-      <h1 class="ct-hero__heading">
-        Abierta a nuevos retos que unan diseño, estrategia e impacto.
+      <h1 class="ct-hero__heading" id="ctHeading">
+        <span class="line">Abierta a nuevos retos</span>
+        <span class="line">que unan diseño,</span>
+        <span class="line">estrategia e impacto.</span>
       </h1>
-
-      <div class="ct-hero__links">
+      <div class="ct-hero__links" id="ctLinks">
         <a href="mailto:martalopez2405@gmail.com?subject=¡Conectamos!" class="ct-link">
           <span>¿Conectamos?</span>
           <span class="ct-link__arrow">↗</span>
@@ -67,24 +127,54 @@
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-  <div class="footer__inner">
-    <span class="footer__logo">depropio.</span>
-    <div class="footer__contact">
-      <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
-      <span class="footer__sep">·</span>
-      <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+  <footer class="footer" data-reveal>
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <div class="footer__contact">
+        <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
+        <span class="footer__sep">·</span>
+        <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+      </div>
+      <span class="footer__copy">© 2026 Marta.</span>
     </div>
-    <span class="footer__copy">© 2026 Marta.</span>
-  </div>
-</footer>
-
+  </footer>
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
     document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+
+    /* Hero entrada */
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.getElementById('ctAvail').classList.add('hero-in');
+        document.getElementById('ctHeading').classList.add('hero-in');
+        document.getElementById('ctLinks').classList.add('hero-in');
+      }, 80);
+    });
+
+    /* Scroll reveal bidireccional */
+    const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
+    const positions = new Map();
+    allTargets.forEach(el => positions.set(el, el.getBoundingClientRect().top + window.scrollY));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        const elTop = positions.get(el);
+        if (entry.isIntersecting) {
+          el.classList.remove('out-up', 'out-down');
+          el.classList.add('in');
+        } else {
+          const scrolled = window.scrollY + window.innerHeight * 0.5;
+          if (scrolled > elTop) {
+            el.classList.remove('in', 'out-down'); el.classList.add('out-up');
+          } else {
+            el.classList.remove('in', 'out-up'); el.classList.add('out-down');
+          }
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '-40px 0px -40px 0px' });
+    allTargets.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
