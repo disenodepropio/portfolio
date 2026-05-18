@@ -10,7 +10,6 @@
   margin-bottom: 40px;
 }
 
-/* Meta row: tags | description — side by side on desktop */
 .hero__meta-row {
   display: flex;
   align-items: flex-start;
