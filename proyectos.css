@@ -93,6 +93,10 @@
 @media (max-width: 768px) {
   .proy-grid { grid-template-columns: 1fr; gap: 24px; }
   .proy-header__title { letter-spacing: -2px; }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 @media (max-width: 480px) {
   .proy-header { padding: 36px 0 28px; }

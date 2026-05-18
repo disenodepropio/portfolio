@@ -38,4 +38,8 @@
   .ct-hero { padding: 48px 0 60px; }
   .ct-hero__heading { letter-spacing: -1.5px; margin-bottom: 40px; }
   .ct-link { letter-spacing: -1px; }
+    .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

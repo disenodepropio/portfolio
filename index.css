@@ -142,6 +142,16 @@
 
   .rp-grid { grid-template-columns: 1fr; }
   .rp-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  .recent-projects {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .cta-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 @media (max-width: 480px) {
