@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duo Cuerda — depropio.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../proyecto.css" />
+  <!-- Umami tracking -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
+  <style>
+
+    /* ===== CONTEXT ===== */
+    .pj-contexto { padding: 0 0 80px; }
+    .pj-contexto__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .pj-contexto__desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+    .pj-contexto__quote { border-left: 2px solid var(--accent); padding-left: 20px; margin-top: 28px; }
+    .pj-contexto__quote p { font-size: 15px; font-weight: 600; line-height: 1.6; letter-spacing: -0.2px; }
+    .pj-contexto__retos { display: flex; flex-direction: column; gap: 2px; }
+    .pj-reto { background: var(--bg-dark); padding: 22px 28px; display: flex; align-items: center; gap: 20px; color: #fff; }
+    .pj-reto:first-child { border-radius: var(--radius-md) var(--radius-md) 0 0; }
+    .pj-reto:last-child  { border-radius: 0 0 var(--radius-md) var(--radius-md); }
+    .pj-reto__num { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--accent); flex-shrink: 0; }
+    .pj-reto__text { font-size: 14px; font-weight: 600; letter-spacing: -0.2px; color: #fff; }
+
+    /* ===== IDENTITY ===== */
+    .pj-identidad { padding: 0 0 80px; }
+    .pj-identidad__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .pj-identidad__visual { border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4/3; background: #f7f4f0; display: flex; align-items: center; justify-content: center; }
+    .pj-identidad__visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pj-identidad__desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+
+    /* ===== VISUAL SYSTEM FULL-WIDTH ===== */
+    .pj-sistema { background: var(--bg-dark); border-radius: var(--radius-lg); margin: 0 48px 80px; padding: 80px 64px; color: #fff; }
+    .pj-sistema__header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 56px; align-items: start; }
+    .pj-sistema__desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-top: 12px; }
+    .pj-sistema__pilares { display: flex; flex-direction: column; gap: 14px; }
+    .pj-sistema__pilar { display: flex; align-items: flex-start; gap: 16px; }
+    .pj-sistema__pilar-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 5px; }
+    .pj-sistema__pilar-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .pj-sistema__pilar-text strong { color: #fff; font-weight: 700; }
+    .pj-sistema__img { border-radius: var(--radius-md); overflow: hidden; width: 100%; aspect-ratio: 16/7; }
+    .pj-sistema__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ===== INSTAGRAM ===== */
+    .pj-instagram { padding: 0 0 80px; }
+    .pj-instagram__visual { border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4/3; background: linear-gradient(145deg, #1a1a2e, #2d1b4e); display: flex; align-items: center; justify-content: center; }
+    .pj-instagram__visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pj-instagram__desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .pj-sistema { margin-left: 32px; margin-right: 32px; padding: 60px 40px; }
+    }
+    @media (max-width: 768px) {
+      .pj-contexto__grid  { grid-template-columns: 1fr; gap: 36px; }
+      .pj-identidad__grid { grid-template-columns: 1fr; gap: 36px; }
+      .pj-sistema { margin-left: 20px; margin-right: 20px; padding: 48px 24px; border-radius: var(--radius-md); }
+      .pj-sistema__header { grid-template-columns: 1fr; gap: 28px; margin-bottom: 40px; }
+      .pj-sistema__img { aspect-ratio: 4/3; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <div class="nav__left">
+        <a href="projects.html" class="nav__link active">Projects</a>
+        <a href="about.html" class="nav__link">About</a>
+      </div>
+      <a href="index.html" class="nav__logo">depropio.</a>
+      <div class="nav__right">
+        <a href="contact.html" class="btn btn--primary">Let's talk</a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__top">
+      <span class="mobile-menu__logo">depropio.</span>
+      <button class="mobile-menu__close" id="closeMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu__links">
+      <a href="projects.html" class="mobile-menu__link">Projects   <span class="mobile-menu__arrow">↗</span></a>
+      <a href="about.html"    class="mobile-menu__link">About      <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contact.html"  class="mobile-menu__link">Let's talk <span class="mobile-menu__arrow">↗</span></a>
+    </div>
+  </div>
+
+  <main class="page">
+
+    <!-- HEADER -->
+    <section class="pj-header container">
+      <p class="section-label">Branding</p>
+      <h1 class="pj-header__title">Marta &amp; Victoria</h1>
+      <p class="pj-header__desc">
+        Visual identity for a string duo: logotype, visual system and Instagram presence designed from scratch for a violin and cello duo.
+      </p>
+    </section>
+
+    <!-- HERO MOCKUP -->
+    <div class="pj-hero-img container">
+      <img src="../assets/mockup-duocuerda.jpg" alt="Marta y Victoria Dúo Cuerda visual identity" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;" />
+    </div>
+
+    <!-- OBJECTIVE -->
+    <section class="pj-objetivo container">
+      <div class="pj-objetivo__grid">
+        <div>
+          <h2 class="pj-section-title">Project objective</h2>
+          <ul class="pj-objetivo__list">
+            <li><span class="pj-check">○</span>Create an identity that conveyed elegance without feeling distant or overly formal.</li>
+            <li><span class="pj-check">○</span>Build a recognisable brand to position themselves in the events market.</li>
+            <li><span class="pj-check">○</span>Define a coherent visual system applicable across all digital touchpoints.</li>
+            <li><span class="pj-check">○</span>Launch an Instagram presence aligned with the identity from day one.</li>
+          </ul>
+        </div>
+        <div class="pj-meta">
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Type</span>
+            <span class="pj-meta__val">Personal project</span>
+          </div>
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Disciplines</span>
+            <span class="pj-meta__val">Branding · Social</span>
+          </div>
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Sector</span>
+            <span class="pj-meta__val">Music · Events</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEXT -->
+    <section class="pj-contexto container">
+      <div class="pj-contexto__grid">
+        <div>
+          <h2 class="pj-section-title">The starting point</h2>
+          <p class="pj-contexto__desc">Marta and Victoria have been playing together for years: violin and cello, two instruments that complement each other naturally. The challenge was to turn that musical connection into a brand that could open doors in the events world — weddings, celebrations, corporate acts.</p>
+          <p class="pj-contexto__desc">We started from scratch: no established name, no image, no digital presence. The project covered everything from defining the brand concept to launching their Instagram profile.</p>
+          <div class="pj-contexto__quote">
+            <p>An identity that sounded as good as their music: elegant, approachable and with a personality of its own.</p>
+          </div>
+        </div>
+        <div class="pj-contexto__retos">
+          <div class="pj-reto">
+            <span class="pj-reto__num">01</span>
+            <span class="pj-reto__text">Logotype and visual identity</span>
+          </div>
+          <div class="pj-reto">
+            <span class="pj-reto__num">02</span>
+            <span class="pj-reto__text">Colour palette and typography</span>
+          </div>
+          <div class="pj-reto">
+            <span class="pj-reto__num">03</span>
+            <span class="pj-reto__text">Applicable graphic system</span>
+          </div>
+          <div class="pj-reto">
+            <span class="pj-reto__num">04</span>
+            <span class="pj-reto__text">Instagram presence and content</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDENTITY & LOGOTYPE -->
+    <section class="pj-identidad container">
+      <div class="pj-identidad__grid">
+        <div>
+          <h2 class="pj-section-title">Logotype and identity</h2>
+          <p class="pj-identidad__desc">The logotype stems from the concept of duality: two instruments, two personalities, one voice. The typographic composition combines a letterform with classical character and a clean, contemporary structure — striking the balance between musical tradition and modernity.</p>
+          <p class="pj-identidad__desc">The palette draws on warm, refined tones that evoke the wood of string instruments, without falling into classical-music clichés. The result is an identity that feels genuine and approachable.</p>
+          <ul class="pj-block__list">
+            <li>Primary logotype and secondary versions.</li>
+            <li>Colour palette based on warm and neutral tones.</li>
+            <li>Typographic system with clear hierarchy.</li>
+            <li>Usage guide for digital applications.</li>
+          </ul>
+        </div>
+        <div class="pj-identidad__visual">
+          <img src="../assets/logo-duocuerda.jpg" alt="Marta y Victoria Dúo Cuerda logotype" />
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL SYSTEM FULL-WIDTH -->
+    <section class="pj-sistema">
+      <div class="pj-sistema__header">
+        <div>
+          <p class="section-label" style="margin-bottom:12px;">Visual system</p>
+          <h2 class="pj-section-title" style="margin-bottom:0;">A coherent brand across every touchpoint.</h2>
+          <p class="pj-sistema__desc">Beyond the logo, the visual system defines how the brand behaves in any context: which typefaces to use, how to combine colours, the tone of imagery and how compositions are structured.</p>
+        </div>
+        <div class="pj-sistema__pilares">
+          <div class="pj-sistema__pilar">
+            <div class="pj-sistema__pilar-dot"></div>
+            <p class="pj-sistema__pilar-text"><strong>Colour.</strong> Warm tones that evoke warmth and distinction without feeling heavy.</p>
+          </div>
+          <div class="pj-sistema__pilar">
+            <div class="pj-sistema__pilar-dot"></div>
+            <p class="pj-sistema__pilar-text"><strong>Typography.</strong> A typeface with classical personality paired with a clean sans-serif for supporting text.</p>
+          </div>
+          <div class="pj-sistema__pilar">
+            <div class="pj-sistema__pilar-dot"></div>
+            <p class="pj-sistema__pilar-text"><strong>Visual style.</strong> Warm-toned photography and compositions with air and breathing room.</p>
+          </div>
+          <div class="pj-sistema__pilar">
+            <div class="pj-sistema__pilar-dot"></div>
+            <p class="pj-sistema__pilar-text"><strong>Tone of voice.</strong> Approachable and elegant: real music for moments that matter.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pj-sistema__img">
+        <img src="../assets/sistema-duocuerda.jpg" alt="Marta y Victoria Dúo Cuerda visual system" />
+      </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section class="pj-instagram container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+        <div class="pj-instagram__visual" style="order:-1;">
+          <img src="../assets/instagram-duocuerda.jpg" alt="Marta y Victoria Dúo Cuerda Instagram" />
+        </div>
+        <div>
+          <h2 class="pj-section-title">Instagram presence</h2>
+          <p class="pj-instagram__desc">With the identity in place, the next step was building their digital presence from the very first post. I designed the content strategy and visual templates so the feed would work as a cohesive whole: every post reinforces the brand and communicates who they are <a href="https://www.instagram.com/myv_duocuerda/" class="pj-inline-link">View Instagram ↗</a>.</p>
+          <p class="pj-instagram__desc">The goal wasn't just a beautiful profile — it was ensuring that anyone visiting would understand in seconds what the duo offers, what kind of events they cover, and why they should book them.</p>
+          <ul class="pj-block__list">
+            <li>Reusable, consistent post templates.</li>
+            <li>Bio, highlights and initial content strategy.</li>
+            <li>Defined photographic and editing style.</li>
+            <li>First publications designed and ready to post.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="pj-next container">
+      <p class="section-label" style="text-align:center;">Next project</p>
+      <a href="project-video.html" class="pj-next__link">
+        <h2 class="pj-next__title">Video project</h2>
+        <span class="pj-next__arrow">→</span>
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <div class="footer__contact">
+        <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
+        <span class="footer__sep">·</span>
+        <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+      </div>
+      <div class="lang-switch">
+        <a href="../proyecto-duocuerda.html" class="lang-switch__inactive">ES</a>
+        <span class="lang-switch__sep">/</span>
+        <span class="lang-switch__active">EN</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  </script>
+</body>
+</html>

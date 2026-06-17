@@ -141,6 +141,13 @@ h1, h2, h3, h4 { line-height: 1.1; }
 .footer__sep { font-size: 18px; color: var(--text-muted); }
 .footer__copy { font-size: 12px; color: var(--text-muted); }
 
+/* ── Lang switch ── */
+.lang-switch { display: flex; align-items: center; gap: 6px; }
+.lang-switch__active { font-size: 0.85rem; font-weight: 600; color: #375AF6; }
+.lang-switch__sep { font-size: 0.85rem; color: var(--text-muted); }
+.lang-switch__inactive { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s ease; }
+.lang-switch__inactive:hover { color: #375AF6; }
+
 /* ===== PAGE ===== */
 .page { padding-top: var(--nav-h); }
 

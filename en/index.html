@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>depropio.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../index.css" />
+  <!-- Umami tracking -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:title" content="depropio. — UX UI Design" />
+  <meta property="og:description" content="I design digital experiences that connect users, product and brands." />
+  <meta property="og:image" content="https://disenodepropio.github.io/portfolio/assets/og-preview.jpg" />
+  <meta property="og:url" content="https://disenodepropio.github.io/portfolio/en/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="depropio. — UX UI Design" />
+  <meta name="twitter:description" content="I design digital experiences that connect users, product and brands." />
+  <meta name="twitter:image" content="https://disenodepropio.github.io/portfolio/assets/og-preview.jpg" />
+
+  <style>
+    /* ─────────────────────────────────────────────
+       REVEAL BASE — bidireccional
+    ───────────────────────────────────────────── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(60px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    [data-reveal].in  { opacity: 1; transform: translateY(0); }
+    [data-reveal].out-up   { opacity: 0; transform: translateY(-50px); }
+    [data-reveal].out-down { opacity: 0; transform: translateY(60px); }
+
+    [data-reveal="left"]          { transform: translateX(-60px); }
+    [data-reveal="left"].in       { transform: translateX(0); }
+    [data-reveal="left"].out-up   { transform: translateX(-40px); opacity: 0; }
+    [data-reveal="left"].out-down { transform: translateX(-60px); opacity: 0; }
+
+    [data-reveal="right"]          { transform: translateX(60px); }
+    [data-reveal="right"].in       { transform: translateX(0); }
+    [data-reveal="right"].out-up   { transform: translateX(40px); opacity: 0; }
+    [data-reveal="right"].out-down { transform: translateX(60px); opacity: 0; }
+
+    [data-reveal="scale"]          { opacity: 0; transform: scale(0.92) translateY(40px); }
+    [data-reveal="scale"].in       { opacity: 1; transform: scale(1) translateY(0); }
+    [data-reveal="scale"].out-up   { opacity: 0; transform: scale(0.96) translateY(-30px); }
+    [data-reveal="scale"].out-down { opacity: 0; transform: scale(0.92) translateY(40px); }
+
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(50px);
+      transition:
+        opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    [data-stagger].in > *       { opacity: 1; transform: translateY(0); }
+    [data-stagger].out-up > *   { opacity: 0; transform: translateY(-40px); }
+    [data-stagger].out-down > * { opacity: 0; transform: translateY(50px); }
+
+    [data-stagger] > *:nth-child(1) { transition-delay: 0s; }
+    [data-stagger] > *:nth-child(2) { transition-delay: 0.1s; }
+    [data-stagger] > *:nth-child(3) { transition-delay: 0.2s; }
+    [data-stagger] > *:nth-child(4) { transition-delay: 0.3s; }
+    [data-stagger] > *:nth-child(5) { transition-delay: 0.4s; }
+    [data-stagger] > *:nth-child(6) { transition-delay: 0.5s; }
+
+    /* ─── Hero ─── */
+    .proj-card { transition: transform 0.3s ease; }
+    .proj-card:hover { transform: translateY(-6px); }
+    .proj-card__img--dark { background: none !important; }
+    .proj-card__img--teal { background: none !important; }
+
+    .hero__heading { overflow: hidden; }
+    .hero__heading .line {
+      display: block;
+      opacity: 0;
+      transform: translateY(110%) skewY(4deg);
+      transition: opacity 0.01s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero__heading .line:nth-child(2) { transition-delay: 0.12s; }
+    .hero__heading.hero-in .line { opacity: 1; transform: translateY(0) skewY(0deg); }
+
+    .hero__meta-row {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease 0.55s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.55s;
+    }
+    .hero__meta-row.hero-in { opacity: 1; transform: translateY(0); }
+
+    .hero__scroll { opacity: 0; transition: opacity 0.6s ease 1s; }
+    .hero__scroll.hero-in { opacity: 1; }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <div class="nav__left">
+        <a href="projects.html" class="nav__link">Projects</a>
+        <a href="about.html" class="nav__link">About</a>
+      </div>
+      <a href="index.html" class="nav__logo">depropio.</a>
+      <div class="nav__right">
+        <a href="contact.html" class="btn btn--primary">Let's talk</a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__top">
+      <span class="mobile-menu__logo">depropio.</span>
+      <button class="mobile-menu__close" id="closeMenu" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu__links">
+      <a href="projects.html" class="mobile-menu__link">Projects   <span class="mobile-menu__arrow">↗</span></a>
+      <a href="about.html"    class="mobile-menu__link">About      <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contact.html"  class="mobile-menu__link">Let's talk <span class="mobile-menu__arrow">↗</span></a>
+    </div>
+  </div>
+
+  <main class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__heading" id="heroHeading">
+          <span class="line">Design that connects</span>
+          <span class="line">users and business.</span>
+        </h1>
+
+        <div class="hero__meta-row" id="heroMeta">
+          <p class="hero__sub">
+            UX UI Product Designer focused on turning user insights into product decisions that drive business — from concept to validated production.
+          </p>
+          <div class="hero__tags">
+            <span class="tag tag--dot-green tag--bordered">Open to new opportunities</span>
+            <span class="tag tag--bordered">Valencia · Remote</span>
+          </div>
+        </div>
+
+        <div class="hero__scroll" id="heroScroll">
+          <span>SCROLL</span>
+          <div class="hero__scroll-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrapper" data-reveal>
+      <div class="marquee-track">
+        <span>UX UI Design</span>
+        <span>Design Systems</span>
+        <span>SaaS Product</span>
+        <span>Prototyping</span>
+        <span>Handoff</span>
+        <span>Frontend</span>
+        <span>Interaction Design</span>
+        <span>Graphic Design</span>
+        <span>Branding</span>
+        <span>Motion Graphics</span>
+        <span>UX UI Design</span>
+        <span>Design Systems</span>
+        <span>SaaS Product</span>
+        <span>Prototyping</span>
+        <span>Handoff</span>
+        <span>Frontend</span>
+        <span>Interaction Design</span>
+        <span>Graphic Design</span>
+        <span>Branding</span>
+        <span>Motion Graphics</span>
+      </div>
+    </div>
+
+    <!-- RECENT PROJECTS -->
+    <section class="recent-projects container">
+
+      <div class="rp-header" data-reveal>
+        <div>
+          <p class="section-label">Selection of recent work</p>
+          <h2 class="rp-title">Latest projects</h2>
+        </div>
+        <a href="projects.html" class="rp-all">See all →</a>
+      </div>
+
+      <div class="rp-grid" data-stagger>
+
+        <a href="project-web-app.html" class="proj-card">
+          <div class="proj-card__img proj-card__img--dark">
+            <div class="proj-card__overlay"></div>
+            <img src="../assets/mockup-netanalyzer.jpg" alt="Web app" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          </div>
+          <div class="proj-card__body">
+            <span class="proj-card__cat">UX UI Design</span>
+            <h3 class="proj-card__name">Mobile App &amp; Web</h3>
+          </div>
+        </a>
+
+        <a href="project-web.html" class="proj-card">
+          <div class="proj-card__img proj-card__img--teal">
+            <img src="../assets/mockup-wpaweb.jpg" alt="WPA Web" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          </div>
+          <div class="proj-card__body">
+            <span class="proj-card__cat">UX UI Design</span>
+            <h3 class="proj-card__name">Website</h3>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SNIPPET -->
+    <section class="about-snippet">
+      <div class="container">
+        <div class="about-snippet__inner">
+
+          <div class="about-snippet__left" data-reveal="left">
+            <h2 class="about-snippet__title">Design "de propio".</h2>
+            <a href="about.html" class="about-snippet__link">About me →</a>
+          </div>
+
+          <div class="about-snippet__right" data-reveal="right">
+            <p class="about-snippet__text">Where I come from, we say something is done "de propio" when it's done with purpose, with care, and with real thought behind it. That's how I approach design: every decision has a reason.</p>
+            <p class="about-snippet__text">Product Designer with a background in Industrial Design Engineering and a Master's in Communication. 3+ years working end-to-end in a SaaS environment where design and business always go hand in hand.</p>
+            <div class="about-snippet__skills" data-stagger>
+              <div class="as-col"><span class="as-label">UX/UI &amp; Product</span><p>User flows · Wireframing · Prototyping · Interaction design · Design Systems · Usability testing</p></div>
+              <div class="as-col"><span class="as-label">Tools</span><p>Figma · Adobe Suite (Illustrator, InDesign, Photoshop, After Effects) · Affinity · Jitter · ShapeShifter</p></div>
+              <div class="as-col"><span class="as-label">Data &amp; Business</span><p>HubSpot · Looker Studio · Mailchimp · SendGrid · LinkedIn Ads</p></div>
+              <div class="as-col"><span class="as-label">Basic Frontend</span><p>HTML · CSS · JavaScript — to collaborate better with dev and propose feasible solutions.</p></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section container" data-reveal="scale">
+      <p class="cta-section__label">Got a challenge for me?</p>
+      <h2 class="cta-section__heading">Open to new challenges that bring together design, strategy and impact.</h2>
+      <a href="mailto:martalopez2405@gmail.com?subject=Let's connect!" class="cta-section__connect">
+        Let's connect? <span class="arrow-diag">↗</span>
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="footer" data-reveal>
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <div class="footer__contact">
+        <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
+        <span class="footer__sep">·</span>
+        <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+      </div>
+      <div class="lang-switch">
+        <a href="../index.html" class="lang-switch__inactive">ES</a>
+        <span class="lang-switch__sep">/</span>
+        <span class="lang-switch__active">EN</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Nav scroll ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+    /* ── Mobile menu ── */
+    document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+
+    /* ── Hero: animación inicial ── */
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.getElementById('heroHeading').classList.add('hero-in');
+        document.getElementById('heroMeta').classList.add('hero-in');
+        document.getElementById('heroScroll').classList.add('hero-in');
+      }, 80);
+    });
+
+    /* ── Scroll reveal bidireccional ── */
+    const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
+    const positions = new Map();
+    allTargets.forEach(el => positions.set(el, el.getBoundingClientRect().top + window.scrollY));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        const elTop = positions.get(el);
+        if (entry.isIntersecting) {
+          el.classList.remove('out-up', 'out-down');
+          el.classList.add('in');
+        } else {
+          const scrolled = window.scrollY + window.innerHeight * 0.5;
+          if (scrolled > elTop) {
+            el.classList.remove('in', 'out-down');
+            el.classList.add('out-up');
+          } else {
+            el.classList.remove('in', 'out-up');
+            el.classList.add('out-down');
+          }
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '-40px 0px -40px 0px' });
+
+    allTargets.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

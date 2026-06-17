@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporate Video — depropio.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../proyecto.css" />
+  <!-- Umami tracking -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
+  <style>
+
+    /* ===== CONTEXT + CHALLENGE ===== */
+    .pj-contexto { padding: 0 0 80px; }
+    .pj-contexto__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .pj-contexto__desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+    .pj-contexto__callout { background: var(--bg-dark); border-radius: var(--radius-md); padding: 28px 32px; border-left: 2px solid var(--accent); color: #fff; }
+    .pj-contexto__callout p { font-size: 15px; font-weight: 600; line-height: 1.6; letter-spacing: -0.2px; color: rgba(255,255,255,0.85); }
+    .pj-contexto__callout span { display: block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .pj-contexto__preguntas { display: flex; flex-direction: column; gap: 2px; }
+    .pj-pregunta { background: var(--bg-dark); border-radius: 0; padding: 22px 28px; display: flex; align-items: center; gap: 20px; color: #fff; }
+    .pj-pregunta:first-child { border-radius: var(--radius-md) var(--radius-md) 0 0; }
+    .pj-pregunta:last-child  { border-radius: 0 0 var(--radius-md) var(--radius-md); }
+    .pj-pregunta__num { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--accent); flex-shrink: 0; }
+    .pj-pregunta__text { font-size: 14px; font-weight: 600; letter-spacing: -0.2px; color: #fff; }
+
+    /* ===== PROCESS 4 STEPS ===== */
+    .pj-proceso { padding: 0 0 80px; }
+    .pj-proceso__intro { max-width: 620px; margin-bottom: 48px; }
+    .pj-proceso__intro p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-top: 12px; }
+    .pj-proceso__steps { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .pj-step { background: var(--bg-dark); padding: 40px 36px; display: flex; flex-direction: column; gap: 14px; color: #fff; }
+    .pj-step:nth-child(1) { border-radius: var(--radius-md) 0 0 0; }
+    .pj-step:nth-child(2) { border-radius: 0 var(--radius-md) 0 0; }
+    .pj-step:nth-child(3) { border-radius: 0 0 0 var(--radius-md); }
+    .pj-step:nth-child(4) { border-radius: 0 0 var(--radius-md) 0; }
+    .pj-step__num { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; }
+    .pj-step__title { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; color: #fff; }
+    .pj-step__body { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+    .pj-step__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 20px; }
+    .pj-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 3px 10px; }
+
+    /* ===== VISUAL DIRECTION ===== */
+    .pj-direccion { padding: 0 0 80px; }
+    .pj-direccion__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .pj-direccion__visual { border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4/3; background: #111; display: flex; align-items: center; justify-content: center; }
+    .pj-direccion__visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pj-direccion__desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+
+    /* ===== RESULT FULL-WIDTH ===== */
+    .pj-resultado { background: var(--bg-dark); border-radius: var(--radius-lg); margin: 0 48px 80px; padding: 80px 64px; color: #fff; }
+    .pj-resultado__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .pj-resultado__tag { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block; }
+    .pj-resultado__title { font-size: clamp(26px, 3vw, 40px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.15; margin-bottom: 24px; color: #fff; }
+    .pj-resultado__desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 32px; }
+    .pj-resultado__link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.5px; transition: gap 0.2s; }
+    .pj-resultado__link:hover { gap: 14px; }
+    .pj-resultado__img { border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 16/9; position: relative; }
+    .pj-resultado__img iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block; }
+    .pj-resultado__stats { display: flex; gap: 48px; margin-top: 36px; padding-top: 36px; border-top: 1px solid #2a2a2a; }
+    .pj-resultado__stat { display: flex; flex-direction: column; gap: 4px; }
+    .pj-resultado__stat-num { font-size: 28px; font-weight: 700; letter-spacing: -1px; line-height: 1; }
+    .pj-resultado__stat-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .pj-resultado { margin-left: 32px; margin-right: 32px; padding: 60px 40px; }
+    }
+    @media (max-width: 768px) {
+      .pj-contexto__grid  { grid-template-columns: 1fr; gap: 36px; }
+      .pj-proceso__steps  { grid-template-columns: 1fr; gap: 2px; }
+      .pj-direccion__grid { grid-template-columns: 1fr; gap: 36px; }
+      .pj-step:nth-child(1) { border-radius: var(--radius-md) var(--radius-md) 0 0; }
+      .pj-step:nth-child(2) { border-radius: 0; }
+      .pj-step:nth-child(3) { border-radius: 0; }
+      .pj-step:nth-child(4) { border-radius: 0 0 var(--radius-md) var(--radius-md); }
+      .pj-resultado { margin-left: 20px; margin-right: 20px; padding: 48px 24px; border-radius: var(--radius-md); }
+      .pj-resultado__inner { grid-template-columns: 1fr; gap: 40px; }
+      .pj-resultado__stats { gap: 32px; }
+      .pj-contexto,
+      .pj-proceso,
+      .pj-direccion,
+      .pj-objetivo,
+      .pj-next { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <div class="nav__left">
+        <a href="projects.html" class="nav__link active">Projects</a>
+        <a href="about.html" class="nav__link">About</a>
+      </div>
+      <a href="index.html" class="nav__logo">depropio.</a>
+      <div class="nav__right">
+        <a href="contact.html" class="btn btn--primary">Let's talk</a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__top">
+      <span class="mobile-menu__logo">depropio.</span>
+      <button class="mobile-menu__close" id="closeMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu__links">
+      <a href="projects.html" class="mobile-menu__link">Projects   <span class="mobile-menu__arrow">↗</span></a>
+      <a href="about.html"    class="mobile-menu__link">About      <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contact.html"  class="mobile-menu__link">Let's talk <span class="mobile-menu__arrow">↗</span></a>
+    </div>
+  </div>
+
+  <main class="page">
+
+    <!-- HEADER -->
+    <section class="pj-header container">
+      <p class="section-label">Graphic Design · Video</p>
+      <h1 class="pj-header__title">Corporate video</h1>
+      <p class="pj-header__desc">
+        3 days, Mobile World Congress deadline: a corporate video that's clear, direct and visually impactful.
+      </p>
+    </section>
+
+    <!-- HERO MOCKUP -->
+    <div class="pj-hero-img container">
+      <img src="../assets/mockup-videowpa.jpg" alt="Corporate video" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;" />
+    </div>
+
+    <!-- OBJECTIVE -->
+    <section class="pj-objetivo container">
+      <div class="pj-objetivo__grid">
+        <div>
+          <h2 class="pj-section-title">Project objective</h2>
+          <ul class="pj-objetivo__list">
+            <li><span class="pj-check">○</span>Communicate who the company is and its unique value in under 3 minutes.</li>
+            <li><span class="pj-check">○</span>Convey solidity, technology and innovation in a high-profile context.</li>
+            <li><span class="pj-check">○</span>Maintain full consistency with the brand's visual identity.</li>
+            <li><span class="pj-check">○</span>Deliver the video ready to present at the event.</li>
+          </ul>
+        </div>
+        <div class="pj-meta">
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Year</span>
+            <span class="pj-meta__val">2024</span>
+          </div>
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Duration</span>
+            <span class="pj-meta__val">3 days</span>
+          </div>
+          <div class="pj-meta__item">
+            <span class="pj-meta__label">Role</span>
+            <span class="pj-meta__val">Design / Video editing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEXT & CHALLENGE -->
+    <section class="pj-contexto container">
+      <div class="pj-contexto__grid">
+        <div>
+          <h2 class="pj-section-title">The challenge: everything in 3 days</h2>
+          <p class="pj-contexto__desc">We needed a video that explained in a few minutes who we are, what we do and why our technology makes the difference.</p>
+          <p class="pj-contexto__desc">The deadline was tight, the context demanding and the margin for error minimal. The first step was defining precisely what the viewer should take away: what to say, in what order and in what tone.</p>
+          <div class="pj-contexto__callout">
+            <span>The video message</span>
+            <p>Three questions, one clear answer: who we are, what we do and why choose this company over the rest.</p>
+          </div>
+        </div>
+        <div class="pj-contexto__preguntas">
+          <div class="pj-pregunta">
+            <span class="pj-pregunta__num">Q1</span>
+            <span class="pj-pregunta__text">Who are we?</span>
+          </div>
+          <div class="pj-pregunta">
+            <span class="pj-pregunta__num">Q2</span>
+            <span class="pj-pregunta__text">What do we do?</span>
+          </div>
+          <div class="pj-pregunta">
+            <span class="pj-pregunta__num">Q3</span>
+            <span class="pj-pregunta__text">How do we do it?</span>
+          </div>
+          <div class="pj-pregunta">
+            <span class="pj-pregunta__num">Q4</span>
+            <span class="pj-pregunta__text">What sets us apart?</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS 4 STEPS -->
+    <section class="pj-proceso container">
+      <div class="pj-proceso__intro">
+        <h2 class="pj-section-title">The production process</h2>
+      </div>
+      <div class="pj-proceso__steps">
+
+        <div class="pj-step">
+          <span class="pj-step__num">01 — Strategy</span>
+          <span class="pj-step__title">Defining the key message</span>
+          <p class="pj-step__body">Working from the inside let us cut straight to the point: we knew the differentiators, the clients and the brand's tone. The work was to structure all that information and turn it into a clear, ordered narrative focused on impact.</p>
+          <div class="pj-step__tags">
+            <span class="pj-tag">Content strategy</span>
+            <span class="pj-tag">Messaging</span>
+          </div>
+        </div>
+
+        <div class="pj-step">
+          <span class="pj-step__num">02 — Writing</span>
+          <span class="pj-step__title">Script and visual narrative</span>
+          <p class="pj-step__body">I wrote the corporate script prioritising synthesis. Every sentence has a purpose: to inform, build credibility or reinforce differentiation. The rhythm of the text already anticipated the video's editing.</p>
+          <div class="pj-step__tags">
+            <span class="pj-tag">Copywriting</span>
+            <span class="pj-tag">Script</span>
+            <span class="pj-tag">Narrative</span>
+          </div>
+        </div>
+
+        <div class="pj-step">
+          <span class="pj-step__num">03 — Design</span>
+          <span class="pj-step__title">Visual direction</span>
+          <p class="pj-step__body">I defined the video's aesthetic from the corporate identity we already had: the palette, typography and graphic system of the company. The visual rhythm supports the narrative without overloading it, leaving room for the message to breathe.</p>
+          <div class="pj-step__tags">
+            <span class="pj-tag">Art direction</span>
+            <span class="pj-tag">Branding</span>
+          </div>
+        </div>
+
+        <div class="pj-step">
+          <span class="pj-step__num">04 — Production</span>
+          <span class="pj-step__title">Editing, animation and assembly</span>
+          <p class="pj-step__body">With the script and aesthetic defined, the production phase was efficient and frictionless. Editing, animation and final assembly ensuring full brand consistency and a narrative flow that holds attention from start to finish.</p>
+          <div class="pj-step__tags">
+            <span class="pj-tag">Video editing</span>
+            <span class="pj-tag">Animation</span>
+            <span class="pj-tag">Post-production</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VISUAL DIRECTION -->
+    <section class="pj-direccion container">
+      <div class="pj-direccion__grid">
+        <div>
+          <h2 class="pj-section-title">Brand visual consistency</h2>
+          <p class="pj-direccion__desc">The video is part of the same visual ecosystem as all other company materials.</p>
+          <p class="pj-direccion__desc">That consistency isn't just aesthetic — it reinforces brand recognition.</p>
+          <ul class="pj-block__list">
+            <li>Palette and typography 100% aligned with the brand.</li>
+            <li>Transitions and visual rhythm calibrated to the script.</li>
+          </ul>
+        </div>
+        <div class="pj-direccion__visual">
+          <img src="../assets/frames-videowpa.jpg" alt="Corporate video frames" />
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULT FULL-WIDTH -->
+    <section class="pj-resultado">
+      <div class="pj-resultado__inner">
+        <div>
+          <span class="pj-resultado__tag">The result</span>
+          <h2 class="pj-resultado__title">Presented at Mobile World Congress.</h2>
+          <p class="pj-resultado__desc">A concise, clear and visually solid corporate video that summarises the value proposition in just a few minutes.</p>
+          <a href="https://youtu.be/AoOk_KzZrlE" class="pj-resultado__link" target="_blank">
+            Watch the full video →
+          </a>
+          <div class="pj-resultado__stats">
+            <div class="pj-resultado__stat">
+              <span class="pj-resultado__stat-num">3</span>
+              <span class="pj-resultado__stat-label">Production days</span>
+            </div>
+            <div class="pj-resultado__stat">
+              <span class="pj-resultado__stat-num">MWC</span>
+              <span class="pj-resultado__stat-label">Presentation event</span>
+            </div>
+          </div>
+        </div>
+        <div class="pj-resultado__img">
+          <iframe
+            src="https://www.youtube.com/embed/AoOk_KzZrlE"
+            title="Corporate video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="pj-next container">
+      <p class="section-label" style="text-align:center;">Next project</p>
+      <a href="project-app.html" class="pj-next__link">
+        <h2 class="pj-next__title">Mobile App project</h2>
+        <span class="pj-next__arrow">→</span>
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">depropio.</span>
+      <div class="footer__contact">
+        <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
+        <span class="footer__sep">·</span>
+        <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
+      </div>
+      <div class="lang-switch">
+        <a href="../proyecto-video.html" class="lang-switch__inactive">ES</a>
+        <span class="lang-switch__sep">/</span>
+        <span class="lang-switch__active">EN</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  </script>
+</body>
+</html>

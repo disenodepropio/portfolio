@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto — depropio.</title>
+  <title>Contact — depropio.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="contacto.css" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../contacto.css" />
   <!-- Umami tracking -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
-
+ 
   <style>
     /* ── REVEAL BASE ── */
     [data-reveal] {
@@ -24,17 +24,17 @@
     [data-reveal].in  { opacity: 1; transform: translateY(0); }
     [data-reveal].out-up   { opacity: 0; transform: translateY(-50px); }
     [data-reveal].out-down { opacity: 0; transform: translateY(60px); }
-
+ 
     [data-reveal="left"]  { transform: translateX(-60px); }
     [data-reveal="left"].in { transform: translateX(0); }
     [data-reveal="left"].out-up   { opacity: 0; transform: translateX(-40px); }
     [data-reveal="left"].out-down { opacity: 0; transform: translateX(-60px); }
-
+ 
     [data-reveal="right"]  { transform: translateX(60px); }
     [data-reveal="right"].in { transform: translateX(0); }
     [data-reveal="right"].out-up   { opacity: 0; transform: translateX(40px); }
     [data-reveal="right"].out-down { opacity: 0; transform: translateX(60px); }
-
+ 
     [data-stagger] > * {
       opacity: 0;
       transform: translateY(50px);
@@ -48,15 +48,15 @@
     [data-stagger] > *:nth-child(2) { transition-delay: 0.1s; }
     [data-stagger] > *:nth-child(3) { transition-delay: 0.2s; }
     [data-stagger] > *:nth-child(4) { transition-delay: 0.3s; }
-
-    /* ── HERO CONTACTO ── */
+ 
+    /* ── HERO CONTACT ── */
     .ct-hero__availability {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.7s ease 0.1s, transform 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s;
     }
     .ct-hero__availability.hero-in { opacity: 1; transform: translateY(0); }
-
+ 
     .ct-hero__heading { overflow: hidden; }
     .ct-hero__heading .line {
       display: block;
@@ -67,26 +67,27 @@
     .ct-hero__heading .line:nth-child(2) { transition-delay: 0.1s; }
     .ct-hero__heading .line:nth-child(3) { transition-delay: 0.2s; }
     .ct-hero__heading.hero-in .line { opacity: 1; transform: translateY(0) skewY(0deg); }
-
+ 
     .ct-hero__links {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.8s ease 0.6s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.6s;
     }
     .ct-hero__links.hero-in { opacity: 1; transform: translateY(0); }
+ 
   </style>
 </head>
 <body>
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <div class="nav__left">
-        <a href="proyectos.html" class="nav__link">Proyectos</a>
-        <a href="sobre-mi.html" class="nav__link">Sobre mí</a>
+        <a href="projects.html" class="nav__link">Projects</a>
+        <a href="about.html" class="nav__link">About</a>
       </div>
       <a href="index.html" class="nav__logo">depropio.</a>
       <div class="nav__right">
-        <a href="contacto.html" class="btn btn--primary">Hablemos</a>
-        <button class="nav__burger" id="burgerBtn" aria-label="Abrir menú">
+        <a href="contact.html" class="btn btn--primary">Let's talk</a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -100,24 +101,25 @@
       </button>
     </div>
     <div class="mobile-menu__links">
-      <a href="proyectos.html" class="mobile-menu__link">Proyectos <span class="mobile-menu__arrow">↗</span></a>
-      <a href="sobre-mi.html"  class="mobile-menu__link">Sobre mí  <span class="mobile-menu__arrow">↗</span></a>
-      <a href="contacto.html"  class="mobile-menu__link">Hablemos  <span class="mobile-menu__arrow">↗</span></a>
+      <a href="projects.html" class="mobile-menu__link">Projects   <span class="mobile-menu__arrow">↗</span></a>
+      <a href="about.html"    class="mobile-menu__link">About      <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contact.html"  class="mobile-menu__link">Let's talk <span class="mobile-menu__arrow">↗</span></a>
     </div>
   </div>
+ 
   <main class="page">
     <section class="ct-hero container">
       <div class="ct-hero__availability" id="ctAvail">
-        <span class="tag tag--bordered tag--dot">Valencia · Remoto</span>
+        <span class="tag tag--bordered tag--dot">Valencia · Remote</span>
       </div>
       <h1 class="ct-hero__heading" id="ctHeading">
-        <span class="line">Abierta a nuevos retos</span>
-        <span class="line">que unan diseño,</span>
-        <span class="line">estrategia e impacto.</span>
+        <span class="line">Open to new challenges</span>
+        <span class="line">that bring together design,</span>
+        <span class="line">strategy and impact.</span>
       </h1>
       <div class="ct-hero__links" id="ctLinks">
-        <a href="mailto:martalopez2405@gmail.com?subject=¡Conectamos!" class="ct-link">
-          <span>¿Conectamos?</span>
+        <a href="mailto:martalopez2405@gmail.com?subject=Let's connect!" class="ct-link">
+          <span>Let's connect?</span>
           <span class="ct-link__arrow">↗</span>
         </a>
         <a href="https://www.linkedin.com/in/martalopezlanuza/" target="_blank" rel="noopener" class="ct-link">
@@ -127,6 +129,7 @@
       </div>
     </section>
   </main>
+ 
   <footer class="footer" data-reveal>
     <div class="footer__inner">
       <span class="footer__logo">depropio.</span>
@@ -136,18 +139,19 @@
         <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
       </div>
       <div class="lang-switch">
-  <span class="lang-switch__active">ES</span>
-  <span class="lang-switch__sep">/</span>
-  <a href="en/contact.html" class="lang-switch__inactive">EN</a>
-</div>
+        <a href="../contacto.html" class="lang-switch__inactive">ES</a>
+        <span class="lang-switch__sep">/</span>
+        <span class="lang-switch__active">EN</span>
+      </div>
     </div>
   </footer>
+ 
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
     document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
-
+ 
     /* Hero entrada */
     requestAnimationFrame(() => {
       setTimeout(() => {
@@ -156,7 +160,7 @@
         document.getElementById('ctLinks').classList.add('hero-in');
       }, 80);
     });
-
+ 
     /* Scroll reveal bidireccional */
     const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
     const positions = new Map();

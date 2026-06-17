@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyectos — depropio.</title>
+  <title>Projects — depropio.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="proyectos.css" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../proyectos.css" />
   <!-- Umami tracking -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
 
@@ -40,7 +40,7 @@
     [data-stagger] > *:nth-child(4) { transition-delay: 0.24s; }
     [data-stagger] > *:nth-child(5) { transition-delay: 0.32s; }
 
-    /* ── HERO PROYECTOS ── */
+    /* ── HERO PROJECTS ── */
     .proy-header__title {
       opacity: 0;
       transform: translateY(50px) skewY(2deg);
@@ -65,13 +65,13 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <div class="nav__left">
-        <a href="proyectos.html" class="nav__link active">Proyectos</a>
-        <a href="sobre-mi.html" class="nav__link">Sobre mí</a>
+        <a href="projects.html" class="nav__link active">Projects</a>
+        <a href="about.html" class="nav__link">About</a>
       </div>
       <a href="index.html" class="nav__logo">depropio.</a>
       <div class="nav__right">
-        <a href="contacto.html" class="btn btn--primary">Hablemos</a>
-        <button class="nav__burger" id="burgerBtn" aria-label="Abrir menú">
+        <a href="contact.html" class="btn btn--primary">Let's talk</a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -86,82 +86,81 @@
       </button>
     </div>
     <div class="mobile-menu__links">
-      <a href="proyectos.html" class="mobile-menu__link">Proyectos <span class="mobile-menu__arrow">↗</span></a>
-      <a href="sobre-mi.html"  class="mobile-menu__link">Sobre mí  <span class="mobile-menu__arrow">↗</span></a>
-      <a href="contacto.html"  class="mobile-menu__link">Hablemos  <span class="mobile-menu__arrow">↗</span></a>
+      <a href="projects.html" class="mobile-menu__link">Projects   <span class="mobile-menu__arrow">↗</span></a>
+      <a href="about.html"    class="mobile-menu__link">About      <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contact.html"  class="mobile-menu__link">Let's talk <span class="mobile-menu__arrow">↗</span></a>
     </div>
   </div>
 
   <main class="page">
 
     <section class="proy-header container">
-      <h1 class="proy-header__title" id="proyTitle">Proyectos</h1>
+      <h1 class="proy-header__title" id="proyTitle">Projects</h1>
       <div class="proy-filters" id="filters">
-        <button class="filter-btn active" data-filter="todos">Todos</button>
-        <button class="filter-btn" data-filter="ux">Diseño UX UI</button>
+        <button class="filter-btn active" data-filter="todos">All</button>
+        <button class="filter-btn" data-filter="ux">UX UI Design</button>
         <button class="filter-btn" data-filter="brand">Brand &amp; Graphic design</button>
       </div>
     </section>
 
     <section class="proy-grid container" id="projectsGrid" data-stagger>
 
-      <a href="proyecto-web-app.html" class="pitem" data-cat="ux">
+      <a href="project-web-app.html" class="pitem" data-cat="ux">
         <div class="pitem__img pitem__bg--white">
-          <img src="assets/mockup-netanalyzer.jpg" alt="App web" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <img src="../assets/mockup-netanalyzer.jpg" alt="Web app" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="pitem__body">
-          <span class="pitem__cat pitem__cat--dark">Diseño UX UI</span>
-          <h3 class="pitem__name">Aplicación móvil &amp; Web</h3>
+          <span class="pitem__cat pitem__cat--dark">UX UI Design</span>
+          <h3 class="pitem__name">Mobile &amp; Web Application</h3>
         </div>
       </a>
 
-
-      <a href="proyecto-web.html" class="pitem" data-cat="ux">
+      <a href="project-web.html" class="pitem" data-cat="ux">
         <div class="pitem__img pitem__bg--white">
-          <img src="assets/mockup-wpaweb.jpg" alt="WPA Web" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <img src="../assets/mockup-wpaweb.jpg" alt="WPA Web" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="pitem__body">
-          <span class="pitem__cat pitem__cat--dark">Diseño UX UI</span>
-          <h3 class="pitem__name">Web</h3>
+          <span class="pitem__cat pitem__cat--dark">UX UI Design</span>
+          <h3 class="pitem__name">Website</h3>
         </div>
       </a>
 
-      <a href="proyecto-duocuerda.html" class="pitem" data-cat="brand">
+      <a href="project-duocuerda.html" class="pitem" data-cat="brand">
         <div class="pitem__img pitem__bg--white">
-          <img src="assets/mockup-duocuerda.jpg" alt="Duo cuerda" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <img src="../assets/mockup-duocuerda.jpg" alt="Duo cuerda" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="pitem__body">
           <span class="pitem__cat pitem__cat--dark">Branding</span>
-          <h3 class="pitem__name">M&V Duo Cuerda</h3>
+          <h3 class="pitem__name">M&amp;V Duo Cuerda</h3>
         </div>
       </a>
 
-      <a href="proyecto-video.html" class="pitem" data-cat="brand">
+      <a href="project-video.html" class="pitem" data-cat="brand">
         <div class="pitem__img pitem__bg--white">
-          <img src="assets/mockup-videowpa.jpg" alt="WPA Web" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <img src="../assets/mockup-videowpa.jpg" alt="Corporate video" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="pitem__body">
           <span class="pitem__cat pitem__cat--dark">Graphic Design</span>
-          <h3 class="pitem__name">Vídeo corporativo</h3>
+          <h3 class="pitem__name">Corporate video</h3>
         </div>
       </a>
 
-      <a href="proyecto-app.html" class="pitem" data-cat="ux">
+      <a href="project-app.html" class="pitem" data-cat="ux">
         <div class="pitem__img pitem__bg--white">
-          <img src="assets/mockup-speedtest.jpg" alt="WPA Web" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <img src="../assets/mockup-speedtest.jpg" alt="Mobile app" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="pitem__body">
-          <span class="pitem__cat pitem__cat--dark">Diseño UX UI</span>
-          <h3 class="pitem__name">Aplicación móvil</h3>
+          <span class="pitem__cat pitem__cat--dark">UX UI Design</span>
+          <h3 class="pitem__name">Mobile Application</h3>
         </div>
       </a>
 
     </section>
 
     <section class="cta-section container" data-reveal>
-      <p class="cta-section__label">¿Tienes un reto para mí?</p>
-      <h2 class="cta-section__heading">Abierta a nuevos retos que unan diseño, estrategia e impacto.</h2>
-      <a href="contacto.html" class="cta-section__connect">¿Conectamos? <span class="arrow-diag">↗</span></a>
+      <p class="cta-section__label">Got a challenge for me?</p>
+      <h2 class="cta-section__heading">Open to new challenges that bring together design, strategy and impact.</h2>
+      <a href="contact.html" class="cta-section__connect">Let's connect? <span class="arrow-diag">↗</span></a>
     </section>
 
   </main>
@@ -175,10 +174,10 @@
         <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
       </div>
       <div class="lang-switch">
-  <span class="lang-switch__active">ES</span>
-  <span class="lang-switch__sep">/</span>
-  <a href="en/projects.html" class="lang-switch__inactive">EN</a>
-</div>
+        <a href="../proyectos.html" class="lang-switch__inactive">ES</a>
+        <span class="lang-switch__sep">/</span>
+        <span class="lang-switch__active">EN</span>
+      </div>
     </div>
   </footer>
 

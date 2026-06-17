@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre mí — depropio.</title>
+  <title>About — depropio.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="sobre-mi.css" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../sobre-mi.css" />
   <!-- Umami tracking -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
 
@@ -50,7 +50,7 @@
     [data-stagger] > *:nth-child(4) { transition-delay: 0.3s; }
     [data-stagger] > *:nth-child(5) { transition-delay: 0.4s; }
 
-    /* ── HERO SOBRE MÍ ── */
+    /* ── HERO ABOUT ── */
     .sm-hero__left .tag {
       opacity: 0;
       transform: translateY(16px);
@@ -81,6 +81,7 @@
       transition: opacity 0.9s ease 0.25s, transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s;
     }
     .sm-hero__right.hero-in { opacity: 1; transform: translateX(0); }
+
   </style>
 </head>
 <body>
@@ -88,13 +89,13 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <div class="nav__left">
-        <a href="proyectos.html" class="nav__link">Proyectos</a>
-        <a href="sobre-mi.html" class="nav__link active">Sobre mí</a>
+        <a href="projects.html" class="nav__link">Projects</a>
+        <a href="about.html" class="nav__link active">About</a>
       </div>
       <a href="index.html" class="nav__logo">depropio.</a>
       <div class="nav__right">
-        <a href="contacto.html" class="btn btn--primary">Hablemos</a>
-        <button class="nav__burger" id="burgerBtn" aria-label="Abrir menú">
+        <a href="contact.html" class="btn btn--primary">Let's talk</a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -109,9 +110,9 @@
       </button>
     </div>
     <div class="mobile-menu__links">
-      <a href="proyectos.html" class="mobile-menu__link">Proyectos <span class="mobile-menu__arrow">↗</span></a>
-      <a href="sobre-mi.html"  class="mobile-menu__link">Sobre mí  <span class="mobile-menu__arrow">↗</span></a>
-      <a href="contacto.html"  class="mobile-menu__link">Hablemos  <span class="mobile-menu__arrow">↗</span></a>
+      <a href="projects.html" class="mobile-menu__link">Projects   <span class="mobile-menu__arrow">↗</span></a>
+      <a href="about.html"    class="mobile-menu__link">About      <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contact.html"  class="mobile-menu__link">Let's talk <span class="mobile-menu__arrow">↗</span></a>
     </div>
   </div>
 
@@ -120,23 +121,23 @@
     <!-- HERO -->
     <section class="sm-hero container">
       <div class="sm-hero__left">
-        <span class="tag tag--dot-green tag--bordered" id="smTag">Disponible para nuevas oportunidades</span>
+        <span class="tag tag--dot-green tag--bordered" id="smTag">Open to new opportunities</span>
         <h1 class="sm-hero__title" id="smTitle">
-          <span class="line">Hola. Soy Marta,</span>
+          <span class="line">Hi. I'm Marta,</span>
           <span class="line">Product Designer.</span>
         </h1>
-        <a href="contacto.html" class="btn btn--primary" id="smBtn">Hablemos →</a>
+        <a href="contact.html" class="btn btn--primary" id="smBtn">Let's talk →</a>
       </div>
       <div class="sm-hero__right" id="smPhoto">
-        <img src="assets/me.png" alt="Foto de perfil" class="sm-hero__photo-img">
+        <img src="../assets/me.png" alt="Profile photo" class="sm-hero__photo-img">
       </div>
     </section>
 
-    <!-- BLOQUE BLANCO -->
+    <!-- WHITE BLOCK -->
     <div class="sm-white-block">
 
       <section class="sm-skills container" data-reveal>
-        <h2 class="sm-section-title">Herramientas &amp; Habilidades</h2>
+        <h2 class="sm-section-title">Tools &amp; Skills</h2>
         <div class="sm-skills__grid" data-stagger>
 
           <div class="sm-skill-card">
@@ -166,7 +167,7 @@
             <div class="sm-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
-            <span class="sm-skill-card__label">Frontend (básico)</span>
+            <span class="sm-skill-card__label">Basic Frontend</span>
             <div class="sm-skill-card__tags">
               <span class="tag">HTML</span><span class="tag">CSS</span>
               <span class="tag">JS</span><span class="tag">Github</span><span class="tag">Wordpress</span>
@@ -190,15 +191,15 @@
       <div class="sm-block-divider"></div>
 
       <section class="sm-inspira container" data-reveal>
-        <h2 class="sm-section-title">Lo que me inspira</h2>
+        <h2 class="sm-section-title">What inspires me</h2>
         <div class="sm-inspira__grid" data-stagger>
 
           <div class="sm-inspira-card">
             <div class="sm-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </div>
-            <h3 class="sm-inspira-card__title">Diseño creativo</h3>
-            <p class="sm-inspira-card__desc">Búsqueda constante de estéticas disruptivas y funcionales.</p>
+            <h3 class="sm-inspira-card__title">Creative design</h3>
+            <p class="sm-inspira-card__desc">Constant search for disruptive yet functional aesthetics.</p>
           </div>
 
           <div class="sm-inspira-card">
@@ -206,15 +207,15 @@
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
             </div>
             <h3 class="sm-inspira-card__title">Motion graphics</h3>
-            <p class="sm-inspira-card__desc">Dando vida a las interfaces a través del movimiento fluido.</p>
+            <p class="sm-inspira-card__desc">Bringing interfaces to life through fluid, purposeful movement.</p>
           </div>
 
           <div class="sm-inspira-card">
             <div class="sm-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
             </div>
-            <h3 class="sm-inspira-card__title">Interacciones</h3>
-            <p class="sm-inspira-card__desc">Diseño de diálogos significativos entre el usuario y el producto.</p>
+            <h3 class="sm-inspira-card__title">Interactions</h3>
+            <p class="sm-inspira-card__desc">Designing meaningful dialogues between the user and the product.</p>
           </div>
 
         </div>
@@ -223,7 +224,7 @@
       <div class="sm-block-divider"></div>
 
       <section class="sm-explorando container" data-reveal>
-        <h2 class="sm-section-title">Actualmente explorando</h2>
+        <h2 class="sm-section-title">Currently exploring</h2>
         <div class="sm-explorando__track" data-stagger>
 
           <div class="sm-exp-item sm-exp-item--active">
@@ -231,7 +232,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
             </div>
             <h4 class="sm-exp-item__title">Design Systems</h4>
-            <span class="tag tag--blue">Realizando cursos especializados</span>
+            <span class="tag tag--blue">Taking specialised courses</span>
           </div>
 
           <div class="sm-exp-item sm-exp-item--active">
@@ -239,7 +240,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
             </div>
             <h4 class="sm-exp-item__title">Artificial Intelligence</h4>
-            <span class="tag tag--blue">Aplicación en flujos UX &amp; Vibe coding</span>
+            <span class="tag tag--blue">Applied to UX flows &amp; Vibe coding</span>
           </div>
 
           <div class="sm-exp-item">
@@ -255,18 +256,18 @@
 
     </div>
 
-    <!-- TRAYECTORIA -->
+    <!-- TIMELINE -->
     <section class="sm-trayectoria container" data-reveal>
-      <h2 class="sm-tray__heading">Trayectoria</h2>
+      <h2 class="sm-tray__heading">Experience</h2>
       <div class="sm-timeline" data-stagger>
 
         <div class="sm-tl-item">
           <div class="sm-tl-dot sm-tl-dot--filled"></div>
           <div class="sm-tl-content">
-            <span class="sm-tl-period">2023 · Actualidad</span>
+            <span class="sm-tl-period">2023 · Present</span>
             <h3 class="sm-tl-role">Product Designer (UX UI) &amp; Marketing Specialist</h3>
             <a class="sm-tl-company">WePlan Analytics</a>
-            <span class="tag">Experiencia laboral</span>
+            <span class="tag">Work experience</span>
           </div>
         </div>
 
@@ -276,7 +277,7 @@
             <span class="sm-tl-period">2022 · 2023</span>
             <h3 class="sm-tl-role">Master's Degree in Advertising Communication</h3>
             <a class="sm-tl-company">Universidad Carlos III de Madrid</a>
-            <span class="tag">Educación</span>
+            <span class="tag">Education</span>
           </div>
         </div>
 
@@ -284,9 +285,9 @@
           <div class="sm-tl-dot"></div>
           <div class="sm-tl-content">
             <span class="sm-tl-period">2022</span>
-            <h3 class="sm-tl-role">Investigadora de diseño</h3>
+            <h3 class="sm-tl-role">Design Researcher</h3>
             <a class="sm-tl-company">HowLab Research Group</a>
-            <span class="tag">Experiencia de prácticas</span>
+            <span class="tag">Internship</span>
           </div>
         </div>
 
@@ -294,9 +295,9 @@
           <div class="sm-tl-dot"></div>
           <div class="sm-tl-content">
             <span class="sm-tl-period">2018 · 2022</span>
-            <h3 class="sm-tl-role">Grado de Ingeniería en Diseño Industrial y Desarrollo del Producto</h3>
+            <h3 class="sm-tl-role">Bachelor's Degree in Industrial Design Engineering and Product Development</h3>
             <a class="sm-tl-company">Universidad de Zaragoza</a>
-            <span class="tag">Educación</span>
+            <span class="tag">Education</span>
           </div>
         </div>
 
@@ -304,9 +305,9 @@
     </section>
 
     <section class="cta-section container" data-reveal>
-      <p class="cta-section__label">¿Tienes un reto para mí?</p>
-      <h2 class="cta-section__heading">Abierta a nuevos retos que unan diseño, estrategia e impacto.</h2>
-      <a href="mailto:martalopez2405@gmail.com?subject=¡Conectamos!" class="cta-section__connect">¿Conectamos? <span class="arrow-diag">↗</span></a>
+      <p class="cta-section__label">Got a challenge for me?</p>
+      <h2 class="cta-section__heading">Open to new challenges that bring together design, strategy and impact.</h2>
+      <a href="mailto:martalopez2405@gmail.com?subject=Let's connect!" class="cta-section__connect">Let's connect? <span class="arrow-diag">↗</span></a>
     </section>
 
   </main>
@@ -320,10 +321,10 @@
         <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
       </div>
       <div class="lang-switch">
-  <span class="lang-switch__active">ES</span>
-  <span class="lang-switch__sep">/</span>
-  <a href="en/about.html" class="lang-switch__inactive">EN</a>
-</div>
+        <a href="../sobre-mi.html" class="lang-switch__inactive">ES</a>
+        <span class="lang-switch__sep">/</span>
+        <span class="lang-switch__active">EN</span>
+      </div>
     </div>
   </footer>
 
