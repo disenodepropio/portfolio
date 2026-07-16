@@ -16,8 +16,13 @@
 .proy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-bottom: 40px; position: relative; }
 
 /* ===== ITEM — image first, text below no bg ===== */
-.pitem { display: block; cursor: pointer; transition: transform 0.3s; }
 .pitem:hover { transform: translateY(-4px); }
+.pitem--leaving {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  opacity: 0;
+  transform: scale(0.92);
+  pointer-events: none;
+}
 
 .pitem__img {
   aspect-ratio: 16/9; border-radius: var(--radius-md);

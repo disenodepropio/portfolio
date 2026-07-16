@@ -24,6 +24,35 @@
 /* ===== HERO IMAGE ===== */
 .pj-hero-img { margin-bottom: 80px; }
 
+/* ===== FULL-BLEED UTILITY =====
+   Rompe el ancho del .container para llegar a los bordes del viewport.
+   Úsala en cualquier página de proyecto para vídeo/imagen edge-to-edge,
+   en lugar de meter el media dentro de una card con border-radius. */
+.pj-fullbleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background: #0e0e0e;
+}
+.pj-fullbleed img,
+.pj-fullbleed video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pj-fullbleed:not(.pj-direccion__pair):not(.pj-resultado__video) {
+  height: min(78vh, 720px);
+}
+@media (max-width: 768px) {
+  .pj-fullbleed:not(.pj-direccion__pair):not(.pj-resultado__video) {
+    height: 56vh;
+  }
+}
 
 /* ===== APP MOCKUP ===== */
 .pj-app-mockup {
@@ -251,7 +280,8 @@
 
 /* ===== IMPACTO ===== */
 .pj-impacto {
-  background: var(--bg-dark);
+  background: transparent;
+  border: 1px solid rgba(26, 26, 26, 0.12);
   border-radius: var(--radius-lg);
   margin: 0 48px 80px;
   padding: 80px 0;
@@ -281,7 +311,7 @@
 .pj-stat__num {
   font-size: clamp(48px, 6vw, 80px);
   font-weight: 700;
-  color: #fff;
+  color: #1a1a1a;
   letter-spacing: -2px;
   line-height: 1;
 }
@@ -303,7 +333,7 @@
 .pj-stat__div {
   width: 1px;
   height: 80px;
-  background: #2a2a2a;
+  background: rgba(26, 26, 26, 0.15);
 }
 
 /* ===== NEXT PROJECT ===== */
@@ -354,7 +384,7 @@
 
   .pj-impacto { margin-left: 20px; margin-right: 20px; border-radius: var(--radius-md); padding: 56px 0; }
   .pj-impacto__stats { gap: 40px; }
-  
+
   .pj-contexto,
   .pj-proceso,
   .pj-direccion,

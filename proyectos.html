@@ -99,11 +99,22 @@
       <div class="proy-filters" id="filters">
         <button class="filter-btn active" data-filter="todos">Todos</button>
         <button class="filter-btn" data-filter="ux">Diseño UX UI</button>
-        <button class="filter-btn" data-filter="brand">Brand &amp; Graphic design</button>
+        <button class="filter-btn" data-filter="brand">Diseño gráfico y Branding</button>
       </div>
     </section>
 
     <section class="proy-grid container" id="projectsGrid" data-stagger>
+
+      <!-- <a href="proyecto-atrilia.html" class="pitem" data-cat="ux">
+        <div class="pitem__img pitem__bg--white">
+          <img src="assets/mockup-atrilia.jpg" alt="Atrilia" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <div class="pitem__body">
+          <span class="pitem__cat pitem__cat--dark">Diseño UX UI</span>
+          <h3 class="pitem__name">Atrilia</h3>
+        </div>
+      </a> -->
+
 
       <a href="proyecto-web-app.html" class="pitem" data-cat="ux">
         <div class="pitem__img pitem__bg--white">
@@ -196,22 +207,83 @@
       }, 80);
     });
 
-    /* Filtros */
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        document.querySelectorAll('.pitem').forEach(item => {
-          const show = f === 'todos' || item.dataset.cat === f;
-          item.style.transition = 'opacity 0.2s';
-          item.style.opacity = show ? '1' : '0';
-          item.style.pointerEvents = show ? '' : 'none';
-          item.style.position = show ? '' : 'absolute';
-          item.style.visibility = show ? '' : 'hidden';
+    /* Filtros con animación FLIP */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    const items = Array.from(document.querySelectorAll('.pitem'));
+
+    // FIRST: posición actual de las cards visibles
+    const firstRects = new Map();
+    items.forEach(item => {
+      if (item.style.display !== 'none') firstRects.set(item, item.getBoundingClientRect());
+    });
+
+    items.forEach(item => {
+      const show = f === 'todos' || item.dataset.cat === f;
+      item.dataset.willShow = show ? '1' : '0';
+    });
+
+    const leaving = items.filter(i => firstRects.has(i) && i.dataset.willShow === '0');
+    const entering = items.filter(i => !firstRects.has(i) && i.dataset.willShow === '1');
+    const staying  = items.filter(i => firstRects.has(i) && i.dataset.willShow === '1');
+
+    leaving.forEach(item => item.classList.add('pitem--leaving'));
+
+    const runFlip = () => {
+      leaving.forEach(item => {
+        item.style.display = 'none';
+        item.classList.remove('pitem--leaving');
+      });
+      entering.forEach(item => { item.style.display = ''; });
+
+      // LAST: nueva posición
+      const lastRects = new Map();
+      [...staying, ...entering].forEach(item => lastRects.set(item, item.getBoundingClientRect()));
+
+      // INVERT
+      staying.forEach(item => {
+        const first = firstRects.get(item);
+        const last = lastRects.get(item);
+        const dx = first.left - last.left;
+        const dy = first.top - last.top;
+        item.style.transition = 'none';
+        item.style.transform = (dx || dy) ? `translate(${dx}px, ${dy}px)` : '';
+      });
+      entering.forEach(item => {
+        item.style.transition = 'none';
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.92)';
+      });
+
+      void document.body.offsetHeight; // forzar reflow
+
+      // PLAY
+      requestAnimationFrame(() => {
+        staying.forEach(item => {
+          item.style.transition = 'transform 0.45s cubic-bezier(0.16,1,0.3,1)';
+          item.style.transform = '';
+        });
+        entering.forEach(item => {
+          item.style.transition = 'opacity 0.4s ease 0.15s, transform 0.4s cubic-bezier(0.16,1,0.3,1) 0.15s';
+          item.style.opacity = '1';
+          item.style.transform = 'scale(1)';
         });
       });
-    });
+
+      setTimeout(() => {
+        [...staying, ...entering].forEach(item => {
+          item.style.transition = '';
+          item.style.transform = '';
+        });
+      }, 700);
+    };
+
+    leaving.length ? setTimeout(runFlip, 250) : runFlip();
+  });
+});
 
     /* Scroll reveal bidireccional */
     const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');

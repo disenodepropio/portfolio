@@ -47,22 +47,25 @@
     }
 
     .pj-contexto__retos {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+        display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(26, 26, 26, 0.12);
+  border-radius: var(--radius-md);
+  overflow: hidden;
     }
 
     .pj-reto {
-      background: var(--bg-dark);
-      padding: 22px 28px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      color: #fff;
+      background: transparent;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.12);
     }
 
     .pj-reto:first-child { border-radius: var(--radius-md) var(--radius-md) 0 0; }
-    .pj-reto:last-child  { border-radius: 0 0 var(--radius-md) var(--radius-md); }
+    .pj-reto:last-child  { border-bottom: none; }
 
     .pj-reto__num {
       font-size: 10px;
@@ -76,7 +79,6 @@
       font-size: 14px;
       font-weight: 600;
       letter-spacing: -0.2px;
-      color: #fff;
     }
 
     /* ===== IDENTIDAD: logo y sistema ===== */
@@ -117,11 +119,11 @@
 
     /* ===== SISTEMA VISUAL FULL-WIDTH ===== */
     .pj-sistema {
-      background: var(--bg-dark);
-      border-radius: var(--radius-lg);
-      margin: 0 48px 80px;
-      padding: 80px 64px;
-      color: #fff;
+      background: transparent;
+  border: 1px solid rgba(26, 26, 26, 0.12);
+  border-radius: var(--radius-lg);
+  margin: 0 48px 80px;
+  padding: 80px 64px;
     }
 
     .pj-sistema__header {
@@ -134,9 +136,9 @@
 
     .pj-sistema__desc {
       font-size: 14px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.7;
-      margin-top: 12px;
+  color: rgba(26, 26, 26, 0.55);
+  line-height: 1.7;
+  margin-top: 12px;
     }
 
     .pj-sistema__pilares {
@@ -162,13 +164,13 @@
 
     .pj-sistema__pilar-text {
       font-size: 13px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.6;
+  color: rgba(26, 26, 26, 0.55);
+  line-height: 1.6;
     }
 
     .pj-sistema__pilar-text strong {
-      color: #fff;
-      font-weight: 700;
+      color: #1a1a1a;
+  font-weight: 700;
     }
 
     .pj-sistema__img {
@@ -288,7 +290,7 @@
     <!-- HEADER -->
     <section class="pj-header container">
       <p class="section-label">Branding</p>
-      <h1 class="pj-header__title">Marta &amp; Victoria</h1>
+      <h1 class="pj-header__title">Marta y Victoria</h1>
       <p class="pj-header__desc">
         Identidad visual para un dúo de cuerda: logotipo, sistema visual y presencia en Instagram diseñados desde cero para duo de violín y cello.
       </p>
