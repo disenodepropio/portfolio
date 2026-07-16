@@ -135,9 +135,17 @@
 
   .hero__meta-row {
     flex-direction: column;
+    align-items: flex-end;
     gap: 20px;
   }
-  .hero__sub { max-width: 100%; align-self: auto; }
+  .hero__sub {
+    max-width: 100%;
+    align-self: stretch;
+  }
+  .hero__tags {
+    width: 100%;
+    align-items: flex-end;
+  }
 
   .rp-grid { grid-template-columns: 1fr; }
   .rp-header { flex-direction: column; align-items: flex-start; gap: 12px; }
