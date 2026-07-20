@@ -10,14 +10,101 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="proyecto.css" />
-      <!-- Umami tracking -->
+  <!-- Umami tracking -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
   <style>
 
-    /* ===== CONTEXTO + RETO ===== */
-    .pj-contexto {
-      padding: 0 0 80px;
+    /* ─────────────────────────────────────────────
+       REVEAL BASE — idéntico al de index.html,
+       para que la animación se sienta igual en toda la web.
+    ───────────────────────────────────────────── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(60px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
+    [data-reveal].in { opacity: 1; transform: translateY(0); }
+    [data-reveal].out-up { opacity: 0; transform: translateY(-50px); }
+    [data-reveal].out-down { opacity: 0; transform: translateY(60px); }
+
+    [data-reveal="left"] { transform: translateX(-60px); }
+    [data-reveal="left"].in { transform: translateX(0); }
+    [data-reveal="left"].out-up { transform: translateX(-40px); opacity: 0; }
+    [data-reveal="left"].out-down { transform: translateX(-60px); opacity: 0; }
+
+    [data-reveal="right"] { transform: translateX(60px); }
+    [data-reveal="right"].in { transform: translateX(0); }
+    [data-reveal="right"].out-up { transform: translateX(40px); opacity: 0; }
+    [data-reveal="right"].out-down { transform: translateX(60px); opacity: 0; }
+
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(50px);
+      transition:
+        opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    [data-stagger].in > *       { opacity: 1; transform: translateY(0); }
+    [data-stagger].out-up > *   { opacity: 0; transform: translateY(-40px); }
+    [data-stagger].out-down > * { opacity: 0; transform: translateY(50px); }
+
+    [data-stagger] > *:nth-child(1) { transition-delay: 0s; }
+    [data-stagger] > *:nth-child(2) { transition-delay: 0.1s; }
+    [data-stagger] > *:nth-child(3) { transition-delay: 0.2s; }
+    [data-stagger] > *:nth-child(4) { transition-delay: 0.3s; }
+    [data-stagger] > *:nth-child(5) { transition-delay: 0.4s; }
+    [data-stagger] > *:nth-child(6) { transition-delay: 0.5s; }
+
+    /* ─────────────────────────────────────────────
+       COMPONENTES ESPECÍFICOS DE ESTA PÁGINA
+       Sustituyen las versiones "card oscura" de:
+       .pj-contexto__callout / .pj-pregunta / .pj-step / .pj-resultado
+       Sin fondos oscuros redondeados, líneas finas con var(--border),
+       numerales tipográficos grandes, más aire — dirección editorial.
+    ───────────────────────────────────────────── */
+
+    /* ===== META BAR (Período / Duración / Rol / Evento) ===== */
+    .pj-metabar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .pj-metabar__item {
+      padding: 28px 0 28px 32px;
+      border-left: 1px solid var(--border);
+    }
+    .pj-metabar__item:first-child { border-left: none; padding-left: 0; }
+    .pj-metabar__label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .pj-metabar__val {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+
+    /* ===== OBJETIVO — override: en esta página va después de la meta bar,
+       ya no lleva el bloque de metadatos dentro, así que necesita su propio
+       padding superior (en proyecto.css es 0 arriba porque ahí sí incluye el meta) ===== */
+    .pj-objetivo { padding: 64px 0 80px; }
+    @media (max-width: 768px) {
+      .pj-objetivo { padding: 48px 0 64px; }
+    }
+
+    /* ===== CONTEXTO + RETO ===== */
+    .pj-contexto { padding: 90px 0 80px; }
 
     .pj-contexto__grid {
       display: grid;
@@ -34,21 +121,10 @@
     }
 
     .pj-contexto__callout {
-      background: transparent;
-  border: 1px solid rgba(26, 26, 26, 0.12);
-  border-radius: var(--radius-md);
-  padding: 28px 32px;
-  border-left: 2px solid var(--accent);
+      border-left: 2px solid var(--accent);
+      padding: 4px 0 4px 24px;
+      margin-top: 28px;
     }
-
-    .pj-contexto__callout p {
-      font-size: 15px;
-  font-weight: 600;
-  line-height: 1.6;
-  letter-spacing: -0.2px;
-  color: rgba(26, 26, 26, 0.85);
-    }
-
     .pj-contexto__callout span {
       display: block;
       font-size: 11px;
@@ -58,202 +134,158 @@
       color: var(--accent);
       margin-bottom: 10px;
     }
-
-    .pj-contexto__preguntas {
-      display: flex;
-  flex-direction: column;
-  gap: 0;
-  border: 1px solid rgba(26, 26, 26, 0.12);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+    .pj-contexto__callout p {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.4px;
+      color: var(--text);
     }
+
+    .pj-contexto__preguntas { border-top: 1px solid var(--border); }
 
     .pj-pregunta {
-      background: transparent;
-  padding: 22px 28px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      transition: gap 0.25s ease;
     }
-
-    .pj-pregunta:first-child { border-radius: var(--radius-md) var(--radius-md) 0 0; }
-    .pj-pregunta:last-child  { border-bottom: none; }
+    .pj-pregunta:hover { gap: 40px; }
+    .pj-pregunta:hover .pj-pregunta__text { color: var(--accent); }
 
     .pj-pregunta__num {
-      font-size: 10px;
+      font-size: 14px;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       color: var(--accent);
       flex-shrink: 0;
+      width: 40px;
     }
-
     .pj-pregunta__text {
-      font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.2px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      transition: color 0.25s ease;
     }
 
     /* ===== PROCESO 4 PASOS ===== */
-    .pj-proceso {
-      padding: 0 0 80px;
-    }
-
-    .pj-proceso__intro {
-      max-width: 620px;
-      margin-bottom: 48px;
-    }
-
-    .pj-proceso__intro p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-top: 12px;
-    }
+    .pj-proceso { padding: 0 0 80px; }
+    .pj-proceso__intro { max-width: 620px; margin-bottom: 48px; }
 
     .pj-proceso__steps {
       display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border: 1px solid rgba(26, 26, 26, 0.12);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+      grid-template-columns: 1fr 1fr;
     }
 
     .pj-step {
-      background: transparent;
-  padding: 40px 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  border-right: 1px solid rgba(26, 26, 26, 0.12);
-  border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+      padding: 44px 40px 44px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pj-step:nth-child(even) {
+      padding-left: 56px;
+      padding-right: 0;
+      border-left: 1px solid var(--border);
     }
 
-    .pj-step:nth-child(1) { border-radius: var(--radius-md) 0 0 0; }
-    .pj-step:nth-child(2n) { border-right: none; }
-    .pj-step:nth-child(3),
-    .pj-step:nth-child(4) { border-bottom: none; }
-
-
+    .pj-step__ghost {
+      display: block;
+      font-size: 60px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: var(--text-muted);
+      opacity: 0.35;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
     .pj-step__num {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 3px;
       color: var(--accent);
       text-transform: uppercase;
+      margin-bottom: 10px;
     }
-
     .pj-step__title {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
-      letter-spacing: -0.3px;
-      color: inherit;
+      letter-spacing: -0.4px;
+      color: var(--text);
+      margin-bottom: 4px;
     }
-
     .pj-step__body {
       font-size: 13px;
-  color: rgba(26, 26, 26, 0.55);
-  line-height: 1.7;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 420px;
     }
-
     .pj-step__tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: auto;
-      padding-top: 20px;
+      margin-top: 18px;
     }
 
-    .pj-tag {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: rgba(26, 26, 26, 0.45);
-  border: 1px solid rgba(26, 26, 26, 0.15);
-      border-radius: 100px;
-      padding: 3px 10px;
-    }
-
-    /* ===== DIRECCIÓN VISUAL con imagen ===== */
-    .pj-direccion {
-      padding: 0 0 80px;
-    }
-
-    .pj-direccion__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .pj-direccion__visual {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      background: #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .pj-direccion__visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
+    /* ===== DIRECCIÓN VISUAL — pareja full-bleed ===== */
+    .pj-direccion { padding: 0 0 90px; }
+    .pj-direccion__intro { margin-bottom: 40px; }
     .pj-direccion__desc {
       font-size: 14px;
       color: var(--text-muted);
       line-height: 1.7;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
+      max-width: 560px;
+    }
+    .pj-direccion__pair {
+      display: grid;
+      grid-template-columns: 1fr;
+      height: min(58vh, 520px);
+    }
+    .pj-direccion__pair img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
 
-    /* ===== RESULTADO FULL-WIDTH ===== */
-    .pj-resultado {
-      background: transparent;
-  border: 1px solid rgba(26, 26, 26, 0.12);
-  border-radius: var(--radius-lg);
-  margin: 0 48px 80px;
-  padding: 80px 64px;
-    }
+    /* ===== RESULTADO =====
+       top:0 a propósito — el espacio ya lo da el padding-bottom (90px)
+       de .pj-direccion justo antes; así el ritmo es igual que entre
+       contexto→proceso y proceso→dirección (un solo padding, no dos sumados). */
+    .pj-resultado { padding: 0; }
 
-    .pj-resultado__inner {
+    .pj-resultado__top {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: center;
+      align-items: end;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--border);
     }
-
     .pj-resultado__tag {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       display: block;
     }
-
     .pj-resultado__title {
-      font-size: clamp(26px, 3vw, 40px);
+      font-size: clamp(28px, 4vw, 52px);
       font-weight: 700;
       letter-spacing: -1.5px;
-      line-height: 1.15;
-      margin-bottom: 24px;
-      color: inherit;
+      line-height: 1.08;
+      color: var(--text);
     }
-
     .pj-resultado__desc {
       font-size: 14px;
-  color: rgba(26, 26, 26, 0.55);
-  line-height: 1.7;
-  margin-bottom: 32px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
     }
-
     .pj-resultado__link {
       display: inline-flex;
       align-items: center;
@@ -264,80 +296,65 @@
       letter-spacing: 0.5px;
       transition: gap 0.2s;
     }
-
     .pj-resultado__link:hover { gap: 14px; }
-
-    .pj-resultado__img {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      aspect-ratio: 16/9;
-      position: relative;
-    }
-
-    .pj-resultado__img iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
 
     .pj-resultado__stats {
       display: flex;
-  gap: 48px;
-  margin-top: 36px;
-  padding-top: 36px;
-  border-top: 1px solid rgba(26, 26, 26, 0.12);
+      gap: 56px;
+      padding: 44px 0 90px;
     }
-
-    .pj-resultado__stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    .pj-resultado__stat { display: flex; flex-direction: column; gap: 6px; }
+    .pj-resultado__stat + .pj-resultado__stat {
+      padding-left: 56px;
+      border-left: 1px solid var(--border);
     }
-
     .pj-resultado__stat-num {
-      font-size: 28px;
-      font-weight: 700;
+      font-size: 38px;
+      font-weight: 800;
       letter-spacing: -1px;
       line-height: 1;
+      color: var(--text);
     }
-
     .pj-resultado__stat-label {
       font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.4);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
-      .pj-resultado { margin-left: 32px; margin-right: 32px; padding: 60px 40px; }
+      .pj-step:nth-child(odd) { padding-right: 24px; }
     }
 
     @media (max-width: 768px) {
-      .pj-contexto__grid  { grid-template-columns: 1fr; gap: 36px; }
-      .pj-proceso__steps  { grid-template-columns: 1fr; gap: 2px; }
-      .pj-direccion__grid { grid-template-columns: 1fr; gap: 36px; }
+      .pj-metabar { grid-template-columns: 1fr 1fr; }
+      .pj-metabar__item { padding: 20px 0 20px 20px; }
+      .pj-metabar__item:nth-child(odd) { padding-left: 0; }
+      .pj-metabar__item:nth-child(3) { border-left: none; }
 
-      .pj-step:nth-child(1) { border-radius: var(--radius-md) var(--radius-md) 0 0; }
-      .pj-step:nth-child(2) { border-radius: 0; }
-      .pj-step:nth-child(3) { border-radius: 0; }
-      .pj-step:nth-child(4) { border-radius: 0 0 var(--radius-md) var(--radius-md); }
+      .pj-contexto__grid { grid-template-columns: 1fr; gap: 36px; }
+      .pj-proceso__steps { grid-template-columns: 1fr; }
+      .pj-step, .pj-step:nth-child(even) { padding: 32px 0; border-left: none; }
 
-      .pj-resultado { margin-left: 20px; margin-right: 20px; padding: 48px 24px; border-radius: var(--radius-md); }
-      .pj-resultado__inner { grid-template-columns: 1fr; gap: 40px; }
-      .pj-resultado__stats { gap: 32px; }
-        .pj-contexto,
-  .pj-proceso,
-  .pj-direccion,
-  .pj-objetivo,
-  .pj-next {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+      .pj-direccion__pair { grid-template-columns: 1fr; height: auto; }
+      .pj-direccion__pair img { aspect-ratio: 4/3; }
+
+      .pj-resultado__top { grid-template-columns: 1fr; gap: 32px; }
+      .pj-resultado__stats { flex-wrap: wrap; gap: 32px; padding: 36px 0 64px; }
+      .pj-resultado__stat + .pj-resultado__stat { padding-left: 0; border-left: none; }
+
+      .pj-contexto,
+      .pj-proceso,
+      .pj-direccion,
+      .pj-objetivo,
+      .pj-resultado,
+      .pj-next {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      /* pj-fullbleed queda fuera a propósito: debe llegar a los bordes en mobile también */
     }
   </style>
 </head>
@@ -384,13 +401,33 @@
       </p>
     </section>
 
-    <!-- HERO MOCKUP -->
-    <div class="pj-hero-img container">
-      <img src="assets/mockup-videowpa.jpg" alt="Vídeo corporativo" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px;" />
+    <!-- HERO FULL-BLEED -->
+    <div class="pj-fullbleed" data-reveal>
+      <img src="assets/mockup-videowpa.jpg" alt="Vídeo corporativo" />
+    </div>
+
+    <!-- META BAR -->
+    <div class="pj-metabar container" data-reveal>
+      <div class="pj-metabar__item">
+        <span class="pj-metabar__label">Período</span>
+        <span class="pj-metabar__val">2024</span>
+      </div>
+      <div class="pj-metabar__item">
+        <span class="pj-metabar__label">Duración</span>
+        <span class="pj-metabar__val">3 días</span>
+      </div>
+      <div class="pj-metabar__item">
+        <span class="pj-metabar__label">Rol</span>
+        <span class="pj-metabar__val">Diseño / Edición</span>
+      </div>
+      <div class="pj-metabar__item">
+        <span class="pj-metabar__label">Evento</span>
+        <span class="pj-metabar__val">Mobile World Congress</span>
+      </div>
     </div>
 
     <!-- OBJETIVO -->
-    <section class="pj-objetivo container">
+    <section class="pj-objetivo container" data-reveal>
       <div class="pj-objetivo__grid">
         <div>
           <h2 class="pj-section-title">Objetivo del proyecto</h2>
@@ -401,27 +438,13 @@
             <li><span class="pj-check">○</span>Entregar el vídeo listo para presentar en el evento.</li>
           </ul>
         </div>
-        <div class="pj-meta">
-          <div class="pj-meta__item">
-            <span class="pj-meta__label">Período</span>
-            <span class="pj-meta__val">2024</span>
-          </div>
-          <div class="pj-meta__item">
-            <span class="pj-meta__label">Duración</span>
-            <span class="pj-meta__val">3 días</span>
-          </div>
-          <div class="pj-meta__item">
-            <span class="pj-meta__label">Rol</span>
-            <span class="pj-meta__val">Diseño / Edición de vídeo</a></span>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- CONTEXTO Y RETO -->
     <section class="pj-contexto container">
       <div class="pj-contexto__grid">
-        <div>
+        <div data-reveal="left">
           <h2 class="pj-section-title">El reto: todo en 3 días</h2>
           <p class="pj-contexto__desc">Necesitábamos un vídeo que en pocos minutos explicara quiénes somos, qué hacemos y por qué nuestra tecnología marca la diferencia.</p>
           <p class="pj-contexto__desc">El plazo era ajustado, el contexto exigente y el margen de error mínimo. El primer paso fue definir con precisión qué debía quedarse en el espectador: qué contar, en qué orden y con qué tono.</p>
@@ -430,7 +453,7 @@
             <p>Tres preguntas, una respuesta clara: quiénes somos, qué hacemos y por qué elegir la empresa frente al resto.</p>
           </div>
         </div>
-        <div class="pj-contexto__preguntas">
+        <div class="pj-contexto__preguntas" data-reveal="right" data-stagger>
           <div class="pj-pregunta">
             <span class="pj-pregunta__num">Q1</span>
             <span class="pj-pregunta__text">¿Quiénes somos?</span>
@@ -453,108 +476,108 @@
 
     <!-- PROCESO 4 PASOS -->
     <section class="pj-proceso container">
-      <div class="pj-proceso__intro">
+      <div class="pj-proceso__intro" data-reveal>
         <h2 class="pj-section-title">El proceso de producción</h2>
       </div>
-      <div class="pj-proceso__steps">
+      <div class="pj-proceso__steps" data-reveal data-stagger>
 
         <div class="pj-step">
-          <span class="pj-step__num">01 — Estrategia</span>
+          <span class="pj-step__ghost">01</span>
+          <span class="pj-step__num">Estrategia</span>
           <span class="pj-step__title">Definición del mensaje clave</span>
           <p class="pj-step__body">Trabajar desde dentro nos permitió ir al grano: conocíamos los diferenciales, los clientes y el tono de la marca. El trabajo fue estructurar toda esa información y transformarla en una narrativa clara, ordenada y orientada al impacto.</p>
           <div class="pj-step__tags">
-            <span class="pj-tag">Estrategia de contenido</span>
-            <span class="pj-tag">Messaging</span>
+            <span class="tag tag--bordered">Estrategia de contenido</span>
+            <span class="tag tag--bordered">Messaging</span>
           </div>
         </div>
 
         <div class="pj-step">
-          <span class="pj-step__num">02 — Escritura</span>
+          <span class="pj-step__ghost">02</span>
+          <span class="pj-step__num">Escritura</span>
           <span class="pj-step__title">Guion y narrativa visual</span>
           <p class="pj-step__body">Redacté el guion corporativo priorizando la síntesis. Cada frase tiene un propósito: informar, generar credibilidad o reforzar la diferenciación. El ritmo del texto anticipó ya el montaje del vídeo.</p>
           <div class="pj-step__tags">
-            <span class="pj-tag">Copywriting</span>
-            <span class="pj-tag">Guion</span>
-            <span class="pj-tag">Narrativa</span>
+            <span class="tag tag--bordered">Copywriting</span>
+            <span class="tag tag--bordered">Guion</span>
+            <span class="tag tag--bordered">Narrativa</span>
           </div>
         </div>
 
         <div class="pj-step">
-          <span class="pj-step__num">03 — Diseño</span>
+          <span class="pj-step__ghost">03</span>
+          <span class="pj-step__num">Diseño</span>
           <span class="pj-step__title">Dirección visual</span>
           <p class="pj-step__body">Definí la estética del vídeo a partir de la identidad corporativa que ya teníamos establecida: la paleta, la tipografía y el sistema gráfico propio de la empresa. El ritmo visual acompaña la narrativa sin sobrecargarla, dejando espacio para que el mensaje respire.</p>
           <div class="pj-step__tags">
-            <span class="pj-tag">Dirección de arte</span>
-            <span class="pj-tag">Branding</span>
+            <span class="tag tag--bordered">Dirección de arte</span>
+            <span class="tag tag--bordered">Branding</span>
           </div>
         </div>
 
         <div class="pj-step">
-          <span class="pj-step__num">04 — Producción</span>
+          <span class="pj-step__ghost">04</span>
+          <span class="pj-step__num">Producción</span>
           <span class="pj-step__title">Edición, animación y montaje</span>
           <p class="pj-step__body">Con el guion y la estética definidos, la fase de producción fue eficiente y sin fricciones. Edición, animación y montaje final garantizando total cohesión con la marca y una fluidez narrativa que mantiene la atención de principio a fin.</p>
           <div class="pj-step__tags">
-            <span class="pj-tag">Edición de vídeo</span>
-            <span class="pj-tag">Animación</span>
-            <span class="pj-tag">Post-producción</span>
+            <span class="tag tag--bordered">Edición de vídeo</span>
+            <span class="tag tag--bordered">Animación</span>
+            <span class="tag tag--bordered">Post-producción</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- DIRECCIÓN VISUAL con imagen -->
-    <section class="pj-direccion container">
-      <div class="pj-direccion__grid">
-        <div>
-          <h2 class="pj-section-title">Coherencia visual de marca</h2>
-          <p class="pj-direccion__desc">El vídeo forma parte del mismo ecosistema visual que el resto de materiales de la empresa.</p>
-          <p class="pj-direccion__desc">Esa coherencia no es solo estética: refuerza el reconocimiento de marca.</p>
-          <ul class="pj-block__list">
-            <li>Paleta y tipografía 100% alineadas con la marca.</li>
-            <li>Transiciones y ritmo visual calibrados con el guion.</li>
-          </ul>
-        </div>
-        <div class="pj-direccion__visual">
-          <img src="assets/frames-videowpa.jpg" alt="Frames del vídeo corporativo" />
-        </div>
+    <!-- DIRECCIÓN VISUAL — pareja de imágenes full-bleed -->
+    <section class="pj-direccion">
+      <div class="container pj-direccion__intro" data-reveal>
+        <h2 class="pj-section-title">Coherencia visual de marca</h2>
+        <p class="pj-direccion__desc">El vídeo forma parte del mismo ecosistema visual que el resto de materiales de la empresa. Esa coherencia no es solo estética: refuerza el reconocimiento de marca.</p>
+      </div>
+      <div class="pj-fullbleed pj-direccion__pair" data-reveal>
+        <img src="assets/frames-videowpa.jpg" alt="Frames del vídeo corporativo" />
       </div>
     </section>
 
-    <!-- RESULTADO FULL-WIDTH -->
-    <section class="pj-resultado">
-      <div class="pj-resultado__inner">
+    <!-- RESULTADO -->
+    <section class="pj-resultado container">
+      <div class="pj-resultado__top" data-reveal>
         <div>
           <span class="pj-resultado__tag">El resultado</span>
           <h2 class="pj-resultado__title">Presentado en el Mobile World Congress.</h2>
-          <p class="pj-resultado__desc">Un vídeo corporativo sintético, claro y visualmente sólido que resume la propuesta de valor en pocos minutos. </p>
-          <a href="https://youtu.be/AoOk_KzZrlE" class="pj-resultado__link" target="_blank">
-            Ver vídeo completo →
-          </a>
-          <div class="pj-resultado__stats">
-            <div class="pj-resultado__stat">
-              <span class="pj-resultado__stat-num">3</span>
-              <span class="pj-resultado__stat-label">Días de producción</span>
-            </div>
-            <div class="pj-resultado__stat">
-              <span class="pj-resultado__stat-num">MWC</span>
-              <span class="pj-resultado__stat-label">Evento de presentación</span>
-            </div>
-          </div>
         </div>
-        <div class="pj-resultado__img">
-          <iframe
-            src="https://www.youtube.com/embed/AoOk_KzZrlE"
-            title="Vídeo corporativo"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+        <div>
+          <p class="pj-resultado__desc">Un vídeo corporativo sintético, claro y visualmente sólido que resume la propuesta de valor en pocos minutos.</p>
+          <a href="https://youtu.be/AoOk_KzZrlE" class="pj-resultado__link" target="_blank">Ver vídeo completo →</a>
+        </div>
+      </div>
+      <div class="pj-resultado__stats" data-reveal data-stagger>
+        <div class="pj-resultado__stat">
+          <span class="pj-resultado__stat-num">3</span>
+          <span class="pj-resultado__stat-label">Días de producción</span>
+        </div>
+        <div class="pj-resultado__stat">
+          <span class="pj-resultado__stat-num">MWC</span>
+          <span class="pj-resultado__stat-label">Evento de presentación</span>
         </div>
       </div>
     </section>
 
+    <!-- VÍDEO FULL-BLEED -->
+    <div class="pj-fullbleed pj-resultado__video" data-reveal>
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/AoOk_KzZrlE"
+        title="Vídeo corporativo"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
     <!-- NEXT -->
-    <section class="pj-next container">
+    <section class="pj-next container" style="padding-top: 90px;" data-reveal="scale">
       <p class="section-label" style="text-align:center;">Siguiente proyecto</p>
       <a href="proyecto-app.html" class="pj-next__link">
         <h2 class="pj-next__title">Proyecto App móvil</h2>
@@ -564,7 +587,7 @@
 
   </main>
 
-  <footer class="footer">
+  <footer class="footer" data-reveal>
   <div class="footer__inner">
     <span class="footer__logo">depropio.</span>
     <div class="footer__contact">
@@ -573,18 +596,54 @@
       <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
     </div>
     <div class="lang-switch">
-  <span class="lang-switch__active">ES</span>
-  <span class="lang-switch__sep">/</span>
-  <a href="en/project-video.html" class="lang-switch__inactive">EN</a>
-</div>
+      <span class="lang-switch__active">ES</span>
+      <span class="lang-switch__sep">/</span>
+      <a href="en/project-video.html" class="lang-switch__inactive">EN</a>
+    </div>
   </div>
 </footer>
 
   <script>
+    /* ── Nav scroll ── */
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+    /* ── Mobile menu ── */
     document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+
+    /* ────────────────────────────────────────────
+       SCROLL REVEAL BIDIRECCIONAL — idéntico a index.html
+    ──────────────────────────────────────────── */
+    const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
+    const positions = new Map();
+    allTargets.forEach(el => positions.set(el, el.getBoundingClientRect().top + window.scrollY));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        const elTop = positions.get(el);
+
+        if (entry.isIntersecting) {
+          el.classList.remove('out-up', 'out-down');
+          el.classList.add('in');
+        } else {
+          const scrolled = window.scrollY + window.innerHeight * 0.5;
+          if (scrolled > elTop) {
+            el.classList.remove('in', 'out-down');
+            el.classList.add('out-up');
+          } else {
+            el.classList.remove('in', 'out-up');
+            el.classList.add('out-down');
+          }
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: '-40px 0px -40px 0px'
+    });
+
+    allTargets.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

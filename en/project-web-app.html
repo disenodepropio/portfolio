@@ -12,6 +12,145 @@
   <link rel="stylesheet" href="../proyecto.css" />
   <!-- Umami tracking -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
+  <style>
+
+    /* ─────────────────────────────────────────────
+       REVEAL BASE — same as index.html
+    ───────────────────────────────────────────── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(60px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    [data-reveal].in { opacity: 1; transform: translateY(0); }
+    [data-reveal].out-up { opacity: 0; transform: translateY(-50px); }
+    [data-reveal].out-down { opacity: 0; transform: translateY(60px); }
+
+    [data-reveal="left"] { transform: translateX(-60px); }
+    [data-reveal="left"].in { transform: translateX(0); }
+    [data-reveal="left"].out-up { transform: translateX(-40px); opacity: 0; }
+    [data-reveal="left"].out-down { transform: translateX(-60px); opacity: 0; }
+
+    [data-reveal="right"] { transform: translateX(60px); }
+    [data-reveal="right"].in { transform: translateX(0); }
+    [data-reveal="right"].out-up { transform: translateX(40px); opacity: 0; }
+    [data-reveal="right"].out-down { transform: translateX(60px); opacity: 0; }
+
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(50px);
+      transition:
+        opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    [data-stagger].in > *       { opacity: 1; transform: translateY(0); }
+    [data-stagger].out-up > *   { opacity: 0; transform: translateY(-40px); }
+    [data-stagger].out-down > * { opacity: 0; transform: translateY(50px); }
+
+    [data-stagger] > *:nth-child(1) { transition-delay: 0s; }
+    [data-stagger] > *:nth-child(2) { transition-delay: 0.1s; }
+    [data-stagger] > *:nth-child(3) { transition-delay: 0.2s; }
+    [data-stagger] > *:nth-child(4) { transition-delay: 0.3s; }
+    [data-stagger] > *:nth-child(5) { transition-delay: 0.4s; }
+    [data-stagger] > *:nth-child(6) { transition-delay: 0.5s; }
+
+    /* ===== META BAR ===== */
+    .pj-metabar {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .pj-metabar__item {
+      padding: 28px 0 28px 32px;
+      border-left: 1px solid var(--border);
+    }
+    .pj-metabar__item:first-child { border-left: none; padding-left: 0; }
+    .pj-metabar__label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .pj-metabar__val {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+
+    /* ===== OBJETIVO override ===== */
+    .pj-objetivo { padding: 64px 0 40px; }
+    @media (max-width: 768px) {
+      .pj-objetivo { padding: 48px 0 32px; }
+    }
+
+    /* ===== IMPACT — no dark card, plain strip with thin lines ===== */
+    .pj-impacto {
+      background: none;
+      border-radius: 0;
+      margin: 0;
+      padding: 90px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .pj-impacto__sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 56px;
+    }
+    .pj-impacto__stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+    }
+    .pj-stat__num {
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+    .pj-stat__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .pj-stat__div {
+      width: 1px;
+      height: 80px;
+      background: var(--border);
+    }
+
+    @media (max-width: 1024px) {
+      .pj-impacto { margin: 0; }
+    }
+    @media (max-width: 768px) {
+      .pj-metabar { grid-template-columns: 1fr 1fr; }
+      .pj-metabar__item { padding: 20px 0 20px 20px; }
+      .pj-metabar__item:nth-child(odd) { padding-left: 0; }
+
+      .pj-impacto { margin: 0; border-radius: 0; padding: 56px 0; }
+      .pj-impacto__stats { gap: 40px; }
+
+      .pj-objetivo { padding-left: 20px; padding-right: 20px; }
+    }
+    @media (max-width: 480px) {
+      .pj-impacto__stats { flex-direction: column; gap: 36px; }
+      .pj-stat__div { width: 48px; height: 1px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -19,7 +158,7 @@
     <div class="nav__inner">
       <div class="nav__left">
         <a href="projects.html" class="nav__link active">Projects</a>
-        <a href="about.html" class="nav__link">About</a>
+        <a href="about.html" class="nav__link">About me</a>
       </div>
       <a href="index.html" class="nav__logo">depropio.</a>
       <div class="nav__right">
@@ -39,8 +178,8 @@
       </button>
     </div>
     <div class="mobile-menu__links">
-      <a href="projects.html" class="mobile-menu__link">Projects   <span class="mobile-menu__arrow">↗</span></a>
-      <a href="about.html"    class="mobile-menu__link">About      <span class="mobile-menu__arrow">↗</span></a>
+      <a href="projects.html" class="mobile-menu__link">Projects <span class="mobile-menu__arrow">↗</span></a>
+      <a href="about.html"  class="mobile-menu__link">About me <span class="mobile-menu__arrow">↗</span></a>
       <a href="contact.html"  class="mobile-menu__link">Let's talk <span class="mobile-menu__arrow">↗</span></a>
     </div>
   </div>
@@ -50,55 +189,58 @@
     <!-- HEADER -->
     <section class="pj-header container">
       <p class="section-label">UX UI Project</p>
-      <h1 class="pj-header__title">Mobile App &amp; Web</h1>
+      <h1 class="pj-header__title">Mobile App & Web</h1>
       <p class="pj-header__desc">
-        Professional tool designed for RF and data experts, offering advanced real-time measurements to evaluate the quality and performance of mobile and WiFi networks.
+        A professional tool designed for RF experts and data experts, offering advanced real-time measurements to assess the quality and performance of mobile and WiFi networks.
       </p>
     </section>
 
-    <!-- HERO MOCKUP -->
-    <div class="pj-hero-img container">
-      <img src="../assets/mockup-netanalyzer.jpg" alt="Mobile app" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;" />
+    <!-- HERO FULL-BLEED -->
+    <div class="pj-fullbleed" data-reveal>
+      <img src="../assets/mockup-netanalyzer.jpg" alt="Mobile app" />
+    </div>
+
+    <!-- META BAR -->
+    <div class="pj-metabar container" data-reveal>
+      <div class="pj-metabar__item">
+        <span class="pj-metabar__label">Period</span>
+        <span class="pj-metabar__val">2025</span>
+      </div>
+      <div class="pj-metabar__item">
+        <span class="pj-metabar__label">Duration</span>
+        <span class="pj-metabar__val">9 months</span>
+      </div>
     </div>
 
     <!-- OBJECTIVE -->
-    <section class="pj-objetivo container">
+    <section class="pj-objetivo container" data-reveal>
       <div class="pj-objetivo__grid">
         <div>
           <h2 class="pj-section-title">Project objective</h2>
           <ul class="pj-objetivo__list">
-            <li><span class="pj-check">○</span>Optimise the visualisation of technical data on mobile devices.</li>
+            <li><span class="pj-check">○</span>Optimize the display of technical data on mobile devices.</li>
             <li><span class="pj-check">○</span>Ensure smooth navigation across complex network metrics.</li>
-            <li><span class="pj-check">○</span>Strengthen the professional brand identity.</li>
+            <li><span class="pj-check">○</span>Reinforce a professional brand identity.</li>
             <li><span class="pj-check">○</span>Improve usability for field technicians.</li>
           </ul>
-        </div>
-        <div class="pj-meta">
-          <div class="pj-meta__item">
-            <span class="pj-meta__label">Year</span>
-            <span class="pj-meta__val">2025</span>
-          </div>
-          <div class="pj-meta__item">
-            <span class="pj-meta__label">Duration</span>
-            <span class="pj-meta__val">9 months</span>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- UX/UI -->
-    <section class="pj-block container">
+    <section class="pj-block container" data-reveal="left">
       <div class="pj-block__grid">
         <div class="pj-block__text">
           <h2 class="pj-section-title">App UX/UI</h2>
-          <p class="pj-block__desc">End-to-end design of the Android application, prioritising readability and speed of decision-making. <a href="https://play.google.com/store/apps/details?id=com.cumberland.rf.app&hl=en" class="pj-inline-link">View on store ↗</a></p>
+          <p class="pj-block__desc">End-to-end design of the Android app, prioritizing readability and fast decision-making. <a href="https://play.google.com/store/apps/details?id=com.cumberland.rf.app&hl=en" class="pj-inline-link">View on store ↗</a></p>
           <ul class="pj-block__list">
             <li>Real-time metrics dashboard.</li>
             <li>Interactive coverage maps.</li>
             <li>Advanced signal and latency charts.</li>
-            <li>Light and dark modes, user-customisable.</li>
+            <li>Light and dark modes, user-customizable.</li>
           </ul>
         </div>
+        <!-- Dark visual (UX/UI) -->
         <div class="pj-block__visual pj-visual--dark">
           <img src="../assets/diseno-netanalyzer.jpg" alt="App UX UI" />
         </div>
@@ -106,34 +248,36 @@
     </section>
 
     <!-- WEB -->
-    <section class="pj-block container">
+    <section class="pj-block container" data-reveal="right">
       <div class="pj-block__grid pj-block__grid--rev">
+        <!-- Teal visual (Web) -->
         <div class="pj-block__visual pj-visual--teal">
           <img src="../assets/web-netanalyzer.jpg" alt="Web and digital presence" />
         </div>
         <div class="pj-block__text">
-          <h2 class="pj-section-title">Web and digital presence</h2>
-          <p class="pj-block__desc">Design of the official landing page to promote the tool and attract corporate clients. <a href="https://www.mobilenetworkanalyzer.com/en" class="pj-inline-link">Visit website ↗</a></p>
+          <h2 class="pj-section-title">Web & digital presence</h2>
+          <p class="pj-block__desc">Creation of the official landing page to promote the tool and attract corporate clients. <a href="https://www.mobilenetworkanalyzer.com/en" class="pj-inline-link">Visit the website ↗</a></p>
           <ul class="pj-block__list">
-            <li>Responsive, conversion-focused design.</li>
-            <li>Technical explanatory sections.</li>
+            <li>Conversion-oriented responsive design.</li>
+            <li>Explanatory technical sections.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- BRANDING -->
-    <section class="pj-block container">
+    <section class="pj-block container" data-reveal="left">
       <div class="pj-block__grid">
         <div class="pj-block__text">
-          <h2 class="pj-section-title">Branding and promotion</h2>
+          <h2 class="pj-section-title">Branding & promotion</h2>
           <p class="pj-block__desc">Development of graphic assets and promotional materials for the app launch.</p>
           <ul class="pj-block__list">
-            <li>Social Media Kit (LinkedIn, Google Ads).</li>
+            <li>Social media kit (LinkedIn, Google Ads).</li>
             <li>Materials for trade fairs and technical events (flyer).</li>
             <li>Style guide for B2B communications.</li>
           </ul>
         </div>
+        <!-- Teal radial visual (Branding) -->
         <div class="pj-block__visual pj-visual--teal-radial">
           <img src="../assets/social-netanalyzer.jpg" alt="Branding and promotion" />
         </div>
@@ -141,11 +285,11 @@
     </section>
 
     <!-- IMPACT -->
-    <section class="pj-impacto">
+    <section class="pj-impacto" data-reveal>
       <div class="container">
         <p class="section-label" style="text-align:center; margin-bottom:10px;">Impact</p>
-        <p class="pj-impacto__sub">Results after the official platform launch.</p>
-        <div class="pj-impacto__stats">
+        <p class="pj-impacto__sub">Results following the platform's official launch.</p>
+        <div class="pj-impacto__stats" data-stagger>
           <div class="pj-stat">
             <span class="pj-stat__num">10K+</span>
             <span class="pj-stat__label">Downloads</span>
@@ -166,37 +310,67 @@
     </section>
 
     <!-- NEXT -->
-    <section class="pj-next container">
+    <section class="pj-next container" style="padding-top: 90px;" data-reveal="scale">
       <p class="section-label" style="text-align:center;">Next project</p>
       <a href="project-web.html" class="pj-next__link">
-        <h2 class="pj-next__title">Website project</h2>
+        <h2 class="pj-next__title">Web Project</h2>
         <span class="pj-next__arrow">→</span>
       </a>
     </section>
 
   </main>
 
-  <footer class="footer">
-    <div class="footer__inner">
-      <span class="footer__logo">depropio.</span>
-      <div class="footer__contact">
-        <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
-        <span class="footer__sep">·</span>
-        <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
-      </div>
-      <div class="lang-switch">
-        <a href="../proyecto-web-app.html" class="lang-switch__inactive">ES</a>
-        <span class="lang-switch__sep">/</span>
-        <span class="lang-switch__active">EN</span>
-      </div>
+  <footer class="footer" data-reveal>
+  <div class="footer__inner">
+    <span class="footer__logo">depropio.</span>
+    <div class="footer__contact">
+      <a href="tel:+34680801290" class="footer__link">+34 680 80 12 90</a>
+      <span class="footer__sep">·</span>
+      <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
     </div>
-  </footer>
+    <div class="lang-switch">
+      <a href="../proyecto-web-app.html" class="lang-switch__inactive">ES</a>
+      <span class="lang-switch__sep">/</span>
+      <span class="lang-switch__active">EN</span>
+    </div>
+  </div>
+</footer>
 
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
     document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+
+    const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
+    const positions = new Map();
+    allTargets.forEach(el => positions.set(el, el.getBoundingClientRect().top + window.scrollY));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        const elTop = positions.get(el);
+
+        if (entry.isIntersecting) {
+          el.classList.remove('out-up', 'out-down');
+          el.classList.add('in');
+        } else {
+          const scrolled = window.scrollY + window.innerHeight * 0.5;
+          if (scrolled > elTop) {
+            el.classList.remove('in', 'out-down');
+            el.classList.add('out-up');
+          } else {
+            el.classList.remove('in', 'out-up');
+            el.classList.add('out-down');
+          }
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: '-40px 0px -40px 0px'
+    });
+
+    allTargets.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

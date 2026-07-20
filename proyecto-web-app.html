@@ -10,8 +10,154 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="proyecto.css" />
-      <!-- Umami tracking -->
+  <!-- Umami tracking -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="20c88938-0511-4f71-a982-dbfcee521a38"></script>
+  <style>
+
+    /* ─────────────────────────────────────────────
+       REVEAL BASE — idéntico al de index.html
+    ───────────────────────────────────────────── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(60px);
+      transition:
+        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    [data-reveal].in { opacity: 1; transform: translateY(0); }
+    [data-reveal].out-up { opacity: 0; transform: translateY(-50px); }
+    [data-reveal].out-down { opacity: 0; transform: translateY(60px); }
+
+    [data-reveal="left"] { transform: translateX(-60px); }
+    [data-reveal="left"].in { transform: translateX(0); }
+    [data-reveal="left"].out-up { transform: translateX(-40px); opacity: 0; }
+    [data-reveal="left"].out-down { transform: translateX(-60px); opacity: 0; }
+
+    [data-reveal="right"] { transform: translateX(60px); }
+    [data-reveal="right"].in { transform: translateX(0); }
+    [data-reveal="right"].out-up { transform: translateX(40px); opacity: 0; }
+    [data-reveal="right"].out-down { transform: translateX(60px); opacity: 0; }
+
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(50px);
+      transition:
+        opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    [data-stagger].in > *       { opacity: 1; transform: translateY(0); }
+    [data-stagger].out-up > *   { opacity: 0; transform: translateY(-40px); }
+    [data-stagger].out-down > * { opacity: 0; transform: translateY(50px); }
+
+    [data-stagger] > *:nth-child(1) { transition-delay: 0s; }
+    [data-stagger] > *:nth-child(2) { transition-delay: 0.1s; }
+    [data-stagger] > *:nth-child(3) { transition-delay: 0.2s; }
+    [data-stagger] > *:nth-child(4) { transition-delay: 0.3s; }
+    [data-stagger] > *:nth-child(5) { transition-delay: 0.4s; }
+    [data-stagger] > *:nth-child(6) { transition-delay: 0.5s; }
+
+    /* ─────────────────────────────────────────────
+       COMPONENTES ESPECÍFICOS DE ESTA PÁGINA
+       Mismo lenguaje que proyecto-video.html: meta bar,
+       full-bleed, líneas finas con var(--border), sin cards oscuras.
+    ───────────────────────────────────────────── */
+
+    /* ===== META BAR (Período / Duración) ===== */
+    .pj-metabar {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .pj-metabar__item {
+      padding: 28px 0 28px 32px;
+      border-left: 1px solid var(--border);
+    }
+    .pj-metabar__item:first-child { border-left: none; padding-left: 0; }
+    .pj-metabar__label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .pj-metabar__val {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+
+    /* ===== OBJETIVO — override: va después de la meta bar,
+       ya no lleva el bloque de metadatos dentro ===== */
+    .pj-objetivo { padding: 64px 0 40px; }
+    @media (max-width: 768px) {
+      .pj-objetivo { padding: 48px 0 32px; }
+    }
+
+    /* ===== IMPACTO — sin card oscura, franja plana con líneas finas ===== */
+    .pj-impacto {
+      background: none;
+      border-radius: 0;
+      margin: 0;
+      padding: 90px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .pj-impacto__sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 56px;
+    }
+    .pj-impacto__stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+    }
+    .pj-stat__num {
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+    .pj-stat__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .pj-stat__div {
+      width: 1px;
+      height: 80px;
+      background: var(--border);
+    }
+
+    @media (max-width: 1024px) {
+      .pj-impacto { margin: 0; }
+    }
+    @media (max-width: 768px) {
+      .pj-metabar { grid-template-columns: 1fr 1fr; }
+      .pj-metabar__item { padding: 20px 0 20px 20px; }
+      .pj-metabar__item:nth-child(odd) { padding-left: 0; }
+
+      .pj-impacto { margin: 0; border-radius: 0; padding: 56px 0; }
+      .pj-impacto__stats { gap: 40px; }
+
+      .pj-objetivo { padding-left: 20px; padding-right: 20px; }
+    }
+    @media (max-width: 480px) {
+      .pj-impacto__stats { flex-direction: column; gap: 36px; }
+      .pj-stat__div { width: 48px; height: 1px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -56,14 +202,25 @@
       </p>
     </section>
 
-    <!-- HERO MOCKUP -->
-    <div class="pj-hero-img container">
-        <img src="assets/mockup-netanalyzer.jpg" alt="App móvil" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px;" />
+    <!-- HERO FULL-BLEED -->
+    <div class="pj-fullbleed" data-reveal>
+      <img src="assets/mockup-netanalyzer.jpg" alt="App móvil" />
+    </div>
+
+    <!-- META BAR -->
+    <div class="pj-metabar container" data-reveal>
+      <div class="pj-metabar__item">
+        <span class="pj-metabar__label">Período</span>
+        <span class="pj-metabar__val">2025</span>
+      </div>
+      <div class="pj-metabar__item">
+        <span class="pj-metabar__label">Duración</span>
+        <span class="pj-metabar__val">9 meses</span>
       </div>
     </div>
 
     <!-- OBJETIVO -->
-    <section class="pj-objetivo container">
+    <section class="pj-objetivo container" data-reveal>
       <div class="pj-objetivo__grid">
         <div>
           <h2 class="pj-section-title">Objetivo del proyecto</h2>
@@ -74,21 +231,11 @@
             <li><span class="pj-check">○</span>Mejorar la usabilidad para técnicos en campo.</li>
           </ul>
         </div>
-        <div class="pj-meta">
-          <div class="pj-meta__item">
-            <span class="pj-meta__label">Período</span>
-            <span class="pj-meta__val">2025</span>
-          </div>
-          <div class="pj-meta__item">
-            <span class="pj-meta__label">Duración</span>
-            <span class="pj-meta__val">9 meses</span>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- UX/UI -->
-    <section class="pj-block container">
+    <section class="pj-block container" data-reveal="left">
       <div class="pj-block__grid">
         <div class="pj-block__text">
           <h2 class="pj-section-title">UX/UI de la app</h2>
@@ -108,7 +255,7 @@
     </section>
 
     <!-- WEB -->
-    <section class="pj-block container">
+    <section class="pj-block container" data-reveal="right">
       <div class="pj-block__grid pj-block__grid--rev">
         <!-- Visual teal (Web) -->
         <div class="pj-block__visual pj-visual--teal">
@@ -126,7 +273,7 @@
     </section>
 
     <!-- BRANDING -->
-    <section class="pj-block container">
+    <section class="pj-block container" data-reveal="left">
       <div class="pj-block__grid">
         <div class="pj-block__text">
           <h2 class="pj-section-title">Branding y promoción</h2>
@@ -145,11 +292,11 @@
     </section>
 
     <!-- IMPACTO -->
-    <section class="pj-impacto">
+    <section class="pj-impacto" data-reveal>
       <div class="container">
         <p class="section-label" style="text-align:center; margin-bottom:10px;">Impacto</p>
         <p class="pj-impacto__sub">Resultados tras el lanzamiento oficial de la plataforma.</p>
-        <div class="pj-impacto__stats">
+        <div class="pj-impacto__stats" data-stagger>
           <div class="pj-stat">
             <span class="pj-stat__num">10K+</span>
             <span class="pj-stat__label">Descargas</span>
@@ -170,7 +317,7 @@
     </section>
 
     <!-- NEXT -->
-    <section class="pj-next container">
+    <section class="pj-next container" style="padding-top: 90px;" data-reveal="scale">
       <p class="section-label" style="text-align:center;">Siguiente proyecto</p>
       <a href="proyecto-web.html" class="pj-next__link">
         <h2 class="pj-next__title">Proyecto Web</h2>
@@ -180,7 +327,7 @@
 
   </main>
 
-  <footer class="footer">
+  <footer class="footer" data-reveal>
   <div class="footer__inner">
     <span class="footer__logo">depropio.</span>
     <div class="footer__contact">
@@ -189,10 +336,10 @@
       <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
     </div>
     <div class="lang-switch">
-  <span class="lang-switch__active">ES</span>
-  <span class="lang-switch__sep">/</span>
-  <a href="en/project-web-app.html" class="lang-switch__inactive">EN</a>
-</div>
+      <span class="lang-switch__active">ES</span>
+      <span class="lang-switch__sep">/</span>
+      <a href="en/project-web-app.html" class="lang-switch__inactive">EN</a>
+    </div>
   </div>
 </footer>
 
@@ -201,6 +348,39 @@
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
     document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+
+    /* ────────────────────────────────────────────
+       SCROLL REVEAL BIDIRECCIONAL — idéntico a index.html
+    ──────────────────────────────────────────── */
+    const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
+    const positions = new Map();
+    allTargets.forEach(el => positions.set(el, el.getBoundingClientRect().top + window.scrollY));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        const elTop = positions.get(el);
+
+        if (entry.isIntersecting) {
+          el.classList.remove('out-up', 'out-down');
+          el.classList.add('in');
+        } else {
+          const scrolled = window.scrollY + window.innerHeight * 0.5;
+          if (scrolled > elTop) {
+            el.classList.remove('in', 'out-down');
+            el.classList.add('out-up');
+          } else {
+            el.classList.remove('in', 'out-up');
+            el.classList.add('out-down');
+          }
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: '-40px 0px -40px 0px'
+    });
+
+    allTargets.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

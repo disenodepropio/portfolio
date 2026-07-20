@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Corporate Video — depropio.</title>
+  <title>Atrilia — depropio.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -15,7 +15,7 @@
   <style>
 
     /* ─────────────────────────────────────────────
-       REVEAL BASE — same as index.html
+       REVEAL BASE — same as the rest of the site.
     ───────────────────────────────────────────── */
     [data-reveal] {
       opacity: 0;
@@ -58,7 +58,14 @@
     [data-stagger] > *:nth-child(5) { transition-delay: 0.4s; }
     [data-stagger] > *:nth-child(6) { transition-delay: 0.5s; }
 
-    /* ===== META BAR ===== */
+    /* ─────────────────────────────────────────────
+       PAGE-SPECIFIC COMPONENTS
+       Same editorial system as "Vídeo corporativo":
+       no dark cards, hairline borders with var(--border),
+       large type numerals, generous whitespace.
+    ───────────────────────────────────────────── */
+
+    /* ===== META BAR (Period / Duration / Role) ===== */
     .pj-metabar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -86,7 +93,7 @@
       color: var(--text);
     }
 
-    /* ===== OBJETIVO override ===== */
+    /* ===== OBJETIVO ===== */
     .pj-objetivo { padding: 64px 0 80px; }
     @media (max-width: 768px) {
       .pj-objetivo { padding: 48px 0 64px; }
@@ -160,7 +167,7 @@
       transition: color 0.25s ease;
     }
 
-    /* ===== PROCESS 4 STEPS ===== */
+    /* ===== PROCESO 4 PASOS ===== */
     .pj-proceso { padding: 0 0 80px; }
     .pj-proceso__intro { max-width: 620px; margin-bottom: 48px; }
 
@@ -220,7 +227,7 @@
       margin-top: 18px;
     }
 
-    /* ===== VISUAL DIRECTION — full-bleed ===== */
+    /* ===== DIRECCIÓN VISUAL — pareja full-bleed ===== */
     .pj-direccion { padding: 0 0 90px; }
     .pj-direccion__intro { margin-bottom: 40px; }
     .pj-direccion__desc {
@@ -232,14 +239,15 @@
     }
     .pj-direccion__pair {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 0px;
       height: min(58vh, 520px);
     }
     .pj-direccion__pair img {
       width: 100%; height: 100%; object-fit: cover; display: block;
     }
 
-    /* ===== RESULT ===== */
+    /* ===== RESULTADO ===== */
     .pj-resultado { padding: 0; }
 
     .pj-resultado__top {
@@ -370,8 +378,8 @@
     </div>
     <div class="mobile-menu__links">
       <a href="projects.html" class="mobile-menu__link">Projects <span class="mobile-menu__arrow">↗</span></a>
-      <a href="about.html"  class="mobile-menu__link">About me <span class="mobile-menu__arrow">↗</span></a>
-      <a href="contact.html"  class="mobile-menu__link">Let's talk <span class="mobile-menu__arrow">↗</span></a>
+      <a href="about.html"  class="mobile-menu__link">About me  <span class="mobile-menu__arrow">↗</span></a>
+      <a href="contact.html"  class="mobile-menu__link">Let's talk  <span class="mobile-menu__arrow">↗</span></a>
     </div>
   </div>
 
@@ -379,193 +387,190 @@
 
     <!-- HEADER -->
     <section class="pj-header container">
-      <p class="section-label">Graphic design · Video</p>
-      <h1 class="pj-header__title">Corporate video</h1>
+      <p class="section-label">UX/UI Project</p>
+      <h1 class="pj-header__title">Atrilia</h1>
       <p class="pj-header__desc">
-        In 3 days, for the Mobile World Congress: a clear, direct and visually impactful corporate video.
+        A digital music stand: organizes sheet music, weddings, and calendar in one place, replacing paper on stage.
       </p>
     </section>
 
     <!-- HERO FULL-BLEED -->
-    <div class="pj-fullbleed" data-reveal>
-      <img src="../assets/mockup-videowpa.jpg" alt="Corporate video" />
-    </div>
+    <!-- Replace with the real dashboard mockup (Home or Weddings view) -->
+    <div class="pj-fullbleed" style="background-color:#E6E6E6;" data-reveal>
+  <img src="../assets/mockup-atrilia.jpg" alt="Atrilia dashboard" style="object-fit:contain;" />
+</div>
 
     <!-- META BAR -->
     <div class="pj-metabar container" data-reveal>
       <div class="pj-metabar__item">
         <span class="pj-metabar__label">Period</span>
-        <span class="pj-metabar__val">2024</span>
+        <span class="pj-metabar__val">2026</span>
       </div>
       <div class="pj-metabar__item">
         <span class="pj-metabar__label">Duration</span>
-        <span class="pj-metabar__val">3 days</span>
+        <span class="pj-metabar__val">4 weeks</span>
       </div>
       <div class="pj-metabar__item">
         <span class="pj-metabar__label">Role</span>
-        <span class="pj-metabar__val">Design / Editing</span>
+        <span class="pj-metabar__val">UX/UI Design</span>
       </div>
-      <div class="pj-metabar__item">
-        <span class="pj-metabar__label">Event</span>
-        <span class="pj-metabar__val">Mobile World Congress</span>
-      </div>
+      <!--<div class="pj-metabar__item">
+        <span class="pj-metabar__label">Development</span>
+        <span class="pj-metabar__val">Lovable</span>
+      </div>-->
     </div>
 
-    <!-- OBJECTIVE -->
+    <!-- OBJETIVO -->
     <section class="pj-objetivo container" data-reveal>
       <div class="pj-objetivo__grid">
         <div>
-          <h2 class="pj-section-title">Project objective</h2>
+          <h2 class="pj-section-title">Project goals</h2>
           <ul class="pj-objetivo__list">
-            <li><span class="pj-check">○</span>Communicate who the company is and its differentiating value in under 3 minutes.</li>
-            <li><span class="pj-check">○</span>Convey solidity, technology and innovation in a high-level context.</li>
-            <li><span class="pj-check">○</span>Maintain full coherence with the brand's visual identity.</li>
-            <li><span class="pj-check">○</span>Deliver the video ready to present at the event.</li>
+            <li><span class="pj-check">○</span>Replace paper sheet music with a digital system usable live, from a tablet.</li>
+            <li><span class="pj-check">○</span>Centralize each wedding: repertoire, event details, and pending tasks in one place.</li>
+            <li><span class="pj-check">○</span>Allow annotating sheet music digitally, just as you would by hand on paper.</li>
+            <li><span class="pj-check">○</span>Share a common calendar with blocked days, rehearsals, and events.</li>
+            <li><span class="pj-check">○</span>Maintain visual consistency with the identity already created for the myv duo.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- CONTEXT & CHALLENGE -->
+    <!-- CONTEXTO Y RETO -->
     <section class="pj-contexto container">
       <div class="pj-contexto__grid">
         <div data-reveal="left">
-          <h2 class="pj-section-title">The challenge: everything in 3 days</h2>
-          <p class="pj-contexto__desc">We needed a video that, in just a few minutes, explained who we are, what we do and why our technology makes the difference.</p>
-          <p class="pj-contexto__desc">The deadline was tight, the context demanding and the margin for error minimal. The first step was to define precisely what should stick with the viewer: what to say, in what order, and in what tone.</p>
+          <h2 class="pj-section-title">The challenge: replacing the music stand without losing the spontaneity of playing live</h2>
+          <p class="pj-contexto__desc">Every wedding follows the same ritual: selecting sheet music, printing it, sorting it, carrying it to the venue, and finding it quickly mid-performance. Any last-minute change means reprinting or writing notes by hand on paper.</p>
+          <p class="pj-contexto__desc">On top of that comes the management side: coordinating the date, contact, venue, and pending tasks for each wedding between the two of us, with no shared place to check it. The starting point was designing a system that solved both problems at once, without adding friction on stage.</p>
           <div class="pj-contexto__callout">
-            <span>The video's message</span>
-            <p>Three questions, one clear answer: who we are, what we do, and why choose this company over the rest.</p>
+            <span>The design premise</span>
+            <p>As fast as turning a physical page, but with all the organization behind it.</p>
           </div>
         </div>
         <div class="pj-contexto__preguntas" data-reveal="right" data-stagger>
           <div class="pj-pregunta">
             <span class="pj-pregunta__num">Q1</span>
-            <span class="pj-pregunta__text">Who are we?</span>
+            <span class="pj-pregunta__text">How do we organize the repertoire for each wedding?</span>
           </div>
           <div class="pj-pregunta">
             <span class="pj-pregunta__num">Q2</span>
-            <span class="pj-pregunta__text">What do we do?</span>
+            <span class="pj-pregunta__text">How do we access it live without mistakes?</span>
           </div>
           <div class="pj-pregunta">
             <span class="pj-pregunta__num">Q3</span>
-            <span class="pj-pregunta__text">How do we do it?</span>
+            <span class="pj-pregunta__text">How do we split tasks between the two of us?</span>
           </div>
           <div class="pj-pregunta">
             <span class="pj-pregunta__num">Q4</span>
-            <span class="pj-pregunta__text">What sets us apart?</span>
+            <span class="pj-pregunta__text">How do we track availability and rehearsals?</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PRODUCTION PROCESS -->
+    <!-- PROCESO 4 PASOS -->
     <section class="pj-proceso container">
       <div class="pj-proceso__intro" data-reveal>
-        <h2 class="pj-section-title">The production process</h2>
+        <h2 class="pj-section-title">The design process</h2>
       </div>
       <div class="pj-proceso__steps" data-reveal data-stagger>
 
         <div class="pj-step">
           <span class="pj-step__ghost">01</span>
-          <span class="pj-step__num">Strategy</span>
-          <span class="pj-step__title">Defining the key message</span>
-          <p class="pj-step__body">Working from the inside let us go straight to the point: we already knew the differentiators, the clients and the brand's tone. The job was structuring that information into a clear, ordered narrative geared towards impact.</p>
+          <span class="pj-step__num">Research</span>
+          <span class="pj-step__title">Starting from real experience on stage</span>
+          <p class="pj-step__body">As a member of the duo myself, I knew the friction points firsthand: misplaced sheet music, notes lost between weddings, coordination over WhatsApp. That first-hand knowledge shaped the design priorities from the very start.</p>
           <div class="pj-step__tags">
-            <span class="tag tag--bordered">Content strategy</span>
-            <span class="tag tag--bordered">Messaging</span>
+            <span class="tag tag--bordered">Research</span>
+            <span class="tag tag--bordered">User research</span>
           </div>
         </div>
 
         <div class="pj-step">
           <span class="pj-step__ghost">02</span>
-          <span class="pj-step__num">Writing</span>
-          <span class="pj-step__title">Script and visual narrative</span>
-          <p class="pj-step__body">I wrote the corporate script prioritizing synthesis. Every sentence has a purpose: informing, building credibility, or reinforcing differentiation. The pacing of the text already anticipated the edit.</p>
+          <span class="pj-step__num">Architecture</span>
+          <span class="pj-step__title">Structuring the dashboard into four blocks</span>
+          <p class="pj-step__body">I defined the information architecture around the real workflow: Home, Weddings (with repertoire, info, and tasks per event), Sheet Music as a searchable global library, and shared Calendar and Tasks.</p>
           <div class="pj-step__tags">
-            <span class="tag tag--bordered">Copywriting</span>
-            <span class="tag tag--bordered">Script</span>
-            <span class="tag tag--bordered">Narrative</span>
+            <span class="tag tag--bordered">Information architecture</span>
+            <span class="tag tag--bordered">UX</span>
           </div>
         </div>
 
         <div class="pj-step">
           <span class="pj-step__ghost">03</span>
-          <span class="pj-step__num">Design</span>
-          <span class="pj-step__title">Visual direction</span>
-          <p class="pj-step__body">I defined the video's aesthetic from the corporate identity already in place: palette, typography and the company's own graphic system. The visual pacing supports the narrative without overloading it, leaving room for the message to breathe.</p>
+          <span class="pj-step__num">Interface</span>
+          <span class="pj-step__title">Designing event mode</span>
+          <p class="pj-step__body">The screen that mattered most was the one used live: event mode, designed for tablet, with clear sheet music reading and touch annotations that replace pencil on paper, without distracting from playing.</p>
           <div class="pj-step__tags">
-            <span class="tag tag--bordered">Art direction</span>
-            <span class="tag tag--bordered">Branding</span>
+            <span class="tag tag--bordered">UI Design</span>
+            <span class="tag tag--bordered">Interaction design</span>
           </div>
         </div>
 
         <div class="pj-step">
           <span class="pj-step__ghost">04</span>
-          <span class="pj-step__num">Production</span>
-          <span class="pj-step__title">Editing, animation & assembly</span>
-          <p class="pj-step__body">With script and aesthetic defined, production was efficient and frictionless. Editing, animation and final assembly, ensuring total brand cohesion and a narrative flow that keeps attention from start to finish.</p>
+          <span class="pj-step__num">Identity</span>
+          <span class="pj-step__title">Branding and build</span>
+          <p class="pj-step__body">I named and designed Atrilia's visual identity as an extension of the myv duo's brand system. With the design and component system finalized, I built the functional product with Lovable, keeping control over every experience and interface decision.</p>
           <div class="pj-step__tags">
-            <span class="tag tag--bordered">Video editing</span>
-            <span class="tag tag--bordered">Animation</span>
-            <span class="tag tag--bordered">Post-production</span>
+            <span class="tag tag--bordered">Branding</span>
+            <span class="tag tag--bordered">Naming</span>
+            <span class="tag tag--bordered">Design system</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- VISUAL DIRECTION — full-bleed -->
+    <!-- DIRECCIÓN VISUAL — pareja de imágenes full-bleed -->
     <section class="pj-direccion">
       <div class="container pj-direccion__intro" data-reveal>
-        <h2 class="pj-section-title">Brand visual consistency</h2>
-        <p class="pj-direccion__desc">The video is part of the same visual ecosystem as the rest of the company's materials. That coherence isn't just aesthetic — it reinforces brand recognition.</p>
+        <h2 class="pj-section-title">Visual consistency with the MyV brand</h2>
+        <p class="pj-direccion__desc">Atrilia inherits the palette, typography, and tone of the branding already created for the duo. It's not a generic tool — it's a digital extension of MyV's own identity.</p>
       </div>
+      <!-- Replace with real screenshots: e.g. Sheet Music view and Calendar view -->
       <div class="pj-fullbleed pj-direccion__pair" data-reveal>
-        <img src="../assets/frames-videowpa.jpg" alt="Corporate video frames" />
+        <img src="../assets/ui-atrilia.jpg" alt="Atrilia interface — sheet music library" />
+        <img src="../assets/ui-atrilia-02.jpg" alt="Atrilia interface — calendar" />
       </div>
     </section>
 
-    <!-- RESULT -->
+    <!-- RESULTADO -->
     <section class="pj-resultado container">
       <div class="pj-resultado__top" data-reveal>
         <div>
           <span class="pj-resultado__tag">The result</span>
-          <h2 class="pj-resultado__title">Presented at the Mobile World Congress.</h2>
+          <h2 class="pj-resultado__title">A digital music stand we already use at every wedding.</h2>
         </div>
         <div>
-          <p class="pj-resultado__desc">A concise, clear and visually solid corporate video that sums up the value proposition in just a few minutes.</p>
-          <a href="https://youtu.be/AoOk_KzZrlE" class="pj-resultado__link" target="_blank">Watch the full video →</a>
+          <p class="pj-resultado__desc">Atrilia replaces paper on stage and centralizes the duo's entire organization: repertoire, wedding details, shared calendar, and tasks, with an event mode designed for playing seamlessly from the tablet.</p>
         </div>
       </div>
-      <div class="pj-resultado__stats" data-reveal data-stagger>
+      <!--<div class="pj-resultado__stats" data-reveal data-stagger>
         <div class="pj-resultado__stat">
-          <span class="pj-resultado__stat-num">3</span>
-          <span class="pj-resultado__stat-label">Days of production</span>
+          <span class="pj-resultado__stat-num">4</span>
+          <span class="pj-resultado__stat-label">Dashboard modules</span>
         </div>
         <div class="pj-resultado__stat">
-          <span class="pj-resultado__stat-num">MWC</span>
-          <span class="pj-resultado__stat-label">Presentation event</span>
-        </div>
+          <span class="pj-resultado__stat-num">0</span>
+          <span class="pj-resultado__stat-label">Paper scores on stage</span>
+        </div>-->
       </div>
     </section>
 
-    <!-- VIDEO FULL-BLEED -->
-    <div class="pj-fullbleed pj-resultado__video" data-reveal>
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/AoOk_KzZrlE"
-        title="Corporate video"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+    <!-- VISTA EN USO FULL-BLEED -->
+    <!-- Replace with a screenshot of event mode on tablet, or a demo video if you record one -->
+    <div class="pj-fullbleed" data-reveal>
+      <img src="../assets/modo-evento-atrilia.jpg" alt="Atrilia's event mode on tablet" />
     </div>
 
     <!-- NEXT -->
     <section class="pj-next container" style="padding-top: 90px;" data-reveal="scale">
       <p class="section-label" style="text-align:center;">Next project</p>
       <a href="project-web-app.html" class="pj-next__link">
-        <h2 class="pj-next__title">Mobile App project</h2>
+        <h2 class="pj-next__title">Mobile & Web App</h2>
         <span class="pj-next__arrow">→</span>
       </a>
     </section>
@@ -581,7 +586,7 @@
       <a href="mailto:martalopez2405@gmail.com" class="footer__link">martalopez2405@gmail.com</a>
     </div>
     <div class="lang-switch">
-      <a href="../proyecto-video.html" class="lang-switch__inactive">ES</a>
+      <a href="../proyecto-atrilia.html" class="lang-switch__inactive">ES</a>
       <span class="lang-switch__sep">/</span>
       <span class="lang-switch__active">EN</span>
     </div>
@@ -589,12 +594,17 @@
 </footer>
 
   <script>
+    /* ── Nav scroll ── */
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
 
+    /* ── Mobile menu ── */
     document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
 
+    /* ────────────────────────────────────────────
+       SCROLL REVEAL BIDIRECCIONAL — same as the rest of the site
+    ──────────────────────────────────────────── */
     const allTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
     const positions = new Map();
     allTargets.forEach(el => positions.set(el, el.getBoundingClientRect().top + window.scrollY));
